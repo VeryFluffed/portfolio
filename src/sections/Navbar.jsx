@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { navLinks } from "../constants/index.js";
+import { Link } from "react-router-dom";
 
 const NavItems = ({ isDark }) => {
     return (
         <ul className="nav-ul">
             {navLinks.map(({ id, href, name }) => (
                 <li key={id} className="nav-li">
-                    <a
-                        href={href}
+                    <Link
+                        to={href}
                         className={`nav-li_a transition-colors ${
                             isDark
                                 ? "text-white hover:text-gray-300"
@@ -15,7 +16,7 @@ const NavItems = ({ isDark }) => {
                         }`}
                     >
                         {name}
-                    </a>
+                    </Link>
                 </li>
             ))}
         </ul>

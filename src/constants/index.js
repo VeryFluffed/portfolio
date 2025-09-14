@@ -1,23 +1,63 @@
 export const navLinks = [
+    { id: 1, name: 'Home', href: '/' },
+    { id: 2, name: 'About', href: '/about' },
+    { id: 3, name: 'Resume', href: '/resume' },
+];
+
+export const projects = [
     {
         id: 1,
-        name: 'Home',
-        href: '#home',
+        img: "/images/project1.png", // put your images in public/images/
+        href: "/project1",
+        title: "Robotics Project",
     },
     {
         id: 2,
-        name: 'About',
-        href: '#about',
+        img: "/images/project2.png",
+        href: "/project2",
+        title: "Team Competition",
     },
     {
         id: 3,
-        name: 'Work',
-        href: '#work',
+        img: "/images/project3.png",
+        href: "/project3",
+        title: "Automation Demo",
     },
     {
         id: 4,
-        name: 'Contact',
-        href: '#contact',
+        img: "/images/project4.png",
+        href: "/project4",
+        title: "Material Test",
+    },
+    {
+        id: 5,
+        img: "/images/project5.png",
+        href: "/project5",
+        title: "Manipulator Arm",
+    },
+    {
+        id: 6,
+        img: "/images/project6.png",
+        href: "/project6",
+        title: "Prototype Build",
+    },
+    {
+        id: 7,
+        img: "/images/project7.png",
+        href: "/project7",
+        title: "CNC Project",
+    },
+    {
+        id: 8,
+        img: "/images/project8.png",
+        href: "/project8",
+        title: "3D Modeling",
+    },
+    {
+        id: 9,
+        img: "/images/project9.png",
+        href: "/project9",
+        title: "Humanoid Bot",
     },
 ];
 

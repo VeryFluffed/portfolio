@@ -1,17 +1,23 @@
-import React from 'react'
-import Navbar from "./sections/Navbar.jsx";
-import Hero from "./sections/Hero.jsx";
-import TableOfContents from "./sections/TableOfContents.jsx";
-import GoKart from "./sections/GoKart.jsx";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./sections/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
+import Resume from "./pages/Resume";
 
 const App = () => {
     return (
-        <main className="">
+        <Router>
+            {/* Navbar on all pages */}
             <Navbar />
-            <Hero />
-            <TableOfContents />
-            <GoKart />
-        </main>
-    )
-}
-export default App
+
+            {/* Big stuff */}
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/about" element={<About />} />
+                <Route path="/resume" element={<Resume />} />
+            </Routes>
+        </Router>
+    );
+};
+
+export default App;
