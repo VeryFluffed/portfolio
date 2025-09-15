@@ -1,30 +1,81 @@
+// src/sections/Projects.jsx
 import React from "react";
-import { projects } from "../constants/index.js";
 
-const Projects = () => {
+const projects = [
+    {
+        title: "Project (2024)",
+        role: "Lead",
+        description:
+            "idk lol",
+        video: "./public/videos/test.mp4", // "/videos/example.mp4"
+        tech: [
+            { name: "ThreeJS", icon: "./public/icons/threejs.png" },
+            { name: "IDK", icon: "/icons/example.png" },
+            { name: "heheheha", icon: "/icons/example.png" },
+            { name: "me too", icon: "/icons/example.png" },
+        ],
+    },
+    {
+        title: "Project (2025)",
+        role: "Me",
+        description:
+            "Summary",
+        video: null, // no video available
+        tech: [
+            { name: "something", icon: "/icons/example.png" },
+        ],
+    },
+];
+
+export default function Projects() {
     return (
-        <div className="px-6 py-10">
-            <h2 className="text-2xl font-bold mb-6 text-center">Projects</h2>
-            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-                {projects.map((project) => (
-                    <a
-                        key={project.id}
-                        href={project.href}
-                        className="relative group overflow-hidden rounded-xl shadow-md"
+        <section className="bg-white text-gray-900 py-8 px-16">
+            <div className="h-[2px] bg-black w-full mb-10"/>
+            <div className="grid md:grid-cols-2 gap-8">
+                {projects.map((p, i) => (
+                    <div
+                        key={i}
+                        className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden flex flex-col"
                     >
-                        <img
-                            src={project.img}
-                            alt={project.title}
-                            className="w-full h-60 object-cover transition-transform duration-300 group-hover:scale-105"
-                        />
-                        {/* Dark overlay on hover */}
-                        <div className="absolute inset-0 bg-black bg-opacity-40 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                            <p className="text-white text-lg font-semibold">{project.title}</p>
+                        <div className="h-80 bg-black flex items-center justify-center">
+                            {p.video ? (
+                                <video
+                                    src={p.video}
+                                    autoPlay
+                                    loop
+                                    muted
+                                    className="w-full h-full object-cover"
+                                />
+                            ) : (
+                                <span className="text-white text-sm">No Video Available</span>
+                            )}
                         </div>
-                    </a>
+                        <div className="p-6 flex flex-col flex-1">
+                            <h3 className="text-xl font-extrabold mb-1">{p.title}</h3>
+                            <p className="uppercase text-sm font-semibold text-gray-500 mb-4">
+                                {p.role}
+                            </p>
+                            <hr className="border-gray-300 mb-4" />
+                            <p className="text-gray-700 mb-6 flex-1">{p.description}</p>
+                            <div>
+                                <h4 className="font-bold mb-2">Languages/Frameworks</h4>
+                                <div className="flex flex-wrap gap-4">
+                                    {p.tech.map((t, j) => (
+                                        <div key={j} className="flex items-center gap-2">
+                                            <img
+                                                src={t.icon}
+                                                alt={t.name}
+                                                className="w-6 h-6 object-contain"
+                                            />
+                                            <span className="text-sm">{t.name}</span>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 ))}
             </div>
-        </div>
+        </section>
     );
 }
-export default Projects;

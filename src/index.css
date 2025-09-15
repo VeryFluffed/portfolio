@@ -61,6 +61,10 @@ body {
     @apply font-timesnewroman font-black font-light;
   }
 
+  .about_tag {
+      @apply font-timesnewroman font-black font-light;
+  }
+
   /* about section */
   .grid-container {
     @apply w-full h-full border border-black-300 bg-black-200 rounded-lg sm:p-7 p-4 flex flex-col gap-5;
