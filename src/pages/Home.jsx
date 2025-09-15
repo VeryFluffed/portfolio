@@ -1,21 +1,20 @@
-import { createRoot } from 'react-dom/client'
-import '../index.css'
-import React, {StrictMode} from "react";
+import React from "react";
+import "../index.css";
 import Hero from "../sections/Hero.jsx";
 import AboutMe from "../sections/AboutMe.jsx";
 import Projects from "../sections/Projects.jsx";
 
-createRoot(document.getElementById('root')).render(
-    <StrictMode>
-        <main className="">
+const Home = () => {
+    return (
+        <main>
             <Hero />
             <AboutMe />
             <Projects />
         </main>
-    </StrictMode>
-)
-export default class Home {
-}
+    );
+};
+
+export default Home;
 
 {/*
     [plugin:vite:import-analysis] Missing "./client.js" specifier in "react-dom" package
