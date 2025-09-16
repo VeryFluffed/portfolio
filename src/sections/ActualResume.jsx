@@ -32,16 +32,16 @@ export default function ActualResume() {
             {/* Education */}
             <div className="mb-6">
                 <h2 className="font-bold border-b border-black mb-2">EDUCATION</h2>
-                <div className="flex justify-between">
-                    <div>
+                <div className="mb-4">
+                    <div className="flex justify-between">
                         <p className="font-semibold">California State Polytechnic University, Pomona</p>
-                        <p className="italic">Electromechanical Systems Engineer Freshman</p>
-                        <ul className="list-disc list-inside">
-                            <li>GPA: 4.0/4.0</li>
-                            <li>Planned Coursework: Electrical Networks, Instrumentation & Control, Robotics Control & Applications, Applied Statics & Dynamics, Strength of Materials, Machine Elements, Thermodynamics, Fluid Mechanics, Manufacturing Systems, C/C++ Programming</li>
-                        </ul>
+                        <p className="italic">August 2025 - Present</p>
                     </div>
-                    <p className="italic">August 2025 - Present</p>
+                    <p className="italic">Electromechanical Systems Engineer Freshman</p>
+                    <ul className="list-disc list-inside">
+                        <li>GPA: 4.0/4.0</li>
+                        <li>Planned Coursework: Electrical Networks, Instrumentation & Control, Robotics Control & Applications, Applied Statics & Dynamics, Strength of Materials, Machine Elements, Thermodynamics, Fluid Mechanics, Manufacturing Systems, C/C++ Programming</li>
+                    </ul>
                 </div>
             </div>
 

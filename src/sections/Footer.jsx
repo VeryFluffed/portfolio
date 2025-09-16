@@ -30,6 +30,7 @@ const Footer = () => {
                         >
                             LinkedIn
                         </a>
+                        <span className="text-gray-400">|</span>
                         <a
                             href="https://github.com/VeryFluffed"
                             className="text-gray-600 hover:text-black transition-colors"

@@ -1,12 +1,13 @@
 import React from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
 const AboutMe = () => {
     return (
         <section className="w-full px-16 bg-gray-100">
             <div className="h-[1.2px] bg-black w-full mb-10"/>
-            <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 px-4">
+            <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 px-4 py-10">
                 {/* Profile image */}
-                <div className="flex-shrink-0 w-40 h-40 md:w-80 md:h-full">
+                <div className="flex-shrink-0 w-40 h-40 md:w-1/3 md:h-full mr-16">
                     <img
                         src="/images/profile.jpg" // put your image in /public/images/profile.jpg
                         alt="Profile"
@@ -16,8 +17,11 @@ const AboutMe = () => {
 
                 {/* Text content */}
                 <div className="text-grazy-900 leading-relaxed">
+                    <p className={"text-3xl mb-5 tracking-widest"}>
+                        HELLO, I’M DANH!
+                    </p>
                     <p className="mb-4 about_tag">
-                        Hello, I’m <span className="font-semibold">Danh!</span> I discovered my
+                        I discovered my
                         passion for Mechatronics Engineering through late-night projects that started as wild
                         ideas and turned into real builds. Now, I’m pursuing my Electromechanical Systems Engineering
                         degree at {" "}
@@ -42,7 +46,34 @@ const AboutMe = () => {
                         Outside of engineering, I enjoy gaming, mentoring students, and hiking. Scroll down to see some
                         of my projects—or feel free to reach out if you’d like to connect!
                     </p>
+                    {/* Social icons (beneath text) */}
+                    <div className="flex gap-6 mt-6">
+                        <a
+                            href="https://github.com/VeryFluffed"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-700 hover:text-black text-2xl"
+                        >
+                            <FaGithub />
+                        </a>
+                        <a
+                            href="https://www.linkedin.com/in/danh-tran-9b657a362/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-blue-700 hover:text-blue-900 text-2xl"
+                        >
+                            <FaLinkedin />
+                        </a>
+                        <a
+                            href="mailto:danhcorps@gmail.com"
+                            className="text-red-600 hover:text-red-800 text-2xl"
+                        >
+                            <FaEnvelope />
+                        </a>
+                    </div>
                 </div>
+
+
             </div>
         </section>
     );
