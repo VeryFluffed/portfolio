@@ -29,7 +29,7 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section className="bg-white text-gray-900 py-8 px-16">
+        <section className="bg-white text-gray-900 mb-8 px-16">
             <div className="h-[2px] bg-black w-full mb-10"/>
             <div className="grid md:grid-cols-2 gap-8">
                 {projects.map((p, i) => (

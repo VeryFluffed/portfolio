@@ -16,7 +16,7 @@ const Hero = () => {
     const sizes = calculateSizes(isSmall, isMobile, isTablet);
 
     return (
-        <section className="min-h-screen w-full flex flex-col relative">
+        <section className="min-h-screen w-full flex flex-col relative bg-white">
             <div className="w-1/2 h-screen flex items-center justify-center absolute right-0">
                 <div className="flex flex-col items-center justify-center gap-2">
                     <p className="hero_tag text-black text-6xl font-light text-center">DANH CHI TRAN</p>

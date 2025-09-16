@@ -2,11 +2,11 @@ import React from "react";
 
 const AboutMe = () => {
     return (
-        <section className="w-full bg-white px-16">
+        <section className="w-full px-16 bg-gray-100">
             <div className="h-[1.2px] bg-black w-full mb-10"/>
             <div className="max-w-5xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 px-4">
                 {/* Profile image */}
-                <div className="flex-shrink-0 w-40 h-40 md:w-56 md:h-56">
+                <div className="flex-shrink-0 w-40 h-40 md:w-80 md:h-full">
                     <img
                         src="/images/profile.jpg" // put your image in /public/images/profile.jpg
                         alt="Profile"
@@ -15,7 +15,7 @@ const AboutMe = () => {
                 </div>
 
                 {/* Text content */}
-                <div className="text-gray-900 leading-relaxed">
+                <div className="text-grazy-900 leading-relaxed">
                     <p className="mb-4 about_tag">
                         Hello, I’m <span className="font-semibold">Danh!</span> I discovered my
                         passion for Mechatronics Engineering through late-night projects that started as wild
@@ -38,7 +38,7 @@ const AboutMe = () => {
                         robotics and sustainable automation. Beyond the technical side, I’m driven to inspire those
                         around me—showing that ambitions often feel further away than they really are.
                     </p>
-                    <p className="about_tag">
+                    <p className="about_tag mb-8">
                         Outside of engineering, I enjoy gaming, mentoring students, and hiking. Scroll down to see some
                         of my projects—or feel free to reach out if you’d like to connect!
                     </p>

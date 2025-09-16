@@ -62,7 +62,7 @@ body {
   }
 
   .about_tag {
-      @apply font-timesnewroman font-black font-light;
+      @apply font-timesnewroman font-black font-light text-xl;
   }
 
   /* about section */

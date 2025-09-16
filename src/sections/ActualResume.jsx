@@ -2,9 +2,9 @@ import React from "react";
 
 export default function ActualResume() {
     return (
-        <div className="max-w-4xl mx-auto p-10 font-serif text-black">
+        <div className="max-w-5xl mx-auto font-serif text-black">
             {/* Download */}
-            <div className="text-center mb-6 mt-12">
+            <div className="text-right mt-20">
                 <a
                     href="/Danh_Tran_Resume.pdf"
                     download
@@ -14,7 +14,7 @@ export default function ActualResume() {
                 </a>
             </div>
             {/* Header */}
-            <div className="text-center mb-6 mt-12">
+            <div className="text-center mb-6">
                 <h1 className="text-3xl font-bold">Danh Tran</h1>
                 <p>(714) 837 - 5323 | <a href="mailto:danhtraannc@gmail.com" className="text-blue-600">danhtraannc@gmail.com</a> | 16678 Mt. Cachuma Cir. FV</p>
             </div>
@@ -118,7 +118,7 @@ export default function ActualResume() {
             </div>
 
             {/* Skills */}
-            <div>
+            <div className={"mb-6"}>
                 <h2 className="font-bold border-b border-black mb-2">SKILLS</h2>
                 <p>
                     <span className="font-semibold">Engineering & Technical Tools:</span> Circuit Design, PCB Design (Altium), 3D Printing, Mechanical Prototyping, SolidWorks CAD, Raspberry Pi, Arduino, Embedded Systems

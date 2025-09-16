@@ -2,7 +2,7 @@ import React from "react";
 
 const Footer = () => {
     return (
-        <footer className="border-t border-gray-300 py-8 px-6 bg-white">
+        <footer className="border-t border-gray-300 py-8 px-6 bg-gray-100">
             <div className="max-w-6xl mx-auto flex flex-col sm:flex-row justify-between items-center sm:items-start text-center sm:text-left gap-6">
 
                 {/* Left side - Name & Title */}
@@ -29,6 +29,12 @@ const Footer = () => {
                             className="text-gray-600 hover:text-black transition-colors"
                         >
                             LinkedIn
+                        </a>
+                        <a
+                            href="https://github.com/VeryFluffed"
+                            className="text-gray-600 hover:text-black transition-colors"
+                        >
+                            Github
                         </a>
                     </div>
                 </div>
