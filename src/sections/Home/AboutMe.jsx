@@ -42,12 +42,12 @@ const AboutMe = () => {
                         robotics and sustainable automation. Beyond the technical side, I’m driven to inspire those
                         around me—showing that ambitions often feel further away than they really are.
                     </p>
-                    <p className="about_tag mb-8">
+                    <p className="about_tag mb-4">
                         Outside of engineering, I enjoy gaming, mentoring students, and hiking. Scroll down to see some
                         of my projects—or feel free to reach out if you’d like to connect!
                     </p>
                     {/* Social icons (beneath text) */}
-                    <div className="flex gap-6 mt-6">
+                    <div className="flex gap-6 mt-2 mb-10">
                         <a
                             href="https://github.com/VeryFluffed"
                             target="_blank"
