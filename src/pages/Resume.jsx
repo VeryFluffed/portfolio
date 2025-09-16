@@ -1,6 +1,6 @@
 import React from "react";
 import "../index.css";
-import ActualResume from "../sections/Resume/ActualResume.jsx";
+import ActualResume from "../sections/ActualResume.jsx";
 
 const Resume = () => {
     return (
