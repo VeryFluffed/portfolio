@@ -1,43 +1,38 @@
-import React from 'react';
-import { Canvas } from '@react-three/fiber';
-import { PerspectiveCamera } from '@react-three/drei';
-import SpinningGoKart from '../components/SpinningGoKart.jsx';
-import CanvasLoader from '../components/CanvasLoader.jsx';
-import { Suspense } from 'react';
-import {useMediaQuery} from "react-responsive";
-import {calculateSizes} from "../constants/index.js";
+import React from "react";
+import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
-const Test = () => {
-
-    const isSmall = useMediaQuery({ query: '(max-width: 440px)' });
-    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
-    const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1024px)' });
-
-    const sizes = calculateSizes(isSmall, isMobile, isTablet);
-
+const Life = () => {
     return (
-        <section className="min-h-screen border-2 border-gray-300 w-full flex flex-col relative bg-black-200">
-            <div className="w-1/2 h-screen flex items-center justify-center absolute right-0">
-                <div className="flex flex-col items-center justify-center gap-2">
-                    <p className="hero_tag text-black text-6xl font-light text-center">DANH CHI TRAN</p>
-                    <p className="hero_tag text-black text-2xl font-thin text-center">MECHATRONICS ENGINEER PORTFOLIO</p>
+        <section className="w-full px-16 bg-white">
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 px-4 py-10 mt-20">
+
+                {/* Text content */}
+                <div className="text-grazy-900 leading-relaxed">
+                    <p className={"text-4xl mb-5 tracking-widest about_tag"}>
+                        I HAVE A LIFE AS WELL
+                    </p>
+                    <p className="mb-4 about_tag text-xl tracking-wider">
+                        Outside of engineering, I enjoy gaming, hiking, and mentoring students. Whether I’m helping
+                        middle schoolers through homework or scripting videos that reach thousands online, I find
+                        purpose in inspiring others to believe their ambitious goals are achievable.
+                    </p>
+                    <p className="mb-4 about_tag text-xl tracking-wider mt-4">
+                        If you’d like to collaborate, chat about engineering projects, or just swap ideas, I’d love to
+                        connect!
+                    </p>
+                </div>
+
+                {/* Profile image */}
+                <div className="flex-shrink-0 w-40 h-40 md:w-1/3 md:h-full mr-16">
+                    <img
+                        src="/images/profile.jpg" // put your image in /public/images/profile.jpg
+                        alt="Profile"
+                        className="w-full h-full object-cover rounded"
+                    />
                 </div>
             </div>
-            <div className="w-full h-full absolute inset-0">
-                <Canvas className="w-full h-full flex flex-col relative">
-                    <Suspense fallback={<CanvasLoader />}>
-                        <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-                        <SpinningGoKart
-                            position={sizes.planePosition}
-                            rotation={[0.6, 0, 0]}
-                            scale={sizes.planeScale}
-                        />
-                        <ambientLight intensity={1} />
-                        <directionalLight position={[10, 10, 10]} intensity={0.5} />
-                    </Suspense>
-                </Canvas>
-            </div>
         </section>
-    )
-}
-export default Test
+    );
+};
+
+export default Life;

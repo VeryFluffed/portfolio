@@ -31,7 +31,7 @@ export default function Projects() {
     return (
         <section className="bg-white text-gray-900 mb-8 px-16">
             <div className="h-[1px] bg-black w-full mb-10"/>
-            <div className="grid md:grid-cols-2 gap-8">
+            <div className="grid md:grid-cols-2 gap-8 mb-10">
                 {projects.map((p, i) => (
                     <div
                         key={i}

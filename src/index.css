@@ -1,5 +1,6 @@
 @import url('https://fonts.cdnfonts.com/css/general-sans');
 @import url('https://fonts.cdnfonts.com/css/times-new-roman');
+@import url('https://fonts.cdnfonts.com/css/merriweather-2');
 
 @tailwind base;
 @tailwind components;
@@ -64,6 +65,14 @@ body {
   .about_tag {
       @apply font-timesnewroman font-black font-light;
   }
+
+    .bold {
+        @apply font-timesnewroman font-black mb-4 text-gray-700 leading-relaxed text-justify;
+    }
+
+    .bold2 {
+        @apply font-timesnewroman font-black mb-4 text-gray-700 leading-relaxed text-justify;
+    }
 
   /* about section */
   .grid-container {

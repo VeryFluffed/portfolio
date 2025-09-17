@@ -1,11 +1,11 @@
 import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
-import Plane from '../../components/Plane.jsx';
-import CanvasLoader from '../../components/CanvasLoader.jsx';
+import Plane from '../components/Plane.jsx';
+import CanvasLoader from '../components/CanvasLoader.jsx';
 import { Suspense } from 'react';
 import {useMediaQuery} from "react-responsive";
-import {calculateSizes} from "../../constants/index.js";
+import {calculateSizes} from "../constants/index.js";
 
 const Hero = () => {
 
