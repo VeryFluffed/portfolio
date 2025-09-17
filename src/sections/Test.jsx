@@ -1,32 +1,32 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
 
-const Life = () => {
+const Introduction = () => {
     return (
-        <section className="w-full px-16 bg-white">
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 px-4 py-10 mt-20">
+        <section className="w-full bg-white mb-16">
+            <div className="h-[1px] bg-black w-1/3 mb-10 mx-auto"/>
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch gap-12 mt-16 px-36">
 
                 {/* Text content */}
-                <div className="text-grazy-900 leading-relaxed">
-                    <p className={"text-4xl mb-5 tracking-widest about_tag"}>
-                        I HAVE A LIFE AS WELL
-                    </p>
-                    <p className="mb-4 about_tag text-xl tracking-wider">
-                        Outside of engineering, I enjoy gaming, hiking, and mentoring students. Whether I’m helping
-                        middle schoolers through homework or scripting videos that reach thousands online, I find
-                        purpose in inspiring others to believe their ambitious goals are achievable.
-                    </p>
-                    <p className="mb-4 about_tag text-xl tracking-wider mt-4">
-                        If you’d like to collaborate, chat about engineering projects, or just swap ideas, I’d love to
-                        connect!
+                <div className="flex-1 p-8 bg-white flex flex-col justify-center">
+                    <h2 className="text-3xl font-serif font-semibold mb-6 tracking-widest about_tag">
+                        I BECAME A NATURAL LEADER
+                    </h2>
+                    <p className="text-base about_tag text-gray-700 leading-relaxed text-justify">
+                        Through these projects, I’ve developed more than just technical skills. I’ve learned <a className="bold"> leadership</a>
+                        by guiding friends and club members, <a className="bold"> problem-solving</a> through trial and error, and <a className="bold"> persistence</a>
+                        when the first design doesn’t quite work out. These experiences eventually pushed me into roles
+                        like becoming the team leader among my friends when working on our go-kart in my garage. I also
+                        became my school’s <a className="bold"> Robotics Club President</a>, where I started and managed a 4-club collaboration
+                        of our school’s first school-wide robotics competitions. I also was CyberPatriot competitor
+                        (Top 1%) and naturally became our school’s first dedicated <a className="bold"> CyberPatriot coach.</a>
                     </p>
                 </div>
 
                 {/* Profile image */}
-                <div className="flex-shrink-0 w-40 h-40 md:w-1/3 md:h-full mr-16">
+                <div className="flex-shrink-0 md:w-1/3">
                     <img
-                        src="/images/profile.jpg" // put your image in /public/images/profile.jpg
-                        alt="Profile"
+                        src="/images/mobshot.jpg" // Place your image in /public/images/profile.jpg
+                        alt="Minecraft Logo"
                         className="w-full h-full object-cover rounded"
                     />
                 </div>
@@ -35,4 +35,4 @@ const Life = () => {
     );
 };
 
-export default Life;
+export default Introduction;

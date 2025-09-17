@@ -3,21 +3,54 @@ import React from "react";
 
 const projects = [
     {
-        title: "Project (2024)",
-        role: "Lead",
+        title: "Electrical Go-Kart (2024)",
+        role: "Team Lead",
         description:
-            "idk lol",
+            "My team and I engineered a go-kart from a repurposed bed frame. I managed our ~1.2k " +
+            "budget and our 3-member team for design, fabrication, and testing. This was our first time" +
+            "working with real galvanized square steel, heavy-duty electrical wiring, and applying theory" +
+            "to real life. We reached 15 mph in testing, applied torque/friction analysis, and drivetrain " +
+            "troubleshooting.",
         video: "./public/videos/test.mp4", // "/videos/example.mp4"
         tech: [
-            { name: "ThreeJS", icon: "./public/icons/threejs.png" },
-            { name: "IDK", icon: "/icons/example.png" },
-            { name: "heheheha", icon: "/icons/example.png" },
-            { name: "me too", icon: "/icons/example.png" },
+            { name: "Altium", icon: "./public/icons/altium.png" },
+            { name: "Solidworks", icon: "/icons/solidworks.png" },
+            { name: "Excel", icon: "/icons/excel.png" },
+            { name: "3d Printing", icon: "/icons/3dprinter.png" },
         ],
     },
     {
-        title: "Project (2025)",
-        role: "Me",
+        title: "Pickleball Machine (2025)",
+        role: "Intern",
+        description:
+            "I was guided by a professional engineer to apply mechanical/electrical design principles" +
+            "I worked out the individual mechanisms within the overall system, such as python programming" +
+            "an ESP32 to remotely control the speed and spin of the motors with the implementation of H-bridges. " +
+            "I also researched, designed, and optimized a motorized capstan drive to be 3D-printed with electronics" +
+            "testing and iteration.",
+        video: null, // no video available
+        tech: [
+            { name: "Solidworks", icon: "/icons/solidworks.png" },
+            { name: "3d Printing", icon: "/icons/3dprinter.png" },
+            { name: "Raspberry Pi", icon: "./public/icons/raspberrypi.png" },
+            { name: "Python", icon: "/icons/python.png" },
+            { name: "Arduino", icon: "/icons/arduino.png" },
+            { name: "GitHub", icon: "/icons/github.png" },
+        ],
+    },
+    {
+        title: "RFID-Jukebox",
+        role: "Solo Developer",
+        description:
+            "Summary",
+        video: null, // no video available
+        tech: [
+            { name: "something", icon: "/icons/example.png" },
+        ],
+    },
+    {
+        title: "CyberPatriot Bash Script",
+        role: "Team Captain",
         description:
             "Summary",
         video: null, // no video available
@@ -47,27 +80,27 @@ export default function Projects() {
                                     className="w-full h-full object-cover"
                                 />
                             ) : (
-                                <span className="text-white text-sm">No Video Available</span>
+                                <span className="text-white text-xl">No Video Available</span>
                             )}
                         </div>
                         <div className="p-6 flex flex-col flex-1">
-                            <h3 className="text-xl font-extrabold mb-1">{p.title}</h3>
-                            <p className="uppercase text-sm font-semibold text-gray-500 mb-4">
+                            <h3 className="text-3xl font-extrabold mb-1">{p.title}</h3>
+                            <p className="text-xl uppercase font-semibold text-gray-500 mb-4">
                                 {p.role}
                             </p>
                             <hr className="border-gray-300 mb-4" />
-                            <p className="text-gray-700 mb-6 flex-1">{p.description}</p>
+                            <p className="text-gray-600 mb-6 text-xl">{p.description}</p>
                             <div>
-                                <h4 className="font-bold mb-2">Languages/Frameworks</h4>
+                                <h4 className="font-bold mb-2 text-xl">Software/Languages/Frameworks</h4>
                                 <div className="flex flex-wrap gap-4">
                                     {p.tech.map((t, j) => (
                                         <div key={j} className="flex items-center gap-2">
                                             <img
                                                 src={t.icon}
                                                 alt={t.name}
-                                                className="w-6 h-6 object-contain"
+                                                className="w-12 h-12 object-contain"
                                             />
-                                            <span className="text-sm">{t.name}</span>
+                                            <span className="text-base">{t.name}</span>
                                         </div>
                                     ))}
                                 </div>

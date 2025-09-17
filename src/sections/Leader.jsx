@@ -4,14 +4,13 @@ const Introduction = () => {
     return (
         <section className="w-full bg-white mb-16">
             <div className="h-[1px] bg-black w-1/3 mb-10 mx-auto"/>
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-stretch gap-12 mt-16">
-
+            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-36">
                 {/* Text content */}
                 <div className="flex-1 p-8 bg-white flex flex-col justify-center">
-                    <h2 className="text-4xl font-serif font-semibold mb-6 tracking-widest about_tag">
+                    <h2 className="text-3xl font-serif font-semibold mb-6 tracking-widest about_tag">
                         I BECAME A NATURAL LEADER
                     </h2>
-                    <p className="text-xl about_tag text-gray-700 leading-relaxed text-justify">
+                    <p className="text-base about_tag text-gray-700 leading-relaxed text-justify">
                         Through these projects, I’ve developed more than just technical skills. I’ve learned <a className="bold"> leadership</a>
                         by guiding friends and club members, <a className="bold"> problem-solving</a> through trial and error, and <a className="bold"> persistence</a>
                         when the first design doesn’t quite work out. These experiences eventually pushed me into roles
@@ -23,10 +22,10 @@ const Introduction = () => {
                 </div>
 
                 {/* Profile image */}
-                <div className="flex-shrink-0 md:w-1/3">
+                <div className="flex-shrink-0 size-72 flex items-center justify-center">
                     <img
-                        src="/images/mobshot.jpg" // Place your image in /public/images/profile.jpg
-                        alt="Minecraft Logo"
+                        src="/images/mobshot.jpg"
+                        alt="Mobshot of Robotics Club"
                         className="w-full h-full object-cover rounded"
                     />
                 </div>
