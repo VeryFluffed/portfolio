@@ -8,7 +8,7 @@ const Introduction = () => {
             <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-36">
 
                 {/* image */}
-                <div className="flex-shrink-0 size-72 flex items-center justify-center">
+                <div className="flex-shrink-0 size-72 flex items-center justify-center md:h-full">
                     <img
                         src="/images/profile.jpg"
                         alt="Picture of Danh"

@@ -31,7 +31,7 @@ const projects = [
         video: null, // no video available
         tech: [
             { name: "Solidworks", icon: "/icons/solidworks.png" },
-            { name: "3d Printing", icon: "/icons/3dprinter.png" },
+            { name: "3D Printing", icon: "/icons/3dprinter.png" },
             { name: "Raspberry Pi", icon: "./public/icons/raspberrypi.png" },
             { name: "Python", icon: "/icons/python.png" },
             { name: "Arduino", icon: "/icons/arduino.png" },
@@ -42,20 +42,31 @@ const projects = [
         title: "RFID-Jukebox",
         role: "Solo Developer",
         description:
-            "Summary",
+            "Inspired by a Minecrat Jukebox, I built a functioning Raspberry Pi music player with custom circuit " +
+            "wiring. I also programmed GPIO button controls for audio playbacks, all to apply my theoretical " +
+            "knowledge and strengthen my embedded systems and hardware-software integration skills. I plan to use my " +
+            "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
         video: null, // no video available
         tech: [
-            { name: "something", icon: "/icons/example.png" },
+            { name: "Raspberry Pi", icon: "./public/icons/raspberrypi.png" },
+            { name: "Arduino", icon: "/icons/arduino.png" },
+            { name: "C++", icon: "./public/icons/c++.png" },
+            { name: "3D Printing", icon: "./public/icons/3dprinter.png" },
         ],
     },
     {
         title: "CyberPatriot Bash Script",
         role: "Team Captain",
         description:
-            "Summary",
+            "After competitively securing Linux systems and servers for 3 years, I decided to write a Bash Script " +
+            "specifically tailored towards Linux harding in CyberPatriot competitions. This required deep understanding " +
+            "of file systems, permissions, system variables, redirection, command-line arguments, etc. We reached top " +
+            "100 Nationals Platinum Tier twice.",
         video: null, // no video available
         tech: [
-            { name: "something", icon: "/icons/example.png" },
+            { name: "Linux", icon: "/icons/linux.png" },
+            { name: "C++", icon: "/icons/c++.png" },
+            { name: "GitHub", icon: "/icons/github.png" },
         ],
     },
 ];
@@ -84,21 +95,21 @@ export default function Projects() {
                             )}
                         </div>
                         <div className="p-6 flex flex-col flex-1">
-                            <h3 className="text-3xl font-extrabold mb-1">{p.title}</h3>
-                            <p className="text-xl uppercase font-semibold text-gray-500 mb-4">
+                            <h3 className="text-xl font-extrabold mb-1">{p.title}</h3>
+                            <p className="text-sm uppercase font-semibold text-gray-500 mb-4">
                                 {p.role}
                             </p>
                             <hr className="border-gray-300 mb-4" />
-                            <p className="text-gray-600 mb-6 text-xl">{p.description}</p>
+                            <p className="text-gray-600 mb-6 text-sm">{p.description}</p>
                             <div>
-                                <h4 className="font-bold mb-2 text-xl">Software/Languages/Frameworks</h4>
+                                <h4 className="font-bold mb-2 text-base">Software/Languages/Frameworks</h4>
                                 <div className="flex flex-wrap gap-4">
                                     {p.tech.map((t, j) => (
                                         <div key={j} className="flex items-center gap-2">
                                             <img
                                                 src={t.icon}
                                                 alt={t.name}
-                                                className="w-12 h-12 object-contain"
+                                                className="w-8 h-8 object-contain"
                                             />
                                             <span className="text-base">{t.name}</span>
                                         </div>

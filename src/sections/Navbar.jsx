@@ -48,10 +48,10 @@ const Navbar = () => {
             }`}
         >
             <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-center py-5 mx-auto c-space">
+                <div className="flex justify-between items-center py-3 mx-auto c-space">
                     <a
                         href="/"
-                        className={`font-bold text-xl transition-colors ${
+                        className={`font-bold text-lg transition-colors ${
                             isDark
                                 ? "text-white hover:text-gray-300"
                                 : "text-black hover:text-gray-700"
