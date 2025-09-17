@@ -2,7 +2,7 @@ import React from "react";
 
 const Introduction = () => {
     return (
-        <section className="w-full bg-white mb-16">
+        <section className="w-full bg-white mb-12">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-36 mt-36">
 
                 {/* image */}

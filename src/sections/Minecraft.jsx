@@ -2,8 +2,8 @@ import React from "react";
 
 const Introduction = () => {
     return (
-        <section className="w-full bg-white mb-16">
-            <div className="h-[1px] bg-black w-1/3 mb-10 mx-auto"/>
+        <section className="w-full bg-white mb-8">
+            <div className="h-[1px] bg-black w-1/3 mb-6 mx-auto"/>
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-12 px-36">
                 {/* Text content */}
                 <div className="flex-1 p-8 bg-white flex flex-col justify-center">
