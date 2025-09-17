@@ -53,12 +53,10 @@ const Introduction = () => {
                         {/* Social icons (beneath text) */}
                         <div className="flex gap-6 mt-2 mb-10">
                             <a
-                                href="https://github.com/VeryFluffed"
-                                target="_blank"
-                                rel="noopener noreferrer"
-                                className="text-gray-700 hover:text-black text-2xl"
+                                href="mailto:danhcorps@gmail.com"
+                                className="text-red-600 hover:text-red-800 text-2xl"
                             >
-                                <FaGithub />
+                                <FaEnvelope />
                             </a>
                             <a
                                 href="https://www.linkedin.com/in/danh-tran-9b657a362/"
@@ -69,10 +67,12 @@ const Introduction = () => {
                                 <FaLinkedin />
                             </a>
                             <a
-                                href="mailto:danhcorps@gmail.com"
-                                className="text-red-600 hover:text-red-800 text-2xl"
+                                href="https://github.com/VeryFluffed"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="text-gray-700 hover:text-black text-2xl"
                             >
-                                <FaEnvelope />
+                                <FaGithub />
                             </a>
                         </div>
                     </div>

@@ -50,13 +50,13 @@ export default function ActualResume() {
                     EDUCATION
                 </h2>
                 <div className="mb-2">
-                    <div className="flex justify-between text-xs">
+                    <div className="flex justify-between text-sm">
                         <p className="font-semibold">
                             California State Polytechnic University, Pomona
                         </p>
                         <p className="italic">August 2025 - Present</p>
                     </div>
-                    <p className="italic text-xs">
+                    <p className="italic text-sm">
                         Electromechanical Systems Engineer Freshman
                     </p>
                     <ul className="list-disc list-inside">
@@ -78,14 +78,14 @@ export default function ActualResume() {
                     EXPERIENCE
                 </h2>
                 <div className="mb-2">
-                    <div className="flex justify-between text-xs">
+                    <div className="flex justify-between text-sm">
                         <p className="font-semibold">
                             Teaching | Tutoring, Lesson Planning, Communication, Curriculum
                             Design
                         </p>
                         <p className="italic">August 2021 - May 2025</p>
                     </div>
-                    <p className="italic text-xs">Westminster & Santa Ana, CA</p>
+                    <p className="italic text-sm">Westminster & Santa Ana, CA</p>
                     <ul className="list-disc list-inside">
                         <li>
                             Tutored ~8 middle school students daily; supported ~80 students
@@ -103,14 +103,14 @@ export default function ActualResume() {
                 </div>
 
                 <div>
-                    <div className="flex justify-between text-xs">
+                    <div className="flex justify-between text-sm">
                         <p className="font-semibold">
                             CyberPatriot | Linux, Bash Scripting, Networking, Cybersecurity,
                             Leadership
                         </p>
                         <p className="italic">September 2023 - Present</p>
                     </div>
-                    <p className="italic text-xs">Westminster, CA</p>
+                    <p className="italic text-sm">Westminster, CA</p>
                     <ul className="list-disc list-inside">
                         <li>
                             Mentored 9 teams (~54 students) national CyberPatriot competition
@@ -134,7 +134,7 @@ export default function ActualResume() {
                 </h2>
 
                 <div className="mb-2">
-                    <div className="flex justify-between text-xs">
+                    <div className="flex justify-between text-sm">
                         <p className="font-semibold">
                             Go-Kart Engineering Project | Physics/Mechanics, Wiring, Altium
                             PCB Design, Team Leadership
@@ -158,7 +158,7 @@ export default function ActualResume() {
                 </div>
 
                 <div className="mb-2">
-                    <div className="flex justify-between text-xs">
+                    <div className="flex justify-between text-sm">
                         <p className="font-semibold">
                             Pickleball Launcher Project | Raspberry Pi, Circuits, Python, 3D
                             Printing, Motor Control
@@ -185,7 +185,7 @@ export default function ActualResume() {
                 </div>
 
                 <div>
-                    <div className="flex justify-between text-xs">
+                    <div className="flex justify-between text-sm">
                         <p className="font-semibold">
                             Jukebox | Raspberry Pi, Python, GPIO Wiring, Embedded Systems
                         </p>
