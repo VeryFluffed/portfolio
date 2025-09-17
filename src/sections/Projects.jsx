@@ -1,5 +1,5 @@
-// src/sections/Projects.jsx
 import React from "react";
+import { Link } from "react-router-dom";
 
 const projects = [
     {
@@ -18,6 +18,7 @@ const projects = [
             { name: "Excel", icon: "/icons/excel.png" },
             { name: "3d Printing", icon: "/icons/3dprinter.png" },
         ],
+        link: "/projects/go-kart",
     },
     {
         title: "Pickleball Machine (2025)",
@@ -37,6 +38,7 @@ const projects = [
             { name: "Arduino", icon: "/icons/arduino.png" },
             { name: "GitHub", icon: "/icons/github.png" },
         ],
+        link: "/projects/pickleball",
     },
     {
         title: "RFID-Jukebox",
@@ -53,6 +55,7 @@ const projects = [
             { name: "C++", icon: "./public/icons/c++.png" },
             { name: "3D Printing", icon: "./public/icons/3dprinter.png" },
         ],
+        link: "/projects/jukebox",
     },
     {
         title: "CyberPatriot Bash Script",
@@ -68,56 +71,63 @@ const projects = [
             { name: "C++", icon: "/icons/c++.png" },
             { name: "GitHub", icon: "/icons/github.png" },
         ],
+        link: "/projects/cyberpatriot",
     },
 ];
 
 export default function Projects() {
     return (
-        <section className="bg-white text-gray-900 mb-8 px-16">
+        <section className="bg-white text-gray-900 mb-8 px-32">
             <div className="h-[1px] bg-black w-full mb-10"/>
             <div className="grid md:grid-cols-2 gap-8 mb-10">
                 {projects.map((p, i) => (
-                    <div
+                    <Link
                         key={i}
-                        className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden flex flex-col"
+                        to={p.link}   // 👈 use link field
+                        className="bg-gray-100 rounded-2xl shadow-lg overflow-hidden flex flex-col hover:scale-[1.02] transition-transform"
                     >
-                        <div className="h-80 bg-black flex items-center justify-center">
-                            {p.video ? (
-                                <video
-                                    src={p.video}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    className="w-full h-full object-cover"
-                                />
-                            ) : (
-                                <span className="text-white text-xl">No Video Available</span>
-                            )}
-                        </div>
-                        <div className="p-6 flex flex-col flex-1">
-                            <h3 className="text-xl font-extrabold mb-1">{p.title}</h3>
-                            <p className="text-sm uppercase font-semibold text-gray-500 mb-4">
-                                {p.role}
-                            </p>
-                            <hr className="border-gray-300 mb-4" />
-                            <p className="text-gray-600 mb-6 text-sm">{p.description}</p>
-                            <div>
-                                <h4 className="font-bold mb-2 text-base">Software/Languages/Frameworks</h4>
-                                <div className="flex flex-wrap gap-4">
-                                    {p.tech.map((t, j) => (
-                                        <div key={j} className="flex items-center gap-2">
-                                            <img
-                                                src={t.icon}
-                                                alt={t.name}
-                                                className="w-8 h-8 object-contain"
-                                            />
-                                            <span className="text-base">{t.name}</span>
-                                        </div>
-                                    ))}
+                        <div
+                            key={i}
+                            className=""
+                        >
+                            <div className="h-80 bg-black flex items-center justify-center">
+                                {p.video ? (
+                                    <video
+                                        src={p.video}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        className="w-full h-full object-cover"
+                                    />
+                                ) : (
+                                    <span className="text-white text-xl">No Video Available</span>
+                                )}
+                            </div>
+                            <div className="p-6 flex flex-col flex-1">
+                                <h3 className="text-xl font-extrabold mb-1">{p.title}</h3>
+                                <p className="text-sm uppercase font-semibold text-gray-500 mb-4">
+                                    {p.role}
+                                </p>
+                                <hr className="border-gray-300 mb-4" />
+                                <p className="text-gray-600 mb-6 text-sm">{p.description}</p>
+                                <div>
+                                    <h4 className="font-bold mb-2 text-base">Software/Languages/Frameworks</h4>
+                                    <div className="flex flex-wrap gap-4">
+                                        {p.tech.map((t, j) => (
+                                            <div key={j} className="flex items-center gap-2">
+                                                <img
+                                                    src={t.icon}
+                                                    alt={t.name}
+                                                    className="w-8 h-8 object-contain"
+                                                />
+                                                <span className="text-base">{t.name}</span>
+                                            </div>
+                                        ))}
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div>
         </section>
