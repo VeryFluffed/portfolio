@@ -18,7 +18,13 @@ export default function ActualResume() {
             <div className="text-center mb-4">
                 <h1 className="text-xl font-bold">Danh Tran</h1>
                 <p className="text-xs">
-                    (714) 837 - 5323 |{" "}
+                    <a
+                        href="danhtran.org"
+                        className="text-blue-600"
+                    >
+                        danhtran.org
+                    </a>{" "}
+                    | (714) 837 - 5323 |{" "}
                     <a
                         href="mailto:danhtraannc@gmail.com"
                         className="text-blue-600"
