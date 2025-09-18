@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import About from "./About.jsx";
 
 const projects = [
     {
@@ -75,10 +76,9 @@ const projects = [
     },
 ];
 
-export default function Projects() {
+const Projects = () => {
     return (
-        <section className="bg-white text-gray-900 mb-8 px-16">
-            <div className="h-[.5px] bg-black w-full mb-10"/>
+        <section className="bg-white text-gray-900 px-16 mt-32">
             <div className="px-16">
                 <div className="grid md:grid-cols-2 gap-8 mb-10">
                     {projects.map((p, i) => (
@@ -135,3 +135,5 @@ export default function Projects() {
         </section>
     );
 }
+
+export default Projects;

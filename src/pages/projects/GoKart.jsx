@@ -5,7 +5,7 @@ const GoKart = () => {
     return (
         <section className="max-w-6xl mx-auto px-6 py-16">
             <Link
-                to="/"
+                to="/projects"
                 className="mt-5 mb-10 inline-block text-gray-600 hover:underline text-lg"
             >
                 ← Back to Projects
@@ -63,9 +63,27 @@ const GoKart = () => {
                                 COLLABORATORS
                             </h3>
                             <ul className="space-y-2 text-gray-700">
-                                <li>Teammate A</li>
-                                <li>Teammate B</li>
-                                <li>Teammate C</li>
+                                <div>
+                                    <a
+                                        href="https://aidentran.dev/"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-600 hover:text-black transition-colors"
+                                    >
+                                        Aiden Tran
+                                    </a>
+                                </div>
+                                <div>
+                                    <a
+                                        href="www.linkedin.com/in/jayden-thieu-3654a3328"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="text-gray-600 hover:text-black transition-colors"
+                                    >
+                                        Jayden Thieu
+                                    </a>
+                                </div>
+                                <li>Nathan Pham</li>
                             </ul>
                         </div>
                     </div>

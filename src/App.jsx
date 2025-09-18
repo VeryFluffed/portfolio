@@ -3,6 +3,7 @@ import Navbar from "./sections/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Resume from "./pages/Resume";
+import Projects from "./pages/Projects.jsx";
 import Footer from "./sections/Footer.jsx";
 import GoKart from "./pages/projects/GoKart";
 import Pickleball from "./pages/projects/Pickleball";
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path="/" element={<Home />} />
                 <Route path="/about" element={<About />} />
                 <Route path="/resume" element={<Resume />} />
+                <Route path="/projects" element={<Projects />} />
 
                 <Route path="/projects/go-kart" element={<GoKart />} />
                 <Route path="/projects/pickleball" element={<Pickleball />} />
