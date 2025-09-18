@@ -3,62 +3,90 @@ import { Link } from "react-router-dom";
 
 const GoKart = () => {
     return (
-        <section className="max-w-5xl mx-auto py-16 px-6">
+        <section className="max-w-6xl mx-auto px-6 py-16">
             <Link
                 to="/"
-                className="mt-12 inline-block text-gray-600 hover:underline text-lg mb-12"
+                className="mt-5 mb-10 inline-block text-gray-600 hover:underline text-lg"
             >
                 ← Back to Projects
             </Link>
+            {/* Layout: image left, content right */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
 
-            <h1 className="text-4xl font-bold mb-6">Electrical Go-Kart (2024)</h1>
-
-            <img
-                src="/images/gokart.png"
-                alt="Go-Kart"
-                className="w-full h-80 object-cover rounded-lg shadow mb-8"
-            />
-
-            <div className="space-y-8">
-                {/* Overview */}
+                {/* Project Image */}
                 <div>
-                    <h2 className="text-2xl font-semibold mb-3">Overview</h2>
-                    <p className="text-gray-700 leading-relaxed">
-                        My team and I engineered a go-kart from a repurposed bed frame. I managed our ~$1.2k
-                        budget and our 3-member team for design, fabrication, and testing. This was our first time
-                        working with galvanized square steel, heavy-duty electrical wiring, and applying physics theory
-                        to real life. We reached 15 mph in testing, applied torque/friction analysis, and drivetrain
-                        troubleshooting.
-                    </p>
+                    <img
+                        src="/images/go-kart.jpg" // replace with your go-kart image path
+                        alt="Go-Kart Project"
+                        className="rounded-lg shadow-lg object-cover w-full h-full"
+                    />
                 </div>
 
-                {/* Technical Details */}
+                {/* Project Content */}
                 <div>
-                    <h2 className="text-2xl font-semibold mb-3">Technical Details</h2>
-                    <ul className="list-disc pl-6 text-gray-700 space-y-2">
-                        <li>Frame constructed from a repurposed steel bed frame.</li>
-                        <li>Battery-powered DC motor system with chain drive.</li>
-                        <li>Top speed of ~15 mph achieved during tests.</li>
-                        <li>Applied AP Physics 2 principles for torque/friction analysis.</li>
-                    </ul>
-                </div>
+                    {/* Title */}
+                    <h1 className="text-3xl font-bold mb-6 tracking-wide">
+                        ELECTRIC GO-KART
+                    </h1>
 
-                {/* Lessons Learned */}
-                <div>
-                    <h2 className="text-2xl font-semibold mb-3">Lessons Learned</h2>
-                    <p className="text-gray-700 leading-relaxed">
-                        This project taught me the technical side of mechanical design as well as leadership.
-                        Coordinating a small team with limited resources pushed us to think creatively and adapt quickly.
+                    {/* Description */}
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        We engineered a fully functional electric go-kart from a repurposed
+                        bed frame, integrating structural fabrication, electrical wiring,
+                        and drivetrain design. I managed a ~$1.2k budget and led a 3-member
+                        team through design, fabrication, and troubleshooting. We applied
+                        torque and friction analysis to optimize performance and wired a
+                        heavy-duty electrical system capable of handling sustained loads.
+                        The kart reached 15 mph in testing, validating our drivetrain and
+                        safety assumptions. This project was our first time applying
+                        classroom theory to real materials like galvanized square steel,
+                        which required cutting, welding, and reinforcement for load-bearing
+                        applications.
                     </p>
+
+                    {/* Contributions & Collaborators */}
+                    <div className="grid grid-cols-2 gap-8 mb-10">
+                        <div>
+                            <h3 className="text-sm font-semibold tracking-wider text-gray-500 mb-3">
+                                CONTRIBUTIONS
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                                <li>Budget Management</li>
+                                <li>Team Leadership</li>
+                                <li>Drivetrain Analysis</li>
+                                <li>Electrical Wiring</li>
+                                <li>Fabrication & Welding</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-sm font-semibold tracking-wider text-gray-500 mb-3">
+                                COLLABORATORS
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                                <li>Teammate A</li>
+                                <li>Teammate B</li>
+                                <li>Teammate C</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex gap-4">
+                        <a
+                            href="#"
+                            className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition"
+                        >
+                            Testing Results
+                        </a>
+                        <a
+                            href="#"
+                            className="px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
+                        >
+                            CAD Files
+                        </a>
+                    </div>
                 </div>
             </div>
-
-            <Link
-                to="/"
-                className="mt-12 inline-block text-gray-600 hover:underline text-lg"
-            >
-                ← Back to Projects
-            </Link>
         </section>
     );
 };
