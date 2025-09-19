@@ -5,7 +5,7 @@ const Introduction = () => {
     return (
         <section className="w-full bg-white px-16">
             <div className="h-[1px] bg-black w-full mb-6"/>
-            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-36">
+            <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12 px-6 sm:px-12 md:px-20 lg:px-32">
 
                 {/* image */}
                 <div className="flex-shrink-0 size-72 flex items-center justify-center md:h-full">
