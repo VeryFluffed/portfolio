@@ -17,10 +17,19 @@ const Hero = () => {
 
     return (
         <section className="min-h-screen w-full flex flex-col relative bg-white">
-            <div className="w-1/2 h-screen flex items-center justify-center absolute right-0">
-                <div className="flex flex-col items-center justify-center gap-2">
-                    <p className="hero_tag text-black text-6xl font-light text-center">DANH CHI TRAN</p>
-                    <p className="hero_tag text-black text-2xl font-thin text-center">MECHATRONICS ENGINEER PORTFOLIO</p>
+            <div
+                className={`
+    h-screen flex items-center justify-center absolute
+    ${isMobile ? "w-full left-0" : "w-1/2 right-0"}
+  `}
+            >
+                <div className="flex flex-col items-center justify-center gap-2 px-4">
+                    <p className="hero_tag text-black text-6xl font-light text-center">
+                        DANH CHI TRAN
+                    </p>
+                    <p className="hero_tag text-black text-2xl font-thin text-center">
+                        MECHATRONICS ENGINEER PORTFOLIO
+                    </p>
                 </div>
             </div>
             <div className="w-full h-full absolute inset-0">
