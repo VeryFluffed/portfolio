@@ -105,6 +105,12 @@ const GoKart = () => {
                     </div>
                 </div>
             </div>
+            <Link
+                to="/projects"
+                className="mt-5 mb-10 inline-block text-gray-600 hover:underline text-lg"
+            >
+                ← Back to Projects
+            </Link>
         </section>
     );
 };

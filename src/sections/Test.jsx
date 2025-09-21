@@ -1,84 +1,87 @@
 import React from "react";
-import { FaGithub, FaLinkedin, FaEnvelope } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-const AboutMe = () => {
+const GoKart = () => {
     return (
-        <section className="w-full px-16 bg-gray-100">
-            <div className="h-[1.2px] bg-black w-full mb-10"/>
-            <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center md:items-start gap-8 py-10">
-                {/* Profile image */}
-                <div className="flex-shrink-0 w-40 h-40 md:w-1/3 md:h-full mr-16">
+        <section className="max-w-6xl mx-auto px-6 py-16">
+            <Link
+                to="/projects"
+                className="mt-5 mb-10 inline-block text-gray-600 hover:underline text-lg"
+            >
+                ← Back to Projects
+            </Link>
+            {/* Layout: image left, content right */}
+            <div className="grid md:grid-cols-2 gap-12 items-start">
+
+                {/* Project Image */}
+                <div>
                     <img
-                        src="/images/profile.jpg" // put your image in /public/images/profile.jpg
-                        alt="Profile"
-                        className="w-full h-full object-cover rounded"
+                        src="/images/go-kart.jpg" // replace with your go-kart image path
+                        alt="Go-Kart Project"
+                        className="rounded-lg shadow-lg object-cover w-full h-full"
                     />
                 </div>
 
-                {/* Text content */}
-                <div className="text-gray-900 leading-relaxed">
-                    <p className={" text-2xl mb-5 tracking-widest"}>
-                        HELLO, I’M DANH!
+                {/* Project Content */}
+                <div>
+                    {/* Title */}
+                    <h1 className="text-3xl font-bold mb-6 tracking-wide">
+                        RFID-JUKEBOX
+                    </h1>
+
+                    {/* Description */}
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        Inspired by a Minecraft Jukebox, I built a functioning Raspberry Pi music player with custom
+                        circuit wiring. I also programmed GPIO button controls for audio playbacks, all to apply my
+                        theoretical knowledge and strengthen my embedded systems and hardware-software integration
+                        skills. I plan to use my recently learned 3D printing skills to print out the Minecraft Jukebox
+                        model and disc. I also plan to downgrade the hardware to Arduino to have a permanent Minecraft
+                        Jukebox.
                     </p>
-                    <p className="mb-4 text-base about_tag text-gray-700 leading-relaxed text-justify">
-                        I discovered my passion for <a className="bold">Mechatronics Engineering</a> through
-                        late-night projects that started as wild ideas and turned into real builds. Now, I’m pursuing
-                        my Electromechanical Systems Engineering degree at {" "}
+
+                    {/* Contributions & Collaborators */}
+                    <div className="grid grid-cols-2 gap-8 mb-10">
+                        <div>
+                            <h3 className="text-sm font-semibold tracking-wider text-gray-500 mb-3">
+                                CONTRIBUTIONS
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                                <li>Raspberry Pi System Setup & Integration</li>
+                                <li>GPIO Button Circuit Design</li>
+                                <li>Python Programming</li>
+                                <li>Custom Circuit Wiring & Testing</li>
+                                <li>3D Printing</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3 className="text-sm font-semibold tracking-wider text-gray-500 mb-3">
+                                COLLABORATORS
+                            </h3>
+                            <ul className="space-y-2 text-gray-700">
+                                <li>Thomas Vu</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    {/* Buttons */}
+                    <div className="flex gap-4">
                         <a
-                            href="https://www.cpp.edu/"
-                            className="text-blue-600 hover:underline"
-                            target="_blank"
-                            rel="noopener noreferrer"
+                            href="#"
+                            className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition"
                         >
-                            Cal Poly Pomona
-                        </a>
-                        , with a focus on Mechatronics. Along the way, I’ve built <a className="bold">go-karts,
-                        Raspberry Pi systems, and PCBs, while sharpening my problem-solving, teamwork, and leadership
-                        skills.</a>
-                    </p>
-                    <p className="mb-4 text-base about_tag text-gray-700 leading-relaxed text-justify">
-                        I love working across <a className="bold">software and hardware</a> to solve everyday challenges.
-                        I get excited about
-                        projects that blend technical challenges with real-world impact, and I will keep pushing into
-                        <a className="bold"> robotics and sustainable automation.</a> Beyond the technical side, I’m
-                        driven to inspire those
-                        around me—showing that ambitions often feel further away than they really are.
-                    </p>
-                    <p className="about_tag text-base mb-4 text-gray-700 leading-relaxed text-justify">
-                        Outside of engineering, I enjoy gaming, mentoring students, and hiking. Scroll down to see some
-                        of my projects—or feel free to reach out if you’d like to connect!
-                    </p>
-                    {/* Social icons (beneath text) */}
-                    <div className="flex gap-6 mt-2 mb-10">
-                        <a
-                            href="https://github.com/VeryFluffed"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-gray-700 hover:text-black text-2xl"
-                        >
-                            <FaGithub />
-                        </a>
-                        <a
-                            href="https://www.linkedin.com/in/danh-tran-9b657a362/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="text-blue-700 hover:text-blue-900 text-2xl"
-                        >
-                            <FaLinkedin />
+                            Testing Results
                         </a>
                         <a
-                            href="mailto:danhcorps@gmail.com"
-                            className="text-red-600 hover:text-red-800 text-2xl"
+                            href="#"
+                            className="px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
                         >
-                            <FaEnvelope />
+                            CAD Files
                         </a>
                     </div>
                 </div>
-
-
             </div>
         </section>
     );
 };
 
-export default AboutMe;
+export default GoKart;
