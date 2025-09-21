@@ -43,7 +43,7 @@ const Footer = () => {
 
             {/* Bottom copyright */}
             <div className="text-center text-gray-500 text-sm mt-6">
-                © {new Date().getFullYear()} by Danh Tran
+                ඞ {new Date().getFullYear()} by Danh Tran
             </div>
         </footer>
     );

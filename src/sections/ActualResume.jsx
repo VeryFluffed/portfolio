@@ -6,7 +6,7 @@ export default function ActualResume() {
             {/* Download */}
             <div className="text-right mt-20">
                 <a
-                    href="/Danh_Tran_Resume.pdf"
+                    href="/images/Danh_Tran_Resume.pdf"
                     download
                     className="inline-block mt-2 px-3 py-1 bg-gray-200 text-black rounded shadow hover:bg-gray-300 text-xs"
                 >
@@ -18,13 +18,7 @@ export default function ActualResume() {
             <div className="text-center mb-4">
                 <h1 className="text-xl font-bold">Danh Tran</h1>
                 <p className="text-xs">
-                    <a
-                        href="danhtran.org"
-                        className="text-blue-600"
-                    >
-                        danhtran.org
-                    </a>{" "}
-                    | (714) 837 - 5323 |{" "}
+                    (714) 837 - 5323 |{" "}
                     <a
                         href="mailto:danhtraannc@gmail.com"
                         className="text-blue-600"

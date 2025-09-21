@@ -107,17 +107,7 @@ const Jukebox = () => {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-[20%_80%] gap-12 items-center mt-10">
-
-                {/* RC522 image */}
-                <div className="flex justify-center">
-                    <img
-                        src="/images/RC522.png"
-                        alt="RC522"
-                        className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto"
-                    />
-                </div>
-
+            <div className="grid grid-cols-1 md:grid-cols-[85%_15%] gap-12 items-center mt-10">
 
                 <div>
                     {/* The Idea */}
@@ -131,24 +121,31 @@ const Jukebox = () => {
                         ID for every music disc in the game. I would have to create a hole inside the jukebox to insert the
                         disc, and the RFID reader will be mounted next to the disc hole to read the disc every time it is inserted.
                     </p>
+
                     <p className="text-gray-700 leading-relaxed mb-6">
                         Next, I need to connect the RFID reader to a computer to program it to receive inputs from the RFID
                         scanner. With the unique ID, I would store them in a file to connect to a specific song, meaning each
                         disc would have its own dedicated MP3 file. Once I connect each ID to a song, the computer would play
                         the MP3 file on speakers that I would connect to the computer.
                     </p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                        For the physical design, I would have to 3D print the jukebox and disc. The discs would be easy since
-                        they are flat, solid pieces with no texture. I would simply add paper overlays to distinguish each disc
-                        and for visual accuracy. The jukebox itself was a little more complex. It required layered modeling to
-                        replicate its textured appearance and a carefully measured slot to align with the RFID sensor.
-                    </p>
                 </div>
-
-
+                {/* RC522 image */}
+                <div className="flex justify-center mb-6">
+                    <img
+                        src="/images/RC522.png"
+                        alt="RC522"
+                        className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto"
+                    />
+                </div>
             </div>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                For the physical design, I would have to 3D print the jukebox and disc. The discs would be easy since
+                they are flat, solid pieces with no texture. I would simply add paper overlays to distinguish each disc
+                and for visual accuracy. The jukebox itself was a little more complex. It required layered modeling to
+                replicate its textured appearance and a carefully measured slot to align with the RFID sensor.
+            </p>
 
-            <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-12 items-center mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-[80%_20%] gap-12 items-center mt-10">
 
                 <div>
                     {/* Electrical Architecture */}
@@ -162,18 +159,9 @@ const Jukebox = () => {
                         Arduino. That way, I could effectively learn how to use a Raspberry Pi and utilize it in other projects
                         while keeping the Arduino inside.
                     </p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                        To detect each disc, I used the RC522 RFID module, which communicates with the Pi using the SPI (Serial
-                        Peripheral Interface) protocol. SPI is a fast communication standard where one device acts as the master
-                        (in this case, the Raspberry Pi) and the other acts as the slave (the RC522). The master controls the
-                        timing and flow of data, while the slave responds when selected.
-                    </p>
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                        The RC522 RFID module was connected to the Pi using the SPI protocol. Here’s the exact wiring:
-                    </p>
                 </div>
                 {/*  RC522 image */}
-                <div className="flex justify-center">
+                <div className="flex justify-center mb-6">
                     <img
                         src="/images/raspberrypi4Pack.png"
                         alt="some stuff I got lol"
@@ -181,6 +169,16 @@ const Jukebox = () => {
                     />
                 </div>
             </div>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                To detect each disc, I used the RC522 RFID module, which communicates with the Pi using the SPI (Serial
+                Peripheral Interface) protocol. SPI is a fast communication standard where one device acts as the master
+                (in this case, the Raspberry Pi) and the other acts as the slave (the RC522). The master controls the
+                timing and flow of data, while the slave responds when selected.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The RC522 RFID module was connected to the Pi using the SPI protocol. Here’s the exact wiring:
+            </p>
+
             <div className="grid grid-cols-1 md:grid-cols-[60%_40%] gap-12 items-center mb-10">
                 <div className="overflow-x-auto">
                     <table className="table-auto border-collapse border border-gray-300 w-full text-left text-sm">
