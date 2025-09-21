@@ -2,19 +2,27 @@ import { useState, useEffect } from "react";
 import { navLinks } from "../constants/index.js";
 import { Link } from "react-router-dom";
 
-const NavItems = ({ isDark, closeMenu }) => {
+const NavItems = ({ isDark, closeMenu, isMobile = false }) => {
     return (
-        <ul className="nav-ul space-y-4 sm:space-y-0 sm:flex sm:space-x-6">
+        <ul className="nav-ul space-y-2 sm:space-y-0 sm:flex sm:space-x-6">
             {navLinks.map(({ id, href, name }) => (
                 <li key={id} className="nav-li">
                     <Link
                         to={href}
-                        onClick={closeMenu}   // ✅ closes dropdown on click
-                        className={`nav-li_a transition-colors ${
-                            isDark
-                                ? "text-white hover:text-gray-300"
-                                : "text-black hover:text-gray-700"
-                        }`}
+                        onClick={closeMenu}
+                        className={`
+              ${isMobile
+                            ? `block w-full px-4 py-2 rounded-md transition-colors 
+                    ${isDark
+                                ? "text-white hover:bg-gray-700"
+                                : "text-black hover:bg-gray-200"}`
+                            : `transition-colors ${
+                                isDark
+                                    ? "text-white hover:text-gray-300"
+                                    : "text-black hover:text-gray-700"
+                            }`
+                        }
+            `}
                     >
                         {name}
                     </Link>
@@ -92,7 +100,7 @@ const Navbar = () => {
                     }`}
                 >
                     <nav className="p-5 sm:hidden bg-black/70 text-white backdrop-blur-sm shadow-md rounded-b-lg">
-                        <NavItems isDark={true} closeMenu={closeMenu} />
+                        <NavItems isDark={true} closeMenu={closeMenu} isMobile={true} />
                     </nav>
                 </div>
             </div>
