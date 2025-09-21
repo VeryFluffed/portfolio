@@ -2,7 +2,7 @@ import React from "react";
 
 export default function ActualResume() {
     return (
-        <div className="max-w-4xl mx-auto font-serif text-black text-sm mb-12">
+        <div className="max-w-4xl mx-auto font-serif text-black text-sm mb-12 px-2">
             {/* Download */}
             <div className="text-right mt-20">
                 <a

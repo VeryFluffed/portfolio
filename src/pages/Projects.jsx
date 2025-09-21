@@ -14,7 +14,7 @@ const projects = [
             "troubleshooting.",
         video: "./public/videos/test.mp4",
         tech: [
-            { name: "Altium", icon: "/public/icons/altium.png" },
+            { name: "Altium", icon: "/icons/altium.png" },
             { name: "Solidworks", icon: "/icons/solidworks.png" },
             { name: "Excel", icon: "/icons/excel.png" },
             { name: "3d Printing", icon: "/icons/3dprinter.png" },
@@ -34,7 +34,7 @@ const projects = [
         tech: [
             { name: "Solidworks", icon: "/icons/solidworks.png" },
             { name: "3D Printing", icon: "/icons/3dprinter.png" },
-            { name: "Raspberry Pi", icon: "/public/icons/raspberrypi.png" },
+            { name: "Raspberry Pi", icon: "/icons/raspberrypi.png" },
             { name: "Python", icon: "/icons/python.png" },
             { name: "Arduino", icon: "/icons/arduino.png" },
             { name: "GitHub", icon: "/icons/github.png" },
@@ -51,10 +51,10 @@ const projects = [
             "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
         video: null, // no video available
         tech: [
-            { name: "Raspberry Pi", icon: "/public/icons/raspberrypi.png" },
+            { name: "Raspberry Pi", icon: "/icons/raspberrypi.png" },
             { name: "Arduino", icon: "/icons/arduino.png" },
-            { name: "C++", icon: "/public/icons/c++.png" },
-            { name: "3D Printing", icon: "/public/icons/3dprinter.png" },
+            { name: "C++", icon: "/icons/c++.png" },
+            { name: "3D Printing", icon: "/icons/3dprinter.png" },
         ],
         link: "/projects/jukebox",
     },
@@ -78,8 +78,8 @@ const projects = [
 
 const Projects = () => {
     return (
-        <section className="bg-white text-gray-900 px-16 mt-32">
-            <div className="px-16">
+        <section className="bg-white text-gray-900 sm:px-20 md:px-28 lg:px-32 mt-32">
+            <div className="px-12">
                 <div className="grid md:grid-cols-2 gap-8 mb-10">
                     {projects.map((p, i) => (
                         <Link

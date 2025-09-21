@@ -77,9 +77,9 @@ const projects = [
 
 export default function Projects() {
     return (
-        <section className="bg-white text-gray-900 mb-8 px-16">
+        <section className="bg-white text-gray-900 mb-8 sm:px-20 md:px-28 lg:px-32">
             <div className="h-[.5px] bg-black w-full mb-10"/>
-            <div className="px-16">
+            <div className="px-12">
                 <div className="grid md:grid-cols-2 gap-8 mb-10">
                     {projects.map((p, i) => (
                         <Link
