@@ -16,7 +16,7 @@ const CyberPatriot = () => {
                 {/* Project Image */}
                 <div>
                     <img
-                        src="/images/go-kart.jpg" // replace with your go-kart image path
+                        src="/images/cyberpatriotintro.jpg"
                         alt="Go-Kart Project"
                         className="rounded-lg shadow-lg object-cover w-full h-full"
                     />
@@ -63,7 +63,7 @@ const CyberPatriot = () => {
                                         href="https://aidentran.dev/"
                                         target="_blank"
                                         rel="noopener noreferrer"
-                                        className="text-gray-600 hover:text-black transition-colors"
+                                        className="text-blue-600 hover:text-black transition-colors"
                                     >
                                         Aiden Tran
                                     </a>
@@ -92,6 +92,258 @@ const CyberPatriot = () => {
                     </div>
                 </div>
             </div>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
+                Motivation
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                During club rush my sophomore year of high school, I saw that the Robotics Club hosted CyberPatriots
+                competitions. I was already joining the Robotics Club, and I asked my friends what CyberPatriots was. I
+                was given the description that it was a boring competition, but I was still very curious and created a
+                team just to try it out and to get closer to the members of the Robotics Club. I decided to create a
+                team anyway, pulling in a few of my close friends because I’ve always preferred working with small,
+                efficient groups. I also had a personal motivation: I wanted to finally learn Linux from the inside out
+                because I thought it would be a vital skill when learning integrated systems in engineering.
+            </p>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide">
+                Getting Started
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Our first year was very scuffed. Out of our team of 6, only one, Aiden Tran, had previous experience in
+                a CyberPatriot competition. Worst of all, none of us had any experience in Linux or Packet Tracing
+                (Cisco) at all. Aiden had to teach us the rules, scoring engine, and best practices for hardening an
+                operating system. I volunteered to learn Linux and spent most of the first round googling every command
+                I could, breaking more systems than I fixed. Although really funny and mentally breaking, I quickly
+                adapted to the competitions, learning that it wasn’t about learning commands and hacking. Rather, it
+                was more of a scenario game, picking up competition patterns to anticipate where vulnerabilities would
+                exist and preemptively patching them. By the end of our first year, we placed in one of the top gold
+                teams in the nation.
+            </p>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide">
+                Competition Basics
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The competition was comprised of 4 different operating systems:
+            </p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="font-bold">Windows Personal (Windows 10/11)</li>
+                <p>These images simulate a regular desktop computer, the one almost everyone has. The focus is on user
+                    security: removing unauthorized accounts, setting strong password policies, disabling risky startup
+                    programs, checking Windows Defender/firewall settings, uninstalling insecure software, and applying
+                    updates. They are also responsible for setting up any changes and securities in accordance with the
+                    competition scenario.
+                </p>
+                <li className="font-bold">Windows Server (Server 2016/2019/2022)</li>
+                <p>These simulate enterprise-level servers that manage networks. The focus is on administrative
+                    security: configuring Group Policy, securing Active Directory accounts, managing roles (like DNS or
+                    IIS), restricting remote access, and ensuring server services aren’t misconfigured. They also have
+                    to manage competition scenario software and policies.</p>
+                <li className="font-bold">Linux (Ubuntu/Debian-based)</li>
+                <p>Linux images test command-line skills. Competitions mostly use Ubuntu, but they change to Debian or
+                    Mint in later rounds. The focus is on system administration and scripting: managing users/groups,
+                    fixing file permissions, patching software, auditing services (SSH, Apache, etc.), configuring
+                    firewalls, and applying security scripts. Similarly, they must adhere to competition scenarios.</p>
+                <li className="font-bold">Cisco (Packet Tracer)</li>
+                <p>MOSI stands for Master Out, Slave In. It’s the line where the Raspberry Pi sends commands and data to
+                    the RC522, such as “read the UID” or “write to this register.”</p>
+            </ul>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                CyberPatriot provides competitors with virtual machine images of Windows and Linux systems, and
+                competitors use VMWare to open these virtual machine images. Each image has its own competition
+                scenario, highlighting what needs to be secured. It is also deliberately riddled with security
+                misconfigurations—weak passwords, unnecessary services, mis-set permissions, etc. The competition
+                engine automatically scores us in real time whenever we fix a vulnerability. Points are deducted if we
+                break functionality, which means every decision and second mattered in the 4-hour competition. Success
+                required a blend of technical accuracy and quick googling since each round had strict time limits.
+            </p>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide">
+                Linux Security
+            </h1>
+            <div className="grid grid-cols-1 md:grid-cols-[80%_20%] gap-12 items-center mt-10">
+
+                <div>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        Over three years, I kept the same role:
+                    </p>
+                    <ul className="space-y-2 text-gray-700 mb-6">
+                        <li className="font-bold">Linux Lead:</li>
+                        <p>I was mastering user/group management, file permissions, SSH security, cron jobs, and service
+                            hardening.
+                        </p>
+                        <li className="font-bold">Team Captain:</li>
+                        <p>I was organizing group studies, researching different resources, and finding practice images.</p>
+                    </ul>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        The Linux OS had a steep learning curve. I had to learn an entirely new language to navigate the system
+                        around using the Terminal. This language is Shell Scripting, usually using Bash. I needed to do this
+                        just to learn how to do simple tasks, such as opening certain files, listing out users and groups, etc.
+                        I also needed to learn the different types of services and policies, so knowing how to use the terminal
+                        was necessary. Here are some of the basics I learned:
+                    </p>
+                </div>
+                {/*  RC522 image */}
+                <div className="flex justify-center mb-6">
+                    <img
+                        src="/images/scorereport.jpg"
+                        alt="score report"
+                        className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto"
+                    />
+                </div>
+            </div>
+            <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="font-bold">Forensics Questions</li>
+                <p>These you should ALWAYS DO BEFORE DELETING ANY FILES. Forensics questions could require you to
+                    explore files that are downloaded on the computer, including malware or unauthorized files. In
+                    common competitions, especially early competitions, they would ask you to find the direct path to
+                    unauthorized .mp3 files or a backdoor, which you can find by typing sudo locate *.mp3 in the
+                    terminal. It is also very important to delete these prohibited files after getting the forensic
+                    questions. It is also very common to decrypt a message left on the computer somewhere. When this
+                    happens, I like to use BitDecoder64 to decrypt it.
+                </p>
+                <div className="flex justify-center mb-6">
+                    <img
+                        src="/images/forensic.png"
+                        alt="forensic question"
+                        className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto"
+                    />
+                </div>
+                <li className="font-bold">Update and Upgrades</li>
+                <p>I like to update immediately after I complete the forensic questions because of the risk of removing
+                    software. You can do this by typing sudo apt-get upgrade in the terminal. Afterwards, type sudo
+                    apt-get update in the terminal. Make sure you type “y” when asked. I know there is a command to do
+                    all of this at once, but it breaks for me sometimes, which is sudo apt-get upgrade && apt-get
+                    update. This would also update the applications listed in the README, such as Firefox.
+                </p>
+                <li className="font-bold">User & Group Management</li>
+                <p>In the README file, there is a list of authorized users and admins. We have to compare that list to
+                    the users who are actually on the computer. You can list out all the users in the file /etc/passwd
+                    to see all the users. Another option I recommend for beginners is to use the UI. Since the
+                    competition mainly uses Ubuntu 22, you can see a list of users in the settings, which you can access
+                    but searching settings in the “show applications” on the bottom left or by clicking the top right.
+                    You can also see if the users on the computer are admin or not, which can sometimes be incorrect.
+                    Thus, you would have to fix it to match the list. There is also a delete user option at the bottom,
+                    which you should do after completing forensics. You can also change the user’s passwords if they are
+                    not secure enough, as listed in the README.
+                </p>
+                <p>To create a group, you would type this in the terminal: sudo groupadd (groupname). To add a user to a
+                    group, you would type this in the terminal: sudo usermod -aG (groupname) (username). This is often
+                    used to gain points for the competition scenario, often asking you to add a new user to a group.
+                </p>
+                <li className="font-bold">Firewall</li>
+                <p>Linux either uses UFW or GUFW for its firewall. You can check it in the README file. If it isn’t
+                    installed, type out sudo apt install (g)ufw in the terminal. To enable it, type sudo (g)ufw enable
+                    in the terminal. Make sure the firewall is denying incoming and allowing SSH or the other service.
+                    Type out: sudo (g)ufw allow ssh in the terminal.
+                </p>
+                <li className="font-bold">PAM (Password Policies)</li>
+                <p>Linux uses PAM files as its password policies. Different files require configuration to change some
+                    policies. First is /etc/pam.d/common-password. To open it, type sudo gedit
+                    /etc/pam.d/common-password in the terminal. Add “minlen=10” on the line that contains “password
+                    [success=2 default=ignore] pam_unix.so. It enforces that every user must have at least 10 characters
+                    in their password. You can also make sure that every user requires a password by making sure the
+                    file /etc/pam.d/common-auth does not have the line “nullok.” There are also more examples of
+                    securing password policies, but these two are the two that mainly give the points in my experience.
+                </p>
+                <li className="font-bold">SystemCTL (Services)</li>
+                <p>There are many services that you do not want running on your computer. They are mainly server hosting
+                    servers. Although they are not explicitly meant to harm your computer, they have vulnerabilities.
+                    Make sure you remove services that ARE NOT listed in the README. To check the active services,
+                    type sudo systemctl list-units --type=service --state=active in the terminal. A huge list of
+                    services should show up. Some examples include: nginx, ssh, apache2, SQL. To get rid of the service
+                    type sudo stop (service) in the terminal, followed by sudo disable (service).
+                </p>
+                <li className="font-bold">SSH Security</li>
+                <p>SSH is a very popular example of a service that you run in a competition scenario. To secure it, you
+                    must turn off SSH logins. To do this, type sudo gedit /etc/ssh/sshd_config in the terminal. Scroll
+                    until you see “PermitRootLogin yes” and change the “yes” to a “no.” Doing this gives points in a
+                    large number of the competitions I have participated in.
+                </p>
+                <li className="font-bold">File Permissions</li>
+                <p>Many sensitive files contain very important information. Two examples of this are shadow files and
+                    password files. Of course, no one wants their password files to get leaked. Shadow files are similar
+                    to password files, but the text inside is encrypted. Although encrypted, it is still not good to
+                    have it public. To secure this, type sudo chmod 640 /etc/shadow and sudo chmod 640 /etc/passwd in
+                    the terminal.
+                </p>
+                <li className="font-bold">Applications and Software</li>
+                <p>The competition scenario can have different applications. Sometimes, it would be Chrome, Firefox,
+                    Thunderbird, SQL, or a combination of these. Make sure to delete any that are NOT listed in the
+                    README. You can do this by opening the software store, clicking the installed tab, and then
+                    uninstalling the applications. Common ones include Remmina, AisleRiot, and Thunderbird. A very
+                    common software to remove is Ophcrack. You can see it by clicking the bottom left to see all
+                    applications and scrolling through. You can delete it by typing sudo apt-get remove ophcrack in the
+                    terminal.
+                </p>
+                <p>There are still many more ways to secure a Linux image, but these are the basics that should always
+                    be on your team’s checklist.
+                </p>
+            </ul>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide">
+                Scripting
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                After repeating the same tasks over and over again, I began writing a custom Bash script to automate
+                repetitive hardening tasks. I added everything from my 11-page checklist into this script. Instead of
+                manually auditing multiple files, my script could scan for insecure permissions, reset password
+                policies, disable unused services, and apply baseline firewall rules in seconds.
+            </p>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                This pushed me deeper into:
+            </p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="font-bold">File system traversal (find, grep, awk, sed)</li>
+                <li className="font-bold">Redirection & piping to chain commands</li>
+                <li className="font-bold">Command-line arguments to make the script reusable across rounds</li>
+                <li className="font-bold">System variables for dynamic configuration</li>
+            </ul>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The script alone saved the Linux section at least 1 hour of the 4 competition hours. For my Windows
+                teammates, it saved them even more time. Not only did this save us precious competition time, but it
+                also gave me experience in writing production-like code that interacted with a live system under
+                constraints, reaching my goals to become experienced in a Linux environment.
+            </p>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide">
+                Personal Achievements
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Throughout the three years of competition, here are some achievements I received:
+            </p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="font-bold">Top 100 Platinum Tier National Semifinalist (twice) — ranking in the top 1% of competitors nationwide</li>
+                <li className="font-bold">#1 in California Gold Tier before advancing to Platinum</li>
+                <li className="font-bold">Recognized as the Linux specialist on the team, often tasked with the most technically demanding fixes</li>
+                <li className="font-bold">Gained a reputation for scripting efficiency, which shaved hours off our team’s workflow</li>
+            </ul>
+            <div className="flex justify-center mb-6">
+                <img
+                    src="/images/topscore.png"
+                    alt="top scoring report"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto"
+                />
+            </div>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide">
+                Coaching
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                By my third year, I was no longer just a competitor. My growth was successful largely due to vlog posts
+                from previous competitors and practice images online. Our school did not have a coach dedicated to
+                Cyberpatriots. Thus, I started mentoring younger members, teaching them both Linux fundamentals and
+                competition strategies. I monitored live practice sessions, shared all of my resources, and also ran a
+                Bash Scripting workshop. Even after high school, I still wanted to remain as a mentor, eventually a
+                coach, for those who came up to me, especially thanking me for helping them achieve their dream of
+                becoming a Cybersecurity specialist in their career. I ran live demos and broke down why commands worked
+                instead of just how to type them. Watching rookies go from zero Linux experience to becoming valuable
+                team members was as rewarding as competing myself.
+            </p>
+            <h1 className="text-2xl font-bold mb-6 tracking-wide">
+                Conclusion
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                CyberPatriot started as “that boring competition my friends told me about,” but it ended up being a
+                defining experience in my high school journey. I learned how to dissect an operating system, automate
+                its hardening, and work under pressure with a team. More importantly, it built the foundation for my
+                passion in cybersecurity, automation, and systems engineering, skills that continue to carry into every
+                project I build.
+            </p>
             <Link
                 to="/projects"
                 className="mt-5 mb-10 inline-block text-gray-600 hover:underline text-lg"
