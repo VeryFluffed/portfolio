@@ -54,7 +54,7 @@ export default function ActualResume() {
                         <p className="font-semibold">
                             California State Polytechnic University, Pomona
                         </p>
-                        <p className="">August 2025 - Present</p>
+                        <p className="">August 2025 - December 2027</p>
                     </div>
                     <p className="italic text-sm">
                         Electromechanical Systems Engineer Freshman

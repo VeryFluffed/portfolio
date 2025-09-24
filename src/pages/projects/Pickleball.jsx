@@ -182,7 +182,7 @@ const Pickleball = () => {
 
             {/* Core equation */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">1. Core capstan equation</h2>
+                <p className="font-bold">1. Core capstan equation</p>
                 <p className="text-gray-700 mb-3">
                     The capstan (friction) equation describes how tension is amplified around a wrapped drum:
                 </p>
@@ -206,7 +206,7 @@ Where:
 
             {/* From tension to torque & speed */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">2. From tension → torque → rim speed</h2>
+                <p className="font-bold">2. From tension → torque → rim speed</p>
                 <p className="text-gray-700 mb-3">
                     If the capstan provides a tangential force <em>F</em> to a wheel of radius <em>r</em>:
                 </p>
@@ -227,7 +227,7 @@ P = τ * ω = F * v  (power)
 
             {/* Worked numeric example */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">3. Worked example (numeric)</h2>
+                <p className="font-bold">3. Worked example (numeric)</p>
                 <p className="text-gray-700 mb-2">
                     Design target: ball exit speed <strong>v<sub>ball</sub> = 12 m/s</strong>, wheel radius <strong>r = 0.06 m</strong>.
                 </p>
@@ -253,7 +253,7 @@ If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> averag
 
             {/* Capstan math application */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">4. How the capstan equation helps</h2>
+                <p className="font-bold">4. How the capstan equation helps</p>
                 <p className="text-gray-700 mb-3">
                     Example: μ = 0.5 (rubber-on-rubber), wrap θ = 180° = π rad → amplification factor = <code>e^(0.5 * π)</code> ≈ 4.8.
                     That means a small preload tension T_in becomes ~4.8× larger on the driven side, reducing slip dramatically.
@@ -266,7 +266,7 @@ If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> averag
 
             {/* Design trade-offs */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">5. Practical trade-offs — what to increase vs. decrease</h2>
+                <p className="font-bold">5. Practical trade-offs — what to increase vs. decrease</p>
 
                 <div className="grid md:grid-cols-2 gap-6">
                     <div>
@@ -294,7 +294,7 @@ If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> averag
 
             {/* Encoder & control recommendation */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">6. Control & sensing recommendations</h2>
+                <p className="font-bold">6. Control & sensing recommendations</p>
                 <p className="text-gray-700 mb-3">
                     Use an encoder on at least one wheel for closed-loop speed control (PID). The ESP32 can run a PID loop:
                     measure RPM, compute error against target, update PWM duty cycle to maintain rim speed under load (when ball contacts wheel).
@@ -309,7 +309,7 @@ If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> averag
 
             {/* Prototyping tips */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">7. Prototyping tips & common pitfalls</h2>
+                <p className="font-bold">7. Prototyping tips & common pitfalls</p>
                 <ul className="list-disc list-inside text-gray-700">
                     <li><strong>Start slow:</strong> validate grip at low RPM before increasing speed.</li>
                     <li><strong>Measure slip:</strong> compare rim RPM to recorded ball exit speed (photogate or high-speed video).</li>
@@ -322,7 +322,7 @@ If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> averag
 
             {/* Quick parameter table */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">8. Quick parameter reference</h2>
+                <p className="font-bold">8. Quick parameter reference</p>
                 <div className="overflow-x-auto">
                     <table className="table-auto border-collapse border border-gray-300 w-full text-left text-sm">
                         <thead className="bg-gray-100">
@@ -363,7 +363,7 @@ If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> averag
 
             {/* Next steps */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">9. Next steps / experiment plan</h2>
+                <p className="font-bold">9. Next steps / experiment plan</p>
                 <ol className="list-decimal list-inside text-gray-700">
                     <li>Prototype single-wheel capstan with encoder and measure slip at several RPMs and preload settings.</li>
                     <li>Test different cover materials (PU, rubber) and measure μ empirically using simple tension test.</li>
@@ -375,7 +375,7 @@ If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> averag
 
             {/* Conclusion */}
             <div className="mb-8">
-                <h2 className="text-2xl font-semibold mb-3">Conclusion</h2>
+                <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">Conclusion</h1>
                 <p className="text-gray-700">
                     The capstan drive gives a high degree of traction and repeatability when the wrap angle, friction surface, and
                     preload are chosen well. The key design levers are wrap angle, surface friction, wheel radius, and closed-loop

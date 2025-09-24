@@ -78,16 +78,18 @@ const CyberPatriot = () => {
                     {/* Buttons */}
                     <div className="flex gap-4">
                         <a
-                            href="#"
+                            href="/public/images/The Better Linux Checklist.pdf"
                             className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition"
                         >
-                            Testing Results
+                            Checklist
                         </a>
                         <a
-                            href="#"
+                            href="https://github.com/VeryFluffed/bashscript"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
                         >
-                            CAD Files
+                            Bash Script
                         </a>
                     </div>
                 </div>
@@ -191,14 +193,22 @@ const CyberPatriot = () => {
             </div>
             <ul className="space-y-2 text-gray-700 mb-6">
                 <li className="font-bold">Forensics Questions</li>
-                <p>These you should ALWAYS DO BEFORE DELETING ANY FILES. Forensics questions could require you to
-                    explore files that are downloaded on the computer, including malware or unauthorized files. In
-                    common competitions, especially early competitions, they would ask you to find the direct path to
-                    unauthorized .mp3 files or a backdoor, which you can find by typing sudo locate *.mp3 in the
-                    terminal. It is also very important to delete these prohibited files after getting the forensic
-                    questions. It is also very common to decrypt a message left on the computer somewhere. When this
-                    happens, I like to use BitDecoder64 to decrypt it.
+                <p>
+                    These you should ALWAYS DO BEFORE DELETING ANY FILES. Forensics questions could
+                    require you to explore files that are downloaded on the computer, including malware
+                    or unauthorized files. In common competitions, especially early competitions, they
+                    would ask you to find the direct path to unauthorized .mp3 files or a backdoor,
+                    which you can find by typing:
                 </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo locate *.mp3</code>
+  </pre>
+                <p>
+                    It is also very important to delete these prohibited files after getting the forensic
+                    questions. It is also very common to decrypt a message left on the computer somewhere.
+                    When this happens, I like to use BitDecoder64 to decrypt it.
+                </p>
+
                 <div className="flex justify-center mb-6">
                     <img
                         src="/images/forensic.png"
@@ -206,75 +216,129 @@ const CyberPatriot = () => {
                         className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto"
                     />
                 </div>
+
                 <li className="font-bold">Update and Upgrades</li>
-                <p>I like to update immediately after I complete the forensic questions because of the risk of removing
-                    software. You can do this by typing sudo apt-get upgrade in the terminal. Afterwards, type sudo
-                    apt-get update in the terminal. Make sure you type “y” when asked. I know there is a command to do
-                    all of this at once, but it breaks for me sometimes, which is sudo apt-get upgrade && apt-get
-                    update. This would also update the applications listed in the README, such as Firefox.
+                <p>
+                    I like to update immediately after I complete the forensic questions because of the risk
+                    of removing software. You can do this by typing:
                 </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo apt-get upgrade</code>
+  </pre>
+                <p>Afterwards, type:</p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo apt-get update</code>
+  </pre>
+                <p>
+                    Make sure you type “y” when asked. I know there is a command to do all of this at once,
+                    but it breaks for me sometimes, which is:
+                </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo apt-get upgrade && apt-get update</code>
+  </pre>
+
                 <li className="font-bold">User & Group Management</li>
-                <p>In the README file, there is a list of authorized users and admins. We have to compare that list to
-                    the users who are actually on the computer. You can list out all the users in the file /etc/passwd
-                    to see all the users. Another option I recommend for beginners is to use the UI. Since the
-                    competition mainly uses Ubuntu 22, you can see a list of users in the settings, which you can access
-                    but searching settings in the “show applications” on the bottom left or by clicking the top right.
-                    You can also see if the users on the computer are admin or not, which can sometimes be incorrect.
-                    Thus, you would have to fix it to match the list. There is also a delete user option at the bottom,
-                    which you should do after completing forensics. You can also change the user’s passwords if they are
-                    not secure enough, as listed in the README.
+                <p>
+                    In the README file, there is a list of authorized users and admins. We have to compare
+                    that list to the users who are actually on the computer. You can list out all the users
+                    in the file <code>/etc/passwd</code> to see all the users. Another option I recommend for
+                    beginners is to use the UI. Since the competition mainly uses Ubuntu 22, you can see a
+                    list of users in the settings, which you can access but searching settings in the “show
+                    applications” on the bottom left or by clicking the top right.
                 </p>
-                <p>To create a group, you would type this in the terminal: sudo groupadd (groupname). To add a user to a
-                    group, you would type this in the terminal: sudo usermod -aG (groupname) (username). This is often
-                    used to gain points for the competition scenario, often asking you to add a new user to a group.
+                <p>
+                    To create a group, type:
                 </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo groupadd (groupname)</code>
+  </pre>
+                <p>
+                    To add a user to a group, type:
+                </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo usermod -aG (groupname) (username)</code>
+  </pre>
+
                 <li className="font-bold">Firewall</li>
-                <p>Linux either uses UFW or GUFW for its firewall. You can check it in the README file. If it isn’t
-                    installed, type out sudo apt install (g)ufw in the terminal. To enable it, type sudo (g)ufw enable
-                    in the terminal. Make sure the firewall is denying incoming and allowing SSH or the other service.
-                    Type out: sudo (g)ufw allow ssh in the terminal.
+                <p>
+                    Linux either uses UFW or GUFW for its firewall. You can check it in the README file. If it
+                    isn’t installed, type:
                 </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo apt install (g)ufw</code>
+  </pre>
+                <p>To enable it, type:</p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo (g)ufw enable</code>
+  </pre>
+                <p>Make sure the firewall is denying incoming and allowing SSH. Type:</p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo (g)ufw allow ssh</code>
+  </pre>
+
                 <li className="font-bold">PAM (Password Policies)</li>
-                <p>Linux uses PAM files as its password policies. Different files require configuration to change some
-                    policies. First is /etc/pam.d/common-password. To open it, type sudo gedit
-                    /etc/pam.d/common-password in the terminal. Add “minlen=10” on the line that contains “password
-                    [success=2 default=ignore] pam_unix.so. It enforces that every user must have at least 10 characters
-                    in their password. You can also make sure that every user requires a password by making sure the
-                    file /etc/pam.d/common-auth does not have the line “nullok.” There are also more examples of
-                    securing password policies, but these two are the two that mainly give the points in my experience.
+                <p>
+                    Linux uses PAM files as its password policies. First is{" "}
+                    <code>/etc/pam.d/common-password</code>. To open it, type:
                 </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo gedit /etc/pam.d/common-password</code>
+  </pre>
+                <p>
+                    Add <code>minlen=10</code> on the line that contains{" "}
+                    <code>password [success=2 default=ignore] pam_unix.so</code>. You can also make sure every
+                    user requires a password by checking <code>/etc/pam.d/common-auth</code> does not have{" "}
+                    <code>nullok</code>.
+                </p>
+
                 <li className="font-bold">SystemCTL (Services)</li>
-                <p>There are many services that you do not want running on your computer. They are mainly server hosting
-                    servers. Although they are not explicitly meant to harm your computer, they have vulnerabilities.
-                    Make sure you remove services that ARE NOT listed in the README. To check the active services,
-                    type sudo systemctl list-units --type=service --state=active in the terminal. A huge list of
-                    services should show up. Some examples include: nginx, ssh, apache2, SQL. To get rid of the service
-                    type sudo stop (service) in the terminal, followed by sudo disable (service).
+                <p>To check active services, type:</p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo systemctl list-units --type=service --state=active</code>
+  </pre>
+                <p>
+                    To stop a service, type:
                 </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo stop (service)</code>
+  </pre>
+                <p>
+                    Then disable it with:
+                </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo disable (service)</code>
+  </pre>
+
                 <li className="font-bold">SSH Security</li>
-                <p>SSH is a very popular example of a service that you run in a competition scenario. To secure it, you
-                    must turn off SSH logins. To do this, type sudo gedit /etc/ssh/sshd_config in the terminal. Scroll
-                    until you see “PermitRootLogin yes” and change the “yes” to a “no.” Doing this gives points in a
-                    large number of the competitions I have participated in.
+                <p>
+                    To secure SSH, type:
                 </p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo gedit /etc/ssh/sshd_config</code>
+  </pre>
+                <p>
+                    Find <code>PermitRootLogin yes</code> and change it to{" "}
+                    <code>PermitRootLogin no</code>.
+                </p>
+
                 <li className="font-bold">File Permissions</li>
-                <p>Many sensitive files contain very important information. Two examples of this are shadow files and
-                    password files. Of course, no one wants their password files to get leaked. Shadow files are similar
-                    to password files, but the text inside is encrypted. Although encrypted, it is still not good to
-                    have it public. To secure this, type sudo chmod 640 /etc/shadow and sudo chmod 640 /etc/passwd in
-                    the terminal.
-                </p>
+                <p>To secure sensitive files, type:</p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo chmod 640 /etc/shadow</code>
+  </pre>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo chmod 640 /etc/passwd</code>
+  </pre>
+
                 <li className="font-bold">Applications and Software</li>
-                <p>The competition scenario can have different applications. Sometimes, it would be Chrome, Firefox,
-                    Thunderbird, SQL, or a combination of these. Make sure to delete any that are NOT listed in the
-                    README. You can do this by opening the software store, clicking the installed tab, and then
-                    uninstalling the applications. Common ones include Remmina, AisleRiot, and Thunderbird. A very
-                    common software to remove is Ophcrack. You can see it by clicking the bottom left to see all
-                    applications and scrolling through. You can delete it by typing sudo apt-get remove ophcrack in the
-                    terminal.
-                </p>
-                <p>There are still many more ways to secure a Linux image, but these are the basics that should always
-                    be on your team’s checklist.
+                <p>To delete common prohibited apps, for example Ophcrack, type:</p>
+                <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>sudo apt-get remove ophcrack</code>
+  </pre>
+
+                <p>
+                    There are still many more ways to secure a Linux image, but these are the basics that
+                    should always be on your team’s checklist.
                 </p>
             </ul>
             <h1 className="text-2xl font-bold mb-6 tracking-wide">

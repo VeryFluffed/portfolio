@@ -208,10 +208,16 @@ const GoKart = () => {
                     />
                 </div>
             </div>
+
             <p className="text-gray-700 leading-relaxed mb-6">
                 We configured the four cells in series, which meant connecting the positive terminal of one
                 battery to the negative terminal of the next. By wiring them this way, the individual voltages
                 of each battery were added together to reach a total system voltage of approximately 48 volts.
+            </p>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto mb-6">
+  <code>V_total = V₁ + V₂ + V₃ + V₄ ≈ 4 × 12V = 48V</code>
+</pre>
+            <p className="text-gray-700 leading-relaxed mb-6">
                 The choice of a series connection was deliberate: while connecting batteries in parallel
                 increases total capacity (and therefore runtime), connecting in series increases voltage, which
                 is what we needed to achieve higher speeds. Since electric motors generally spin faster when
@@ -220,6 +226,13 @@ const GoKart = () => {
                 of power is important because lower current reduces resistive heating in the wires and
                 components, which improves efficiency and reduces the chance of damage or wasted energy.
             </p>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto mb-6">
+  <code>P = V × I</code>
+</pre>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto mb-6">
+  <code>P_loss = I² × R</code>
+</pre>
+
             <p className="text-gray-700 leading-relaxed mb-6">
                 To safely handle the electrical load, we used heavy-gauge wiring rated for the high currents
                 that would flow through the system during acceleration. Choosing the correct wire gauge was
@@ -229,6 +242,14 @@ const GoKart = () => {
                 circuit or an overload, the circuit would break before damaging expensive components or causing
                 unsafe conditions.
             </p>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto mb-6">
+  <code>I = P / V</code>
+</pre>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                For example, if our motor demanded 2400W at full throttle, then with 48V we would expect roughly
+                I ≈ 2400 ÷ 48 ≈ 50A. This estimate guided our wiring and fuse sizing.
+            </p>
+
             <p className="text-gray-700 leading-relaxed mb-6">
                 Reliability also depended heavily on the quality of our connections. Instead of relying on
                 simple twists or electrical tape, we used proper crimping tools and connectors to secure every
@@ -237,9 +258,12 @@ const GoKart = () => {
                 point was carefully inspected and tested, and I personally took the lead in managing the wiring
                 process. This involved not only physically running the cables and crimping the terminals but
                 also applying what I had learned about Ohm’s law, resistance, and power distribution to minimize
-                inefficiencies across the system. It was a meticulous process, but one that reinforced how much
-                theory from the classroom comes alive when applied to real-world engineering challenges.
+                inefficiencies across the system.
             </p>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto mb-6">
+  <code>V_drop = I × R</code>
+</pre>
+
             <p className="text-gray-700 leading-relaxed mb-6">
                 Ultimately, the electrical system we designed proved to be effective, delivering stable power to
                 the motor and controller while keeping safety a priority. Because of its success, we plan to
@@ -250,6 +274,19 @@ const GoKart = () => {
                 but also powered our understanding of what it means to design a reliable, efficient, and safe
                 electrical system.
             </p>
+
+            <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
+                Troubleshooting
+            </h1>
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Failures were constant: chains derailing, wires overheating, frame flexing. Each issue forced us
+                to pause, analyze, and fix. We created a checklist system for wiring tests, chain alignment, and
+                battery health. The process was slow, but every fix made the kart more reliable and safe.
+                However, the motor was simply too strong for the galvanized square steel, and it kept bending.
+                Thus, we are planning on continuing this project next summer when all of us reunite from college
+                to look at this project with a fresh pair of eyes.
+            </p>
+
             <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
                 Troubleshooting
             </h1>
