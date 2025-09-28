@@ -4,24 +4,6 @@ import About from "./About.jsx";
 
 const projects = [
     {
-        title: "Electrical Go-Kart (2024)",
-        role: "Team Lead",
-        description:
-            "My team and I engineered a go-kart from a repurposed bed frame. I managed our ~1.2k " +
-            "budget and our 3-member team for design, fabrication, and testing. This was our first time " +
-            "working with real galvanized square steel, heavy-duty electrical wiring, and applying theory " +
-            "to real life. We reached 15 mph in testing, applied torque/friction analysis, and drivetrain " +
-            "troubleshooting.",
-        video: "/public/videos/test.mp4",
-        tech: [
-            { name: "Altium", icon: "/icons/altium.png" },
-            { name: "Solidworks", icon: "/icons/solidworks.png" },
-            { name: "Excel", icon: "/icons/excel.png" },
-            { name: "3d Printing", icon: "/icons/3dprinter.png" },
-        ],
-        link: "/projects/go-kart",
-    },
-    {
         title: "Pickleball Machine (2025)",
         role: "Intern",
         description:
@@ -40,6 +22,24 @@ const projects = [
             { name: "GitHub", icon: "/icons/github.png" },
         ],
         link: "/projects/pickleball",
+    },
+    {
+        title: "Electrical Go-Kart (2024)",
+        role: "Team Lead",
+        description:
+            "My team and I engineered a go-kart from a repurposed bed frame. I managed our ~1.2k " +
+            "budget and our 3-member team for design, fabrication, and testing. This was our first time " +
+            "working with real galvanized square steel, heavy-duty electrical wiring, and applying theory " +
+            "to real life. We reached 15 mph in testing, applied torque/friction analysis, and drivetrain " +
+            "troubleshooting.",
+        video: "/public/videos/go-kart.mp4",
+        tech: [
+            { name: "Altium", icon: "/icons/altium.png" },
+            { name: "Solidworks", icon: "/icons/solidworks.png" },
+            { name: "Excel", icon: "/icons/excel.png" },
+            { name: "3d Printing", icon: "/icons/3dprinter.png" },
+        ],
+        link: "/projects/go-kart",
     },
     {
         title: "RFID-Jukebox",
@@ -66,7 +66,7 @@ const projects = [
             "specifically tailored towards Linux harding in CyberPatriot competitions. This required deep understanding " +
             "of file systems, permissions, system variables, redirection, command-line arguments, etc. We reached top " +
             "100 Nationals Platinum Tier twice.",
-        video: null, // no video available
+        video: "/public/videos/cyberpatriot.mp4", // no video available
         tech: [
             { name: "Linux", icon: "/icons/linux.png" },
             { name: "C++", icon: "/icons/c++.png" },
