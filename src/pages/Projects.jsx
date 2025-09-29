@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import About from "./About.jsx";
 
 const projects = [
     {
@@ -49,7 +48,7 @@ const projects = [
             "wiring. I also programmed GPIO button controls for audio playbacks, all to apply my theoretical " +
             "knowledge and strengthen my embedded systems and hardware-software integration skills. I plan to use my " +
             "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
-        video: null, // no video available
+        video: "/public/videos/rfid-jukebox.mp4", // no video available
         tech: [
             { name: "Raspberry Pi", icon: "/icons/raspberrypi.png" },
             { name: "Arduino", icon: "/icons/arduino.png" },
