@@ -11,7 +11,7 @@ const projects = [
             "an ESP32 to remotely control the speed and spin of the motors with the implementation of H-bridges. " +
             "I also researched, designed, and optimized a motorized capstan drive to be 3D-printed with electronics " +
             "testing and iteration.",
-        video: "./public/videos/test.mp4",
+        video: null,
         tech: [
             { name: "Solidworks", icon: "/icons/solidworks.png" },
             { name: "3D Printing", icon: "/icons/3dprinter.png" },
@@ -31,7 +31,7 @@ const projects = [
             "working with real galvanized square steel, heavy-duty electrical wiring, and applying theory " +
             "to real life. We reached 15 mph in testing, applied torque/friction analysis, and drivetrain " +
             "troubleshooting.",
-        video: "/public/videos/go-kart3.mp4",
+        video: "/videos/go-kart3.mp4",
         tech: [
             { name: "Altium", icon: "/icons/altium.png" },
             { name: "Solidworks", icon: "/icons/solidworks.png" },
@@ -65,7 +65,7 @@ const projects = [
             "specifically tailored towards Linux harding in CyberPatriot competitions. This required deep understanding " +
             "of file systems, permissions, system variables, redirection, command-line arguments, etc. We reached top " +
             "100 Nationals Platinum Tier twice.",
-        video: "./videos/cyberpatriot2.mp4",
+        video: "/videos/cyberpatriot2.mp4",
         tech: [
             { name: "Linux", icon: "/icons/linux.png" },
             { name: "C++", icon: "/icons/c++.png" },
