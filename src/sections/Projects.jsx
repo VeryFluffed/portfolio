@@ -31,7 +31,7 @@ const projects = [
             "working with real galvanized square steel, heavy-duty electrical wiring, and applying theory " +
             "to real life. We reached 15 mph in testing, applied torque/friction analysis, and drivetrain " +
             "troubleshooting.",
-        video: "/public/videos/go-kart3.mp4",
+        video: null,
         tech: [
             { name: "Altium", icon: "/icons/altium.png" },
             { name: "Solidworks", icon: "/icons/solidworks.png" },
