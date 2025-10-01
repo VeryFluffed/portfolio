@@ -48,7 +48,7 @@ const projects = [
             "wiring. I also programmed GPIO button controls for audio playbacks, all to apply my theoretical " +
             "knowledge and strengthen my embedded systems and hardware-software integration skills. I plan to use my " +
             "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
-        video: "/videos/rfid-jukebox2.mp4",
+        video: "/videos/rfid-jukebox.mp4",
         tech: [
             { name: "Raspberry Pi", icon: "/icons/raspberrypi.png" },
             { name: "Arduino", icon: "/icons/arduino.png" },
@@ -65,7 +65,7 @@ const projects = [
             "specifically tailored towards Linux harding in CyberPatriot competitions. This required deep understanding " +
             "of file systems, permissions, system variables, redirection, command-line arguments, etc. We reached top " +
             "100 Nationals Platinum Tier twice.",
-        video: "/videos/cyberpatriot2.mp4",
+        video: "/videos/cyberpatriot.mp4",
         tech: [
             { name: "Linux", icon: "/icons/linux.png" },
             { name: "C++", icon: "/icons/c++.png" },
