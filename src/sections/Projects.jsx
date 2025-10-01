@@ -11,7 +11,7 @@ const projects = [
             "an ESP32 to remotely control the speed and spin of the motors with the implementation of H-bridges. " +
             "I also researched, designed, and optimized a motorized capstan drive to be 3D-printed with electronics " +
             "testing and iteration.",
-        video: null, // no video available
+        video: "./public/videos/test.mp4",
         tech: [
             { name: "Solidworks", icon: "/icons/solidworks.png" },
             { name: "3D Printing", icon: "/icons/3dprinter.png" },
@@ -48,7 +48,7 @@ const projects = [
             "wiring. I also programmed GPIO button controls for audio playbacks, all to apply my theoretical " +
             "knowledge and strengthen my embedded systems and hardware-software integration skills. I plan to use my " +
             "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
-        video: "/public/videos/rfid-jukebox2.mp4", // no video available
+        video: "/videos/rfid-jukebox2.mp4",
         tech: [
             { name: "Raspberry Pi", icon: "/icons/raspberrypi.png" },
             { name: "Arduino", icon: "/icons/arduino.png" },
@@ -65,7 +65,7 @@ const projects = [
             "specifically tailored towards Linux harding in CyberPatriot competitions. This required deep understanding " +
             "of file systems, permissions, system variables, redirection, command-line arguments, etc. We reached top " +
             "100 Nationals Platinum Tier twice.",
-        video: "/public/videos/cyberpatriot2.mp4", // no video available
+        video: "./videos/cyberpatriot2.mp4",
         tech: [
             { name: "Linux", icon: "/icons/linux.png" },
             { name: "C++", icon: "/icons/c++.png" },
