@@ -48,7 +48,7 @@ const projects = [
             "wiring. I also programmed GPIO button controls for audio playbacks, all to apply my theoretical " +
             "knowledge and strengthen my embedded systems and hardware-software integration skills. I plan to use my " +
             "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
-        video: "/videos/rfid-jukebox2.mp4",
+        video: "/videos/rfid-jukebox.mp4",
         tech: [
             { name: "Raspberry Pi", icon: "/icons/raspberrypi.png" },
             { name: "Arduino", icon: "/icons/arduino.png" },
@@ -130,6 +130,14 @@ export default function Projects() {
                             </div>
                         </Link>
                     ))}
+                </div>
+                <div className="mt-8 flex justify-center">
+                    <Link
+                        to="/projects"
+                        className="px-6 py-3 bg-gray-600 text-white rounded-lg shadow-md hover:bg-gray-500 transition"
+                    >
+                        View All Projects →
+                    </Link>
                 </div>
             </div>
         </section>
