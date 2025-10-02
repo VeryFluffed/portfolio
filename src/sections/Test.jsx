@@ -1,87 +1,52 @@
-import React from "react";
-import { Link } from "react-router-dom";
+import React from 'react';
+import { Canvas } from '@react-three/fiber';
+import { PerspectiveCamera } from '@react-three/drei';
+import Plane from '../components/Plane.jsx';
+import CanvasLoader from '../components/CanvasLoader.jsx';
+import { Suspense } from 'react';
+import {useMediaQuery} from "react-responsive";
+import {calculateSizes} from "../constants/index.js";
 
-const GoKart = () => {
+const Hero = () => {
+
+    const isSmall = useMediaQuery({ query: '(max-width: 440px)' });
+    const isMobile = useMediaQuery({ query: '(max-width: 768px)' });
+    const isTablet = useMediaQuery({ query: '(min-width: 768px) and (max-width: 1024px)' });
+
+    const sizes = calculateSizes(isSmall, isMobile, isTablet);
+
     return (
-        <section className="max-w-6xl mx-auto px-6 py-16">
-            <Link
-                to="/projects"
-                className="mt-5 mb-10 inline-block text-gray-600 hover:underline text-lg"
+        <section className="min-h-screen w-full flex flex-col relative bg-white">
+            <div
+                className={`
+    h-screen flex items-center justify-center absolute
+    ${isMobile ? "w-full left-0" : "w-1/2 right-0"}
+  `}
             >
-                ← Back to Projects
-            </Link>
-            {/* Layout: image left, content right */}
-            <div className="grid md:grid-cols-2 gap-12 items-start">
-
-                {/* Project Image */}
-                <div>
-                    <img
-                        src="/images/go-kart.jpg" // replace with your go-kart image path
-                        alt="Go-Kart Project"
-                        className="rounded-lg shadow-lg object-cover w-full h-full"
-                    />
-                </div>
-
-                {/* Project Content */}
-                <div>
-                    {/* Title */}
-                    <h1 className="text-3xl font-bold mb-6 tracking-wide">
-                        RFID-JUKEBOX
-                    </h1>
-
-                    {/* Description */}
-                    <p className="text-gray-700 leading-relaxed mb-6">
-                        Inspired by a Minecraft Jukebox, I built a functioning Raspberry Pi music player with custom
-                        circuit wiring. I also programmed GPIO button controls for audio playbacks, all to apply my
-                        theoretical knowledge and strengthen my embedded systems and hardware-software integration
-                        skills. I plan to use my recently learned 3D printing skills to print out the Minecraft Jukebox
-                        model and disc. I also plan to downgrade the hardware to Arduino to have a permanent Minecraft
-                        Jukebox.
+                <div className="flex flex-col items-center justify-center gap-2 px-4">
+                    <p className="hero_tag text-black text-6xl font-light text-center">
+                        DANH CHI TRAN
                     </p>
-
-                    {/* Contributions & Collaborators */}
-                    <div className="grid grid-cols-2 gap-8 mb-10">
-                        <div>
-                            <h3 className="text-sm font-semibold tracking-wider text-gray-500 mb-3">
-                                CONTRIBUTIONS
-                            </h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>Raspberry Pi System Setup & Integration</li>
-                                <li>GPIO Button Circuit Design</li>
-                                <li>Python Programming</li>
-                                <li>Custom Circuit Wiring & Testing</li>
-                                <li>3D Printing</li>
-                            </ul>
-                        </div>
-                        <div>
-                            <h3 className="text-sm font-semibold tracking-wider text-gray-500 mb-3">
-                                COLLABORATORS
-                            </h3>
-                            <ul className="space-y-2 text-gray-700">
-                                <li>Thomas Vu</li>
-                            </ul>
-                        </div>
-                    </div>
-
-                    {/* Buttons */}
-                    <div className="flex gap-4">
-                        <a
-                            href="#"
-                            className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition"
-                        >
-                            Testing Results
-                        </a>
-                        <a
-                            href="#"
-                            className="px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
-                        >
-                            CAD Files
-                        </a>
-                    </div>
+                    <p className="hero_tag text-black text-2xl font-thin text-center">
+                        MECHATRONICS ENGINEER PORTFOLIO
+                    </p>
                 </div>
             </div>
+            <div className="w-full h-full absolute inset-0">
+                <Canvas className="w-full h-full flex flex-col relative">
+                    <Suspense fallback={<CanvasLoader />}>
+                        <PerspectiveCamera makeDefault position={[0, 0, 20]} />
+                        <Plane
+                            position={sizes.planePosition}
+                            rotation={[0.6, 0, 0]}
+                            scale={sizes.planeScale}
+                        />
+                        <ambientLight intensity={1} />
+                        <directionalLight position={[10, 10, 10]} intensity={0.5} />
+                    </Suspense>
+                </Canvas>
+            </div>
         </section>
-    );
-};
-
-export default GoKart;
+    )
+}
+export default Hero

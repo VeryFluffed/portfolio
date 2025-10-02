@@ -1,32 +1,29 @@
-import React, { useRef } from 'react'
-import { useFrame } from '@react-three/fiber'
-import { useGLTF, useScroll } from '@react-three/drei'
+// src/components/Penguin.jsx
+import React from 'react'
+import { useGLTF } from '@react-three/drei'
+import SpinOrbit from '../wrappers/SpinOrbit.jsx'
 
-const Penguin = () => {
-    const modelRef = useRef()
-    const scroll = useScroll()
-    const { nodes, materials } = useGLTF('/models/penguin.glb')
+export default function Penguin({
+                                    center = [2, -7, 0],
+                                    radius = 25,
+                                    speed = 2,
+                                    rotationSpeed = 0.5,
+                                    initialAngle = 0,
+                                    scale = 1,
+                                }) {
+    const { scene } = useGLTF('/models/penguin.glb') // adjust path if needed
 
-    useFrame(() => {
-        const r = scroll.offset * 2 * Math.PI
-        if (modelRef.current) {
-            modelRef.current.rotation.y = r
-            modelRef.current.rotation.x = r / 2
-        }
-    })
-
+    // Render the raw GLTF scene as a child of SpinOrbit.
+    // Do NOT give the primitive a position — SpinOrbit controls position.
     return (
-        <group ref={modelRef} scale={1.5} position={[0, -1.5, 0]}>
-            <mesh
-                castShadow
-                receiveShadow
-                geometry={nodes.Penguin_0.geometry}
-                material={materials.Penguin}
-            />
-        </group>
+        <SpinOrbit
+            center={center}
+            radius={radius}
+            speed={speed}
+            rotationSpeed={rotationSpeed}
+            initialAngle={initialAngle}
+        >
+            <primitive object={scene} scale={Array.isArray(scale) ? scale : [scale, scale, scale]} />
+        </SpinOrbit>
     )
 }
-
-useGLTF.preload('/models/penguin.glb')
-
-export default Penguin

@@ -348,10 +348,47 @@ const CyberPatriot = () => {
                 After repeating the same tasks over and over again, I began writing a custom Bash script to automate
                 repetitive hardening tasks. I added everything from my 11-page checklist into this script. Instead of
                 manually auditing multiple files, my script could scan for insecure permissions, reset password
-                policies, disable unused services, and apply baseline firewall rules in seconds.
+                policies, disable unused services, and apply baseline firewall rules in seconds. Writing the script was
+                very easy. Simply put, the bash script contains commands a person would typically put on terminal.
+                However, they must add this at the top of the .sh file of the bash script:
             </p>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>#!/bin/bash
+</code>
+  </pre>
+            <p className="text-gray-700 leading-relaxed mb-6 mt-6">
+                Then, just put down all the lines of code you want. However, I knew that the many competitions will have
+                different scenarios. For example, one competition will require removing SSH for points and updating
+                nginx, while another competition could be the other way around. Thus, I grouped the commands into different
+                functions. In my bash script, I have:
+            </p>
+            <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="font-bold">manage_packages</li>
+                <li className="font-bold">security_policies</li>
+                <li className="font-bold">configure_networking</li>
+                <li className="font-bold">configure_openssh_server</li>
+                <li className="font-bold">configure_mysql_server</li>
+                <li className="font-bold">configure_apache_server</li>
+                <li className="font-bold">audit_cron</li>
+                <li className="font-bold">manage_kernel</li>
+                <li className="font-bold">miscellaneous_security</li>
+            </ul>
             <p className="text-gray-700 leading-relaxed mb-6">
-                This pushed me deeper into:
+                Similar to many languages, you can define a function like:
+            </p>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>function_name() &#123;...code...&#125;
+</code>
+  </pre>
+            <p className="text-gray-700 leading-relaxed mb-6 mt-6">
+                And you can call the function by typing out the name of the function like:
+            </p>
+            <pre className="bg-gray-100 p-2 rounded-lg text-sm overflow-x-auto">
+    <code>function_name()
+</code>
+  </pre>
+            <p className="text-gray-700 leading-relaxed mb-6 mt-6">
+                And function_name will run. This pushed me deeper into:
             </p>
             <ul className="space-y-2 text-gray-700 mb-6">
                 <li className="font-bold">File system traversal (find, grep, awk, sed)</li>

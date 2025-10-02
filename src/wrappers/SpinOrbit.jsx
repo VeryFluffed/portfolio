@@ -1,31 +1,68 @@
-import { useRef, useState } from 'react';
-import { useFrame } from '@react-three/fiber';
+// src/wrappers/SpinOrbit.jsx
+import React, { useRef, useEffect } from 'react'
+import { useFrame, useThree } from '@react-three/fiber'
+import * as THREE from 'three'
 
-const SpinOrbit = ({ children, center = [0, 0, 0], radius = 2.5, speed = 1, rotateSpeed = [0.005, 0.01, 0] }) => {
-    const groupRef = useRef();
-    const [angle, setAngle] = useState(0);
+/*
+ Props:
+  - center: [x,y,z] world coordinate center of the orbit
+  - radius: distance from center (in world units)
+  - speed: how fast the object orbits (radians / second)
+  - rotationSpeed: how fast the object spins in place (radians / frame)
+  - initialAngle: starting angle in radians
+*/
+const SpinOrbit = ({
+                       children,
+                       center = [0, 0, 0],
+                       radius = 5,
+                       speed = 1,
+                       rotationSpeed = 0.02,
+                       initialAngle = 0,
+                   }) => {
+    const ref = useRef()
+    const angleRef = useRef(initialAngle)
+    const { camera } = useThree()
+    const u = useRef(new THREE.Vector3()) // basis vector 1 (screen right)
+    const v = useRef(new THREE.Vector3()) // basis vector 2 (screen up)
 
-    useFrame((_, delta) => {
-        console.log('SpinOrbit useFrame running');
-
-        const newAngle = angle + speed * delta;
-        setAngle(newAngle);
-
-        const x = center[0] + radius * Math.cos(newAngle);
-        const z = center[2] + radius * Math.sin(newAngle);
-        const y = center[1];
-
-        console.log('Spinning to', x, y, z);
-
-        if (groupRef.current) {
-            groupRef.current.position.set(x, y, z);
-            groupRef.current.rotation.x += rotateSpeed[0];
-            groupRef.current.rotation.y += rotateSpeed[1];
-            groupRef.current.rotation.z += rotateSpeed[2];
+    // compute the camera-plane basis once (recompute if camera changes)
+    useEffect(() => {
+        const dir = new THREE.Vector3()
+        camera.getWorldDirection(dir) // direction camera looks (points forward)
+        // choose an up vector (world up), but if camera is nearly aligned with world up adjust it
+        let worldUp = new THREE.Vector3(0, 1, 0)
+        if (Math.abs(dir.dot(worldUp)) > 0.999) {
+            worldUp = new THREE.Vector3(1, 0, 0) // fallback
         }
-    });
+        // u = right vector in camera plane
+        u.current.copy(new THREE.Vector3().crossVectors(worldUp, dir).normalize())
+        // v = up in camera plane
+        v.current.copy(new THREE.Vector3().crossVectors(dir, u.current).normalize())
 
-    return <group ref={groupRef}>{children}</group>;
-};
+        // keep these normalized
+    }, [camera])
 
-export default SpinOrbit;
+    useFrame((state, delta) => {
+        // update orbit angle
+        angleRef.current += speed * delta
+
+        // compute orbit position: center + (u * cos(angle) + v * sin(angle)) * radius
+        const a = angleRef.current
+        const pos = new THREE.Vector3()
+        pos.copy(u.current).multiplyScalar(Math.cos(a) * radius)
+        pos.addScaledVector(v.current, Math.sin(a) * radius)
+        pos.add(new THREE.Vector3(center[0], center[1], center[2]))
+
+        if (ref.current) {
+            ref.current.position.copy(pos)
+
+            // in-place rotation of the object (local rotation)
+            // adjust axis if you want roll/pitch instead of yaw
+            ref.current.rotation.y += rotationSpeed
+        }
+    })
+
+    return <group ref={ref}>{children}</group>
+}
+
+export default SpinOrbit

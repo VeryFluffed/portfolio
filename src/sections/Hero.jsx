@@ -2,6 +2,7 @@ import React from 'react';
 import { Canvas } from '@react-three/fiber';
 import { PerspectiveCamera } from '@react-three/drei';
 import Plane from '../components/Plane.jsx';
+import Penguin from '../components/Penguin.jsx';
 import CanvasLoader from '../components/CanvasLoader.jsx';
 import { Suspense } from 'react';
 import {useMediaQuery} from "react-responsive";
@@ -35,16 +36,19 @@ const Hero = () => {
             <div className="w-full h-full absolute inset-0">
                 <Canvas className="w-full h-full flex flex-col relative">
                     <Suspense fallback={<CanvasLoader />}>
-                       <PerspectiveCamera makeDefault position={[0, 0, 20]} />
-                       <Plane
-                           position={sizes.planePosition}
-                           rotation={[0.6, 0, 0]}
-                           scale={sizes.planeScale}
-                       />
-                       <ambientLight intensity={1} />
-                       <directionalLight position={[10, 10, 10]} intensity={0.5} />
-                   </Suspense>
-               </Canvas>
+                        <PerspectiveCamera makeDefault position={[-10, -5, 25]} />
+                        <Penguin
+                            scale={sizes.planeScale}
+                            radius={25} speed={2.5} rotationSpeed={0.5} initialAngle={0}
+                        />
+                        <Plane
+                            scale={sizes.planeScale}
+                            radius={25} speed={1} rotationSpeed={0.02} initialAngle={0}
+                        />
+                        <ambientLight intensity={1} />
+                        <directionalLight position={[10, 10, 10]} intensity={0.5} />
+                    </Suspense>
+                </Canvas>
             </div>
         </section>
     )
