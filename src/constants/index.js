@@ -291,6 +291,7 @@ export const calculateSizes = (isSmall, isMobile, isTablet) => {
     return {
         planeScale: isSmall ? 0.5 : isMobile ? 0.3 : 0.5,
         planePosition: isMobile ? [-1.9, -2.9, 2.5] : [0, -7, 2.5],
+        jukeboxScale: isSmall ? 5 : isMobile ? 5 : 50,
         cubePosition: isSmall ? [4, -5, 0] : isMobile ? [5, -5, 0] : isTablet ? [5, -5, 0] : [9, -5.5, 0],
         reactLogoPosition: isSmall ? [3, 4, 0] : isMobile ? [5, 4, 0] : isTablet ? [5, 4, 0] : [12, 3, 0],
         ringPosition: isSmall ? [-5, 7, 0] : isMobile ? [-10, 10, 0] : isTablet ? [-12, 10, 0] : [-24, 10, 0],

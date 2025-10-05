@@ -7,6 +7,7 @@ import CanvasLoader from '../components/CanvasLoader.jsx';
 import { Suspense } from 'react';
 import {useMediaQuery} from "react-responsive";
 import {calculateSizes} from "../constants/index.js";
+import JukeboxCase from "../components/JukeboxCase.jsx";
 
 const Hero = () => {
 
@@ -43,7 +44,11 @@ const Hero = () => {
                         />
                         <Plane
                             scale={sizes.planeScale}
-                            radius={25} speed={1} rotationSpeed={0.02} initialAngle={0}
+                            radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={0}
+                        />
+                        <JukeboxCase
+                            scale={sizes.jukeboxScale}
+                            radius={25} speed={0.5} rotationSpeed={0.02} initialAngle={0}
                         />
                         <ambientLight intensity={1} />
                         <directionalLight position={[10, 10, 10]} intensity={0.5} />

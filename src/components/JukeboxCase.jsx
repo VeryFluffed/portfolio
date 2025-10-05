@@ -1,18 +1,17 @@
-// src/components/Penguin.jsx
-import React, {useMemo} from 'react'
-import {Edges, useGLTF} from '@react-three/drei'
+import React, { useMemo } from 'react'
+import { useGLTF, Edges } from '@react-three/drei'
 import SpinOrbit from '../wrappers/SpinOrbit.jsx'
-import * as THREE from "three";
+import * as THREE from 'three'
 
-export default function Penguin({
-                                    center = [2, -7, 0],
-                                    radius = 25,
-                                    speed = 2,
-                                    rotationSpeed = 0.5,
-                                    initialAngle = 0,
-                                    scale = 1,
-                                }) {
-    const { nodes } = useGLTF('/models/penguin.glb') // adjust path if needed
+export default function JukeboxCase({
+                                        center = [2, -7, 0],
+                                        radius = 25,
+                                        speed = 2,
+                                        rotationSpeed = 0.5,
+                                        initialAngle = 0,
+                                        scale = 1,
+                                    }) {
+    const { nodes } = useGLTF('/models/JukeboxCase.glb')
 
     // Create a shared transparent material
     const transparentMat = useMemo(() => (
@@ -23,8 +22,6 @@ export default function Penguin({
         })
     ), [])
 
-    // Render the raw GLTF scene as a child of SpinOrbit.
-    // Do NOT give the primitive a position — SpinOrbit controls position.
     return (
         <SpinOrbit
             center={center}
@@ -50,3 +47,5 @@ export default function Penguin({
         </SpinOrbit>
     )
 }
+
+useGLTF.preload('/models/JukeboxCase.glb')
