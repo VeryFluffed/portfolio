@@ -8,6 +8,9 @@ import { Suspense } from 'react';
 import {useMediaQuery} from "react-responsive";
 import {calculateSizes} from "../constants/index.js";
 import JukeboxCase from "../components/JukeboxCase.jsx";
+import JukeboxDisc from "../components/JukeboxDisc.jsx";
+import PPcase from "../components/PPcase.jsx";
+import PPslide from "../components/PPslide.jsx";
 
 const Hero = () => {
 
@@ -40,7 +43,7 @@ const Hero = () => {
                         <PerspectiveCamera makeDefault position={[-10, -5, 25]} />
                         <Penguin
                             scale={sizes.planeScale}
-                            radius={25} speed={2.5} rotationSpeed={0.5} initialAngle={0}
+                            radius={25} speed={2} rotationSpeed={0.5} initialAngle={0}
                         />
                         <Plane
                             scale={sizes.planeScale}
@@ -49,6 +52,18 @@ const Hero = () => {
                         <JukeboxCase
                             scale={sizes.jukeboxScale}
                             radius={25} speed={0.5} rotationSpeed={0.02} initialAngle={0}
+                        />
+                        <JukeboxDisc
+                            scale={sizes.jukeboxScale}
+                            radius={25} speed={0.8} rotationSpeed={0.02} initialAngle={0}
+                        />
+                        <PPcase
+                            scale={sizes.jukeboxScale}
+                            radius={25} speed={0.3} rotationSpeed={0.02} initialAngle={0}
+                        />
+                        <PPslide
+                            scale={sizes.jukeboxScale}
+                            radius={20} speed={0.4} rotationSpeed={0.02} initialAngle={0}
                         />
                         <ambientLight intensity={1} />
                         <directionalLight position={[10, 10, 10]} intensity={0.5} />
