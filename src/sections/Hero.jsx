@@ -43,27 +43,27 @@ const Hero = () => {
                         <PerspectiveCamera makeDefault position={[-10, -5, 25]} />
                         <Penguin
                             scale={sizes.planeScale}
-                            radius={25} speed={2} rotationSpeed={0.5} initialAngle={0}
+                            radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={0}
                         />
                         <Plane
                             scale={sizes.planeScale}
-                            radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={0}
+                            radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={60}
                         />
                         <JukeboxCase
                             scale={sizes.jukeboxScale}
-                            radius={25} speed={0.5} rotationSpeed={0.02} initialAngle={0}
+                            radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={120}
                         />
                         <JukeboxDisc
                             scale={sizes.jukeboxScale}
-                            radius={25} speed={0.8} rotationSpeed={0.02} initialAngle={0}
+                            radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={180}
                         />
                         <PPcase
                             scale={sizes.jukeboxScale}
-                            radius={25} speed={0.3} rotationSpeed={0.02} initialAngle={0}
+                            radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={240}
                         />
                         <PPslide
                             scale={sizes.jukeboxScale}
-                            radius={20} speed={0.4} rotationSpeed={0.02} initialAngle={0}
+                            radius={20} speed={0.4} rotationSpeed={0.02} initialAngle={300}
                         />
                         <ambientLight intensity={1} />
                         <directionalLight position={[10, 10, 10]} intensity={0.5} />
