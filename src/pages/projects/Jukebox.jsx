@@ -334,9 +334,194 @@ const Jukebox = () => {
             <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
                 Downgrading to Arduino
             </h1>
+
             <p className="text-gray-700 leading-relaxed mb-6">
-                Coming soon…
+                I started by choosing which computer I would replace the Raspberry Pi with. I looked for my Arduino Uno,
+                which I had received as a gift, but I couldn’t find it. So, I decided to treat myself to an Arduino Nano,
+                which was only $5. That meant I saved $40 and could keep my Raspberry Pi for other projects in the future.
+                However, Arduinos and Pis are two completely different systems. Although they both have power, ground,
+                and various GPIO pins, the Pi runs a full operating system (Linux) and can execute Python scripts
+                directly, while the Arduino runs pre-compiled C++ code uploaded through the Arduino IDE. This means that
+                everything—from how code is written to how the devices communicate—is fundamentally different.
             </p>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The biggest difference was that the Arduino doesn’t have an operating system or filesystem. It can’t directly play MP3 files because it lacks the hardware to process audio. That meant I couldn’t just reuse my Python program that used Pygame for music playback. Instead, I had to use an <span className="font-bold">external MP3 decoding module</span>—the <span className="font-bold">DFPlayer Mini</span>. The DFPlayer Mini can play audio files stored on a microSD card, and it communicates with the Arduino via a serial (UART) connection. So now, instead of having the Raspberry Pi do both the RFID reading and audio playback in software, I split the job into two hardware modules: the <span className="font-bold">RC522 RFID Reader</span> for detecting discs, and the <span className="font-bold">DFPlayer Mini</span> for playing the matching songs.
+            </p>
+            <div className="flex justify-center">
+                <img
+                    src="/images/ArduinoNano.webp"
+                    alt="Arduino Nano"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+                <img
+                    src="/images/DFPlayer.jpg"
+                    alt="DFPlayer"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+            </div>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Once I had both modules, I needed to wire them correctly to the Arduino Nano. Both the RC522 and DFPlayer require 3.3–5V power, but each communicates using a different protocol—SPI for the RFID reader, and UART for the DFPlayer. Here’s how I wired everything together:
+            </p>
+
+            <div className="overflow-x-auto mb-8">
+                <table className="table-auto border-collapse border border-gray-300 w-full text-left text-sm">
+                    <thead className="bg-gray-100">
+                    <tr>
+                        <th className="border border-gray-300 px-4 py-2">Component</th>
+                        <th className="border border-gray-300 px-4 py-2">Pin</th>
+                        <th className="border border-gray-300 px-4 py-2">Arduino Nano Pin</th>
+                        <th className="border border-gray-300 px-4 py-2">Function</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2" rowSpan="7">RC522 RFID Reader</td>
+                        <td className="border border-gray-300 px-4 py-2">VCC</td>
+                        <td className="border border-gray-300 px-4 py-2">3.3V</td>
+                        <td className="border border-gray-300 px-4 py-2">Power Supply</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">RST</td>
+                        <td className="border border-gray-300 px-4 py-2">D9</td>
+                        <td className="border border-gray-300 px-4 py-2">Reset Pin</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">GND</td>
+                        <td className="border border-gray-300 px-4 py-2">GND</td>
+                        <td className="border border-gray-300 px-4 py-2">Ground</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">MISO</td>
+                        <td className="border border-gray-300 px-4 py-2">D12</td>
+                        <td className="border border-gray-300 px-4 py-2">SPI MISO (Master In Slave Out)</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">MOSI</td>
+                        <td className="border border-gray-300 px-4 py-2">D11</td>
+                        <td className="border border-gray-300 px-4 py-2">SPI MOSI (Master Out Slave In)</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">SCK</td>
+                        <td className="border border-gray-300 px-4 py-2">D13</td>
+                        <td className="border border-gray-300 px-4 py-2">SPI Clock</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">SDA</td>
+                        <td className="border border-gray-300 px-4 py-2">D10</td>
+                        <td className="border border-gray-300 px-4 py-2">SPI Chip Select</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2" rowSpan="4">DFPlayer Mini</td>
+                        <td className="border border-gray-300 px-4 py-2">VCC</td>
+                        <td className="border border-gray-300 px-4 py-2">5V</td>
+                        <td className="border border-gray-300 px-4 py-2">Power Supply</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">GND</td>
+                        <td className="border border-gray-300 px-4 py-2">GND</td>
+                        <td className="border border-gray-300 px-4 py-2">Ground</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">TX</td>
+                        <td className="border border-gray-300 px-4 py-2">D2 (Software RX)</td>
+                        <td className="border border-gray-300 px-4 py-2">Serial Receive</td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">RX</td>
+                        <td className="border border-gray-300 px-4 py-2">D3 (Software TX)</td>
+                        <td className="border border-gray-300 px-4 py-2">Serial Transmit</td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Unlike the Raspberry Pi, where the SPI interface was enabled through Linux configuration, the Arduino’s SPI is built directly into the hardware. As long as you import the correct library and use the proper pins (D10–D13 on the Nano), it will automatically handle SPI communication. The same goes for the serial connection to the DFPlayer Mini, which uses a “software serial” library since the Nano’s hardware serial (pins 0 and 1) are reserved for uploading programs and debugging.
+            </p>
+
+            <h2 className="text-xl font-semibold mb-4">1. Software & Code</h2>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The Arduino version of the Jukebox was written in C++, which is a compiled, statically-typed language—very different from Python. Instead of using dynamic imports and dictionaries, everything had to be explicitly declared in setup() and loop(). I used two main libraries:
+            </p>
+
+            <ul className="space-y-2 text-gray-700 mb-6">
+                <li className="font-bold">MFRC522.h — for controlling the RFID reader via SPI</li>
+                <li className="font-bold">DFRobotDFPlayerMini.h — for controlling the DFPlayer Mini over serial</li>
+            </ul>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The structure of the program followed the standard Arduino format:
+            </p>
+
+            <pre className="bg-gray-100 text-gray-800 p-4 rounded-lg overflow-x-auto text-sm mb-6">
+{`#include <SPI.h>
+#include <MFRC522.h>
+#include <SoftwareSerial.h>
+#include <DFRobotDFPlayerMini.h>
+
+#define RST_PIN 9
+#define SS_PIN 10
+
+MFRC522 rfid(SS_PIN, RST_PIN);
+SoftwareSerial mySerial(2, 3); // RX, TX
+DFRobotDFPlayerMini player;
+
+void setup() {
+  SPI.begin();
+  rfid.PCD_Init();
+  mySerial.begin(9600);
+  Serial.begin(9600);
+  if (!player.begin(mySerial)) {
+    Serial.println("DFPlayer not detected!");
+    while(true);
+  }
+  player.volume(20); // Set volume level (0–30)
+  Serial.println("System ready.");
+}
+
+void loop() {
+  if (!rfid.PICC_IsNewCardPresent() || !rfid.PICC_ReadCardSerial()) return;
+
+  String uid = "";
+  for (byte i = 0; i < rfid.uid.size; i++) {
+    uid += String(rfid.uid.uidByte[i]);
+  }
+
+  Serial.print("Card detected: ");
+  Serial.println(uid);
+
+  if (uid == "11223344") {
+    player.play(1); // Play first song on SD
+  } else if (uid == "55667788") {
+    player.play(2);
+  }
+
+  rfid.PICC_HaltA();
+  delay(500);
+}`}
+</pre>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Each RFID tag has a unique 4-byte identifier (UID), just like in the Raspberry Pi version. However, instead of using a Python dictionary to map UIDs to songs, I used simple <span className="font-bold">if statements</span> because of the Arduino’s limited memory. The DFPlayer Mini automatically plays MP3 files stored on the SD card in numerical order (001.mp3, 002.mp3, etc.), so each UID corresponds to a specific file number.
+            </p>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Uploading the code was done through the Arduino IDE. Once the Nano was connected to my computer, I selected the proper board and COM port, hit “Upload,” and waited for the program to compile and transfer via USB. When powered, the RFID reader lights up, and the serial monitor shows each card’s UID. As soon as a tagged disc is detected, the DFPlayer immediately plays the associated song.
+            </p>
+
+            <h2 className="text-xl font-semibold mb-4">2. Testing & Improvements</h2>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The Arduino version turned out to be more efficient and compact than the Raspberry Pi one. It booted instantly (no OS required), used far less power, and required only a 5V USB source. However, debugging was harder—since there’s no real console output except through the serial monitor. In the future, I plan to add LED indicators that light up based on the current disc playing, and even physical playback buttons that connect to digital pins with debounce code.
+            </p>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                This transition from Raspberry Pi to Arduino taught me the fundamental differences between microcontrollers and microcomputers. The Pi is excellent for prototyping and software-heavy projects, while the Arduino excels in real-time control with direct hardware integration. With this downgrade, I not only built a more permanent jukebox system but also gained a deeper understanding of low-level hardware communication, digital protocols like SPI and UART, and the inner workings of embedded C++ programming.
+            </p>
+
 
             {/* 3D Printing */}
             <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">

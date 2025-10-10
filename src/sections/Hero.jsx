@@ -40,7 +40,9 @@ const Hero = () => {
             <div className="w-full h-full absolute inset-0">
                 <Canvas className="w-full h-full flex flex-col relative">
                     <Suspense fallback={<CanvasLoader />}>
+                        isSmall ?
                         <PerspectiveCamera makeDefault position={[-10, -5, 25]} />
+
                         <Penguin
                             scale={sizes.planeScale}
                             radius={25} speed={0.4} rotationSpeed={0.02} initialAngle={0}
@@ -65,6 +67,7 @@ const Hero = () => {
                             scale={sizes.jukeboxScale}
                             radius={20} speed={0.4} rotationSpeed={0.02} initialAngle={300}
                         />
+                        :
                         <ambientLight intensity={1} />
                         <directionalLight position={[10, 10, 10]} intensity={0.5} />
                     </Suspense>

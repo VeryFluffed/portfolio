@@ -10,6 +10,7 @@ import GoKart from "./pages/projects/GoKart";
 import Pickleball from "./pages/projects/Pickleball";
 import Jukebox from "./pages/projects/Jukebox";
 import CyberPatriot from "./pages/projects/CyberPatriot";
+import Portfolio from "./pages/projects/Portfolio.jsx";
 
 const App = () => {
     return (
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/projects/pickleball" element={<Pickleball />} />
                 <Route path="/projects/jukebox" element={<Jukebox />} />
                 <Route path="/projects/cyberpatriot" element={<CyberPatriot />} />
+                <Route path="/projects/portfolio" element={<Portfolio />} />
             </Routes>
 
             {/* Footer on all pages */}

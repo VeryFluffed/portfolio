@@ -13,7 +13,7 @@ const projects = [
             "testing and iteration.",
         video: null,
         tech: [
-            { name: "Solidworks", icon: "/icons/solidworks.png" },
+            { name: "SolidWorks", icon: "/icons/solidworks.png" },
             { name: "3D Printing", icon: "/icons/3dprinter.png" },
             { name: "Raspberry Pi", icon: "/icons/raspberrypi.png" },
             { name: "Python", icon: "/icons/python.png" },
@@ -34,14 +34,14 @@ const projects = [
         video: "/videos/go-kart3.mp4",
         tech: [
             { name: "Altium", icon: "/icons/altium.png" },
-            { name: "Solidworks", icon: "/icons/solidworks.png" },
+            { name: "SolidWorks", icon: "/icons/solidworks.png" },
             { name: "Excel", icon: "/icons/excel.png" },
             { name: "3d Printing", icon: "/icons/3dprinter.png" },
         ],
         link: "/projects/go-kart",
     },
     {
-        title: "RFID-Jukebox",
+        title: "RFID-Jukebox (2025)",
         role: "Solo Developer",
         description:
             "Inspired by a Minecrat Jukebox, I built a functioning Raspberry Pi music player with custom circuit " +
@@ -58,7 +58,7 @@ const projects = [
         link: "/projects/jukebox",
     },
     {
-        title: "CyberPatriot Bash Script",
+        title: "CyberPatriot Bash Script (2024)",
         role: "Team Captain",
         description:
             "After competitively securing Linux systems and servers for 3 years, I decided to write a Bash Script " +
@@ -72,6 +72,25 @@ const projects = [
             { name: "GitHub", icon: "/icons/github.png" },
         ],
         link: "/projects/cyberpatriot",
+    },
+    {
+        title: "Interactive Portfolio Website (2025)",
+        role: "Solo Developer",
+        description:
+            "I designed and built this portfolio website from scratch to showcase my engineering projects in a way that " +
+            "blends aesthetic design with technical depth. Instead of a static website, I wanted it to feel interactive " +
+            "and immersive, so I incorporated 3D graphics, animations, and smooth navigation powered by modern React " +
+            "frameworks.",
+        video: null,
+        tech: [
+            { name: "React", icon: "/icons/react.png" },
+            { name: "ThreeJS", icon: "/icons/threejs.png" },
+            { name: "HTML", icon: "/icons/html.png" },
+            { name: "CSS", icon: "/icons/css.png" },
+            { name: "SolidWorks", icon: "/icons/solidworks.png" },
+            { name: "GitHub", icon: "/icons/github.png" },
+        ],
+        link: "/projects/portfolio",
     },
 ];
 

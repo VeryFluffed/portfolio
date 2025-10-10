@@ -26,7 +26,7 @@ const CyberPatriot = () => {
                 <div>
                     {/* Title */}
                     <h1 className="text-3xl font-bold mb-6 tracking-wide">
-                        CyberPatriot
+                        CYBERPATRIOTS
                     </h1>
 
                     {/* Description */}
