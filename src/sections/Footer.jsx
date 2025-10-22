@@ -17,6 +17,8 @@ const Footer = () => {
                     <div className="flex justify-center sm:justify-start gap-4 mt-1">
                         <a
                             href="mailto:danhcorps@gmail.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-gray-600 hover:text-black transition-colors"
                         >
                             Email
@@ -33,6 +35,8 @@ const Footer = () => {
                         <span className="text-gray-400">|</span>
                         <a
                             href="https://github.com/VeryFluffed"
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="text-gray-600 hover:text-black transition-colors"
                         >
                             Github

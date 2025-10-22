@@ -67,7 +67,7 @@ const Hero = () => {
                             scale={sizes.jukeboxScale}
                             radius={20} speed={0.4} rotationSpeed={0.02} initialAngle={300}
                         />
-                        :
+
                         <ambientLight intensity={1} />
                         <directionalLight position={[10, 10, 10]} intensity={0.5} />
                     </Suspense>

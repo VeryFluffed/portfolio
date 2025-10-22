@@ -1,26 +1,20 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { navLinks } from "../constants/index.js";
 import { Link } from "react-router-dom";
 
-const NavItems = ({ isDark, closeMenu, isMobile = false }) => {
+const NavItems = ({ closeMenu, isMobile = false }) => {
     return (
-        <ul className="nav-ul space-y-2 sm:space-y-0 sm:flex sm:space-x-6">
+        <ul className="space-y-2 sm:space-y-0 sm:flex sm:space-x-6">
             {navLinks.map(({ id, href, name }) => (
-                <li key={id} className="nav-li">
+                <li key={id}>
                     <Link
                         to={href}
                         onClick={closeMenu}
                         className={`
+              block transition-colors
               ${isMobile
-                            ? `block w-full px-4 py-2 rounded-md transition-colors 
-                    ${isDark
-                                ? "text-white hover:bg-gray-700"
-                                : "text-black hover:bg-gray-200"}`
-                            : `transition-colors ${
-                                isDark
-                                    ? "text-white hover:text-gray-300"
-                                    : "text-black hover:text-gray-700"
-                            }`
+                            ? "w-full px-4 py-2 rounded-md text-black hover:bg-gray-100"
+                            : "text-black hover:text-gray-500"
                         }
             `}
                     >
@@ -34,62 +28,39 @@ const NavItems = ({ isDark, closeMenu, isMobile = false }) => {
 
 const Navbar = () => {
     const [isOpen, setIsOpen] = useState(false);
-    const [isDark, setIsDark] = useState(false);
 
     const toggleMenu = () => setIsOpen((prev) => !prev);
-    const closeMenu = () => setIsOpen(false); // ✅ closes menu when item clicked
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const scrollY = window.scrollY;
-            setIsDark(scrollY > 100); // Adjust scroll threshold as needed
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
+    const closeMenu = () => setIsOpen(false);
 
     return (
-        <header
-            className={`fixed top-0 left-0 right-0 z-50 transition-colors duration-300
-        ${isDark ? "sm:bg-black/70 sm:backdrop-blur-sm" : "sm:bg-transparent"}
-        bg-black/70 backdrop-blur-sm sm:backdrop-blur-0
-      `}
-        >
+        <header className="border-b border-gray-200 fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
             <div className="max-w-7xl mx-auto">
-                <div className="flex justify-between items-center py-3 mx-auto c-space">
+                <div className="flex justify-between items-center py-4 px-6">
                     {/* Logo */}
-                    <a
-                        href="/"
-                        className={`
-              font-bold text-lg transition-colors
-              text-white hover:text-gray-300
-              sm:${isDark ? "text-white hover:text-gray-300" : "text-black hover:text-gray-700"}
-            `}
+                    <Link
+                        to="/"
+                        onClick={closeMenu}
+                        className="font-semibold text-lg text-black hover:text-gray-600 transition-colors"
                     >
                         Danh
-                    </a>
+                    </Link>
 
                     {/* Mobile Menu Button */}
                     <button
                         onClick={toggleMenu}
-                        className={`focus:outline-none sm:hidden flex transition-colors ${
-                            isDark
-                                ? "text-white hover:text-gray-300"
-                                : "text-black hover:text-gray-700"
-                        }`}
+                        className="sm:hidden flex focus:outline-none text-black hover:text-gray-600 transition-colors"
                         aria-label="Toggle menu"
                     >
                         <img
                             src={isOpen ? "/assets/close.svg" : "/assets/menu.svg"}
                             alt="toggle"
-                            className="w-6 h-6"
+                            className="w-6 h-6 invert"
                         />
                     </button>
 
                     {/* Desktop Nav */}
-                    <nav className="sm:flex hidden">
-                        <NavItems isDark={isDark} closeMenu={closeMenu} />
+                    <nav className="hidden sm:flex">
+                        <NavItems closeMenu={closeMenu} />
                     </nav>
                 </div>
 
@@ -99,8 +70,8 @@ const Navbar = () => {
                         isOpen ? "max-h-screen" : "max-h-0"
                     }`}
                 >
-                    <nav className="p-5 sm:hidden bg-black/70 text-white backdrop-blur-sm shadow-md rounded-b-lg">
-                        <NavItems isDark={true} closeMenu={closeMenu} isMobile={true} />
+                    <nav className="p-5 sm:hidden bg-white text-black shadow-md border-t border-gray-200 rounded-b-lg">
+                        <NavItems closeMenu={closeMenu} isMobile={true} />
                     </nav>
                 </div>
             </div>

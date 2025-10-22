@@ -6,7 +6,7 @@ export default function ActualResume() {
             {/* Download */}
             <div className="text-right mt-20">
                 <a
-                    href="/images/Danh_Tran_Resume.pdf"
+                    href="/images/Danh%20Tran%20Resume.pdf"
                     download
                     className="inline-block mt-2 px-3 py-1 bg-gray-200 text-black rounded shadow hover:bg-gray-300 text-xs"
                 >
@@ -25,14 +25,42 @@ export default function ActualResume() {
                     >
                         danhtraannc@gmail.com
                     </a>{" "}
-                    | 16678 Mt. Cachuma Cir. FV
+                    | Fountain Valley, CA
+                </p>
+                <p className="text-xs">
+                    <a
+                        href="https://danhtran.org/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600"
+                    >
+                        danhtran.org
+                    </a>{" "}
+                    |
+                    <a
+                        href="https://www.linkedin.com/in/danhctran"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600"
+                    >
+                        linkedin.com/in/danhctran
+                    </a>{" "}
+                    |
+                    <a
+                        href="https://github.com/VeryFluffed"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-blue-600"
+                    >
+                        github.com/VeryFluffed
+                    </a>{" "}
                 </p>
             </div>
 
-            {/* Summary */}
+            {/* CAREER PROFILE */}
             <div className="mb-4">
                 <h2 className="font-bold border-b border-black mb-1 text-sm">
-                    SUMMARY
+                    CAREER PROFILE
                 </h2>
                 <p>
                     Electromechanical engineering student aspiring to specialize in
@@ -66,7 +94,108 @@ export default function ActualResume() {
                             Control, Robotics Control & Applications, Applied Statics &
                             Dynamics, Strength of Materials, Machine Elements,
                             Thermodynamics, Fluid Mechanics, Manufacturing Systems,
-                            C/C++ Programming
+                            C/C++ Programming, Mechatronics, Calculus III,
+                            Linear Algebra & Differential Equations
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            {/* Projects */}
+            <div className="mb-4">
+                <h2 className="font-bold border-b border-black mb-1 text-sm">
+                    PROJECTS
+                </h2>
+
+                <div className="mb-2">
+                    <div className="flex justify-between text-sm">
+                        <p className="">
+                            <p className="">
+                                <a className="font-semibold"> Go-Kart Engineering Project </a> | <a className="italic"> Physics/Mechanics, Wiring, Altium
+                                PCB Design, Team Leadership </a>
+                            </p>
+                        </p>
+                        <p className="">August 2024 - July 2025</p>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                        <p className="italic">
+                            Team Leader                        </p>
+                    </div>
+
+                    <ul className="list-disc list-inside">
+                        <li>
+                            Engineered a go-kart from a repurposed bed frame; reached 15 mph
+                            in testing
+                        </li>
+                        <li>
+                            Managed ~$1.2k budget and 3-member team for design, fabrication,
+                            and testing
+                        </li>
+                        <li>
+                            Applied torque/friction analysis, drivetrain troubleshooting,
+                            and electrical wiring
+                        </li>
+                    </ul>
+                </div>
+
+                <div className="mb-2">
+                    <div className="flex justify-between text-sm">
+                        <p className="">
+                            <p className="">
+                                <a className="font-semibold"> Pickleball Launcher Project </a> | <a className="italic"> Raspberry Pi, Circuits, Python, 3D
+                                Printing, Motor Control </a>
+                            </p>
+                        </p>
+                        <p className="">February 2025 - Present</p>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                        <p className="italic">
+                            Engineering Intern (informal)                        </p>
+                    </div>
+                    <ul className="list-disc list-inside">
+                        <li>
+                            Designing motorized ball launcher with capstan drive mechanics
+                        </li>
+                        <li>
+                            Implementing H-bridge motor control and Python-based motion
+                            calibration
+                        </li>
+                        <li>
+                            Integrating 3D-printed parts with electronics for testing and
+                            iteration
+                        </li>
+                        <li>
+                            Planned to co-author a research paper on capstan vs. gear
+                            drive efficiency for ASME submission
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div className="flex justify-between text-sm">
+                        <p className="">
+                            <p className="">
+                                <a className="font-semibold"> RFID-Jukebox </a> | <a className="italic"> Raspberry Pi, Python, GPIO Wiring, Embedded Systems </a>
+                            </p>
+                        </p>
+                        <p className="">February 2025 - Present</p>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                        <p className="italic">
+                            Solo Developer                        </p>
+                    </div>
+                    <ul className="list-disc list-inside">
+                        <li>
+                            Built a functioning jukebox with custom Arduino circuitry and RFID song selection
+                        </li>
+                        <li>
+                            Designed a spring-loaded push-push mechanism in SolidWorks; integrated with GPIO control
+                        </li>
+                        <li>
+                            3D printed discs and housing for full mechanical and aesthetic design
+                        </li>
+                        <li>
+                            Applied embedded systems programming to merge physical interaction with digital sound
                         </li>
                     </ul>
                 </div>
@@ -134,103 +263,6 @@ export default function ActualResume() {
                 </div>
             </div>
 
-            {/* Projects */}
-            <div className="mb-4">
-                <h2 className="font-bold border-b border-black mb-1 text-sm">
-                    PROJECTS
-                </h2>
-
-                <div className="mb-2">
-                    <div className="flex justify-between text-sm">
-                        <p className="">
-                            <p className="">
-                                <a className="font-semibold"> Go-Kart Engineering Project </a> | <a className="italic"> Physics/Mechanics, Wiring, Altium
-                                PCB Design, Team Leadership </a>
-                            </p>
-                        </p>
-                        <p className="">August 2024 - July 2025</p>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                        <p className="italic">
-                            Team Leader                        </p>
-                    </div>
-
-                    <ul className="list-disc list-inside">
-                        <li>
-                            Engineered a go-kart from a repurposed bed frame; reached 15 mph
-                            in testing
-                        </li>
-                        <li>
-                            Managed ~$1.2k budget and 3-member team for design, fabrication,
-                            and testing
-                        </li>
-                        <li>
-                            Applied torque/friction analysis, drivetrain troubleshooting,
-                            and electrical wiring
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="mb-2">
-                    <div className="flex justify-between text-sm">
-                        <p className="">
-                            <p className="">
-                                <a className="font-semibold"> Pickleball Launcher Project </a> | <a className="italic"> Raspberry Pi, Circuits, Python, 3D
-                                Printing, Motor Control </a>
-                            </p>
-                        </p>
-                        <p className="">February 2025 - Present</p>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                        <p className="italic">
-                            Engineering Intern (informal)                        </p>
-                    </div>
-                    <ul className="list-disc list-inside">
-                        <li>
-                            Guided by a professional engineer to apply
-                            mechanical/electrical design principles
-                        </li>
-                        <li>
-                            Designing motorized ball launcher with capstan drive mechanics
-                        </li>
-                        <li>
-                            Implementing H-bridge motor control and Python-based motion
-                            calibration
-                        </li>
-                        <li>
-                            Integrating 3D-printed parts with electronics for testing and
-                            iteration
-                        </li>
-                    </ul>
-                </div>
-
-                <div>
-                    <div className="flex justify-between text-sm">
-                        <p className="">
-                            <p className="">
-                                <a className="font-semibold"> Jukebox </a> | <a className="italic"> Raspberry Pi, Python, GPIO Wiring, Embedded Systems </a>
-                            </p>
-                        </p>
-                        <p className="">February 2025 - Present</p>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                        <p className="italic">
-                            Solo Developer                        </p>
-                    </div>
-                    <ul className="list-disc list-inside">
-                        <li>
-                            Built a functioning Raspberry Pi music player with custom circuit
-                            wiring
-                        </li>
-                        <li>Programmed GPIO button controls for audio playback</li>
-                        <li>
-                            Strengthened embedded systems and hardware-software integration
-                            skills
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
             {/* Skills */}
             <div className="mb-4">
                 <h2 className="font-bold border-b border-black mb-1 text-sm">
@@ -240,8 +272,7 @@ export default function ActualResume() {
                     <span className="font-semibold">
                         Engineering & Technical Tools:
                     </span>{" "}
-                    Circuit Design, PCB Design (Altium), 3D Printing, Mechanical
-                    Prototyping, SolidWorks CAD, Raspberry Pi, Arduino, Embedded Systems
+                    Altium PCB Design, 3D Printing, SolidWorks CAD, Raspberry Pi, Arduino
                 </p>
                 <p>
                     <span className="font-semibold">Programming & Software:</span> Python,
