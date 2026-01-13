@@ -532,18 +532,26 @@ void loop() {
             </p>
 
             {/* Conclusion */}
-            <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
-                Conclusion
-            </h1>
-            <p className="text-gray-700 leading-relaxed mb-6">
-                The RFID Jukebox turned out to be one of my most rewarding projects. It started off with just a simple
-                idea and a love for arts and crafts. Then, it evolved into a system that blended skills across hardware
-                wiring and embedded software. I wired the Raspberry Pi and RFID reader pin by pin, coded the logic to
-                map RFID tags to MP3 songs, and Thomas and I designed the physical jukebox body so everything fit
-                together. I truly loved working on this project. More importantly, I proved to myself that I could learn
-                entirely new skills, software, and hardware because of my love for engineering, even if it simply
-                started as an inspiration from both Minecraft and physics class.
-            </p>
+
+            <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-12 items-center mt-10">
+
+                <div>
+                    <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
+                        Conclusion
+                    </h1>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        The RFID Jukebox turned out to be one of my most rewarding projects. It started off with just a simple idea and a love for arts and crafts. Then, it evolved into a system that blended skills across hardware wiring and embedded software. I wired the Raspberry Pi and RFID reader pin by pin, coded the logic to map RFID tags to MP3 songs, and Thomas and I designed the physical jukebox body so everything fit together. There were a ton of errors in the process, such as failed prints and designs. One line I take to heart is that a 3D printer makes a bad engineer because they feel comfortable making mistakes and just printing a new one right there. I want to be a good engineer and make models as good as can be the first time, and although I definitely failed on this project, I cut myself some slack because it was my first ever engineering project. I truly loved working on this project. More importantly, I proved to myself that I could learn entirely new skills, software, and hardware because of my love for engineering, even if it simply started as an inspiration from both Minecraft and physics class.
+                    </p>
+                </div>
+                {/*  failed prints */}
+                <div className="flex justify-center">
+                    <img
+                        src="/images/failed-prints.jpg"
+                        alt="lots of failed prints"
+                        className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                    />
+                </div>
+            </div>
             <Link
                 to="/projects"
                 className="mt-5 mb-10 inline-block text-gray-600 hover:underline text-lg"
