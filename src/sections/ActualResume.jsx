@@ -63,39 +63,101 @@ export default function ActualResume() {
                     CAREER PROFILE
                 </h2>
                 <p>
-                    Electromechanical engineering student aspiring to specialize in
-                    mechatronics. Experienced in hands-on projects integrating
-                    mechanical, electrical, and software systems. Strong leadership
-                    background in team-based engineering and technical problem-solving.
-                    Seeking an engineering internship to apply skills in circuit design,
-                    prototyping, and embedded systems.
+                    Electromechanical engineering student focused on mechatronics and robotics with hands-on experience
+                    in embedded systems, CAN communication, and robotic manipulation research. Skilled in integrating
+                    electronics, control algorithms, and mechanical design through lab research and complex engineering
+                    projects. Currently contributing to NSF-funded robotics research and autonomous vehicle development.
                 </p>
             </div>
 
-            {/* Education */}
+            {/* Skills */}
             <div className="mb-4">
                 <h2 className="font-bold border-b border-black mb-1 text-sm">
-                    EDUCATION
+                    SKILLS
+                </h2>
+                <p>
+                    <span className="font-semibold">
+                        Electrical:
+                    </span>{" "}
+                    PCB Design (Altium),   Raspberry Pi,   Arduino,   ESP32
+                </p>
+                <p>
+                    <span className="font-semibold">
+                        Embedded Systems:
+                    </span>{" "}
+                    I2C,   SPI,   UART,   BLE,   RFID,   encoders,   basic vision sensors
+                </p>
+                <p>
+                    <span className="font-semibold">
+                        Programming:
+                    </span>{" "}
+                    Python,   C++,   Bash,   Java,   HTML/CSS,   JavaScript,   Git/GitHub,  Linux
+                </p>
+                <p>
+                    <span className="font-semibold">
+                        Mechanical:
+                    </span>{" "}
+                    3D Printing,   SolidWorks CAD
+                </p>
+            </div>
+
+            {/* Experience */}
+            <div className="mb-4">
+                <h2 className="font-bold border-b border-black mb-1 text-sm">
+                    EXPERIENCE
                 </h2>
                 <div className="mb-2">
                     <div className="flex justify-between text-sm">
-                        <p className="font-semibold">
-                            California State Polytechnic University, Pomona
+                        <p className="">
+                            <a className="font-semibold"> CREST Grant Robotics Research Lab </a> | <a className="italic"> Robotics, Motion Planning, AI/ML, Control Systems</a>
                         </p>
-                        <p className="">August 2025 - December 2027</p>
+                        <p className="">January 2026 - Present</p>
                     </div>
-                    <p className="italic text-sm">
-                        Electromechanical Systems Engineer Freshman
-                    </p>
+                    <div className="flex justify-between text-sm">
+                        <p className="italic">
+                            Undergraduate Research Student Assistant                        </p>
+                        <p className="text-sm">Pomona, CA</p>
+                    </div>
                     <ul className="list-disc list-inside">
-                        <li>GPA: 4.0/4.0</li>
                         <li>
-                            Planned Coursework: Electrical Networks, Instrumentation &
-                            Control, Robotics Control & Applications, Applied Statics &
-                            Dynamics, Strength of Materials, Machine Elements,
-                            Thermodynamics, Fluid Mechanics, Manufacturing Systems,
-                            C/C++ Programming, Mechatronics, Calculus III,
-                            Linear Algebra & Differential Equations
+                            Research motion, grasp, and regrasp planning for manipulator robots in agile manufacturing and assembly
+                        </li>
+                        <li>
+                            Design and evaluate algorithms for autonomous grasping and regrasping of moving and stationary objects
+                        </li>
+                        <li>
+                            Support development of AI/ML models for robotic training and decision-making
+                        </li>
+                        <li>
+                            Collaborate with graduate and undergraduate researchers while maintaining ~10 hrs/week during academic semesters
+                        </li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div className="flex justify-between text-sm">
+                        <p className="">
+                            <a className="font-semibold"> Autonomous Vehicle Laboratory </a> | <a className="italic"> C++, Git/Github, I2C, SPI, UART, BLE </a>
+                        </p>
+                        <p className="">November 2025 - Present</p>
+                    </div>
+                    <div className="flex justify-between text-sm">
+                        <p className="italic">
+                            Mechatronics Subteam                        </p>
+                        <p className="text-sm">Pomona, CA</p>
+                    </div>
+                    <ul className="list-disc list-inside">
+                        <li>
+                            Develop embedded CAN bus infrastructure for an autonomous ground vehicle
+                        </li>
+                        <li>
+                            Implement master CAN node logic to query real-time actuator feedback (steering, throttle, brake)
+                        </li>
+                        <li>
+                            Build vehicle state dictionaries to support higher-level control algorithms
+                        </li>
+                        <li>
+                            Debug CAN message frames, arbitration IDs, and request/response timing between subsystems
                         </li>
                     </ul>
                 </div>
@@ -154,19 +216,15 @@ export default function ActualResume() {
                     </div>
                     <ul className="list-disc list-inside">
                         <li>
-                            Designing motorized ball launcher with capstan drive mechanics
+                            Designed capstan-driven launcher using ESP32, H-bridge drivers, and closed-loop motor control                        </li>
+                        <li>
+                            Integrated BLE for wireless testing and motion tuning
                         </li>
                         <li>
-                            Implementing H-bridge motor control and Python-based motion
-                            calibration
+                            Modeled and 3D-printed assemblies; validated tolerances through iterative testing
                         </li>
                         <li>
-                            Integrating 3D-printed parts with electronics for testing and
-                            iteration
-                        </li>
-                        <li>
-                            Planned to co-author a research paper on capstan vs. gear
-                            drive efficiency for ASME submission
+                            Conducting capstan vs. gear drive performance research toward planned ASME publication
                         </li>
                     </ul>
                 </div>
@@ -175,7 +233,7 @@ export default function ActualResume() {
                     <div className="flex justify-between text-sm">
                         <p className="">
                             <p className="">
-                                <a className="font-semibold"> RFID-Jukebox </a> | <a className="italic"> Raspberry Pi, Python, GPIO Wiring, Embedded Systems </a>
+                                <a className="font-semibold"> RFID-Jukebox </a> | <a className="italic"> Raspberry Pi, Python, Arduino, C++, SolidWorks Cad, 3D Printing </a>
                             </p>
                         </p>
                         <p className="">February 2025 - Present</p>
@@ -186,103 +244,37 @@ export default function ActualResume() {
                     </div>
                     <ul className="list-disc list-inside">
                         <li>
-                            Built a functioning jukebox with custom Arduino circuitry and RFID song selection
+                            Designed and built a spring-loaded push-push mechanism in SolidWorks; 3D printed and mechanically tested
                         </li>
                         <li>
-                            Designed a spring-loaded push-push mechanism in SolidWorks; integrated with GPIO control
+                            Integrated Arduino-based RFID scanner, custom button circuitry, and GPIO-based interaction logic
                         </li>
                         <li>
-                            3D printed discs and housing for full mechanical and aesthetic design
-                        </li>
-                        <li>
-                            Applied embedded systems programming to merge physical interaction with digital sound
+                            Combined embedded firmware with mechanical constraints to create a fully physical–digital interactive device
                         </li>
                     </ul>
                 </div>
             </div>
 
-            {/* Experience */}
+            {/* Education */}
             <div className="mb-4">
                 <h2 className="font-bold border-b border-black mb-1 text-sm">
-                    EXPERIENCE
+                    EDUCATION
                 </h2>
                 <div className="mb-2">
                     <div className="flex justify-between text-sm">
-                        <p className="">
-                            <a className="font-semibold"> Teaching </a> | <a className="italic"> Tutoring, Lesson Planning, Communication, Curriculum
-                            Design </a>
+                        <p className="font-semibold">
+                            California State Polytechnic University, Pomona
                         </p>
-                        <p className="">August 2021 - May 2025</p>
+                        <p className="">August 2025 - December 2027</p>
                     </div>
-                    <div className="flex justify-between text-sm">
-                        <p className="italic">
-                            Co-Teacher, Tutor, Teacher Assistant                        </p>
-                        <p className="text-sm">Westminster & Santa Ana, CA</p>
-                    </div>
+                    <p className="italic text-sm">
+                        Electromechanical Systems Engineer Freshman
+                    </p>
                     <ul className="list-disc list-inside">
-                        <li>
-                            Tutored ~8 middle school students daily; supported ~80 students
-                            over 4 years
-                        </li>
-                        <li>
-                            Co-taught digital design for runs in Vietnam, bridging
-                            English/Vietnamese communication
-                        </li>
-                        <li>
-                            Led confirmation classes and retreats for 20+ high school
-                            students
-                        </li>
+                        <li>CPP GPA: 4.0/4.0</li>
                     </ul>
                 </div>
-
-                <div>
-                    <div className="flex justify-between text-sm">
-                        <p className="">
-                            <a className="font-semibold"> CyberPatriot </a> | <a className="italic"> Linux, Bash Scripting, Networking, Cybersecurity, Leadership </a>
-                        </p>
-                        <p className="">September 2023 - Present</p>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                        <p className="italic">
-                            Coach                        </p>
-                        <p className="text-sm">Westminster, CA</p>
-                    </div>
-                    <ul className="list-disc list-inside">
-                        <li>
-                            Mentored 9 teams (~54 students) national CyberPatriot competition
-                        </li>
-                        <li>
-                            Scripted ~2k lines of Bash for Linux hardening and security
-                            automation
-                        </li>
-                        <li>
-                            Coached teams to Top 100 National Platinum Tier (twice) and grew
-                            placements by 200%
-                        </li>
-                    </ul>
-                </div>
-            </div>
-
-            {/* Skills */}
-            <div className="mb-4">
-                <h2 className="font-bold border-b border-black mb-1 text-sm">
-                    SKILLS
-                </h2>
-                <p>
-                    <span className="font-semibold">
-                        Engineering & Technical Tools:
-                    </span>{" "}
-                    Altium PCB Design, 3D Printing, SolidWorks CAD, Raspberry Pi, Arduino
-                </p>
-                <p>
-                    <span className="font-semibold">Programming & Software:</span> Python,
-                    Bash, C++, Java, HTML/CSS, JavaScript, OpenGL, Git/GitHub
-                </p>
-                <p>
-                    <span className="font-semibold">Certifications:</span> Virtual Intern
-                    Simulation @ Johnson & Johnson Medtech, State Seal of Civic Engagement,
-                    Seal of Biliteracy, Computer Science & Cyber Security CTE Pathway
-                </p>
             </div>
         </div>
     );
