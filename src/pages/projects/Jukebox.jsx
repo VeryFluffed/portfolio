@@ -1,5 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import videoSource from '/videos/push-push-mechanism.mp4'
+import videoSource2 from '/videos/jukebox.mp4'
+
 
 const Jukebox = () => {
     return (
@@ -16,7 +19,7 @@ const Jukebox = () => {
                 {/* Project Image */}
                 <div>
                     <img
-                        src="/images/rfid-jukebox.png"
+                        src="/images/rfid-hero.jpg"
                         alt="Go-Kart Project"
                         className="rounded-lg shadow-lg object-cover w-full h-full"
                     />
@@ -274,6 +277,14 @@ const Jukebox = () => {
                 to talk to the reader at all.
             </p>
 
+            <div className="flex justify-center">
+                <img
+                    src="/images/rfid-jukebox.png"
+                    alt="conected wires"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+            </div>
+
             {/* Software & Code */}
             <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
                 Software & Code
@@ -523,24 +534,225 @@ void loop() {
             </p>
 
 
-            {/* 3D Printing */}
-            <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
-                3D Printing
-            </h1>
+            {/* Physical Architecture */}
+
+            <div className="grid grid-cols-1 md:grid-cols-[80%_20%] gap-12 items-center mt-10">
+
+                <div>
+                    <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
+                        Physical Architecture
+                    </h1>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        I knew I wanted the disc to jump up just like it does in Minecraft, so I decided to
+                        use a push-push mechanism. Similar to Nintendo cartridges, the idea was to push the
+                        disc into the jukebox to lock it in place, then push it again to eject it.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        After researching existing designs, I found a model by Aaron Medina on YouTube.
+                        His design used a spring-loaded sliding component constrained by a limiter stick.
+                        The original design relied on bending a part via an inclined plane to reset the
+                        mechanism. Instead, I redesigned the system to push the reset motion laterally,
+                        improving reliability without stressing the material.
+                    </p>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        Because I planned for each pixel of the Minecraft jukebox to correspond to 1 cm in
+                        real life, the height constraints of the mechanism became critical. The slider
+                        required a precise gap between the stopping point (blue region) and the free-hanging
+                        point (red region) in order to function correctly.
+                    </p>
+                </div>
+                {/*  Push-push demo video video */}
+                <div className="flex justify-center mb-6">
+                    <div>
+                        <video controls muted autoPlay loop className="rounded-lg shadow-lg object-cover max-w-sm w-full">
+                            <source src={videoSource} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            {/* Mechanism diagrams placeholders */}
+            <div className="flex justify-center">
+                <img
+                    src="/images/ppmechdiagram.png"
+                    alt="ppmechdiagram"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+                <img
+                    src="/images/ppmech.png"
+                    alt="ppmech"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+            </div>
+
             <p className="text-gray-700 leading-relaxed mb-6">
-                Coming soon…
+                I later added fillets and chamfers to the spring holders so that the components would
+                slide into each other smoothly when compressed. Before this change, the lateral
+                failure rate was over 60%, depending on the direction of the applied normal force.
+                After the revision, lateral failures dropped to 0%.
             </p>
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                Longitudinal failures were less severe at roughly 30%, caused by the normal force
+                applied by the limiter stick. Adding blockers to prevent unwanted slider motion
+                reduced the longitudinal failure rate to 0% as well.
+            </p>
+
+            {/* Fillet detail placeholder */}
+            <div className="flex justify-center">
+                <img
+                    src="/images/filletchamferjukebox.png"
+                    alt="ppmechdiagram"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+            </div>
+
+
+            <p className="text-gray-700 leading-relaxed mb-6">
+                The disc, although not perfectly replicated in size in Minecraft as a floating item, was very easy and designed to optimally fit into the 2cm x 10cm wide gap on the jukebox to easily apply pressure without having the disc flip around. The RFID tag is placed in a tag-shaped hole on the disc. The MFRC522 scanner is mounted on the sides of the gap to read the disc as it enters. The rest of the electronics are stored inside the 16cm cubed jukebox.
+
+            </p>
+
+            <div className="flex justify-center">
+                <img
+                    src="/images/disc.jpg"
+                    alt="disc with RFID tag"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+                <img
+                    src="/images/jukebox-interior.png"
+                    alt="Jukebox with electronics inside"
+                    className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                />
+            </div>
+
+            {/* 3D Printing */}
+
+            <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-12 items-center mt-10">
+
+                <div>
+                    <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
+                        3D Printing
+                    </h1>
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        This was my first time using a 3D printer. Originally, I planned to learn and use the 3D printers provided at my school. However, they were always being used by other people. And there is a reason why I quit tennis to get employed in my last year of high school. Thus, in a random spur of events, I ended up buying a Centauri Carbon Elegoo 3D printer at Microcenter. After a quick Google search, I am now using OrcaSlicer.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        Learning 3D printing came with significant troubleshooting. Small parameter changes
+                        often caused noticeable print defects, forcing me to understand the relationship
+                        between material behavior, temperature, and mechanical tolerances.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        After a few hours of learning, I was able to print 3D models with good
+                        resolution and accuracy. I also started to paint my models to look just like the
+                        jukebox in Minecraft.
+                    </p>
+                </div>
+                <div className="flex justify-center">
+                    <img
+                        src="/images/jukebox.png"
+                        alt="painted jukebox!"
+                        className="rounded-lg shadow-lg object-cover max-w-sm w-full h-auto m-6"
+                    />
+                </div>
+            </div>
+
+            <div className="overflow-x-auto mb-10">
+                <table className="table-auto border-collapse border border-gray-300 w-full text-left text-sm">
+                    <thead className="bg-gray-100">
+                    <tr>
+                        <th className="border border-gray-300 px-4 py-2">Condition</th>
+                        <th className="border border-gray-300 px-4 py-2">Observed Effect</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">High Nozzle Temperature</td>
+                        <td className="border border-gray-300 px-4 py-2">
+                            Stringing, oozing, blobs, rough corners, warping
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">Low Nozzle Temperature</td>
+                        <td className="border border-gray-300 px-4 py-2">
+                            Under-extrusion
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">High Bed Temperature</td>
+                        <td className="border border-gray-300 px-4 py-2">
+                            Over-adhesion and material deformation
+                        </td>
+                    </tr>
+                    <tr>
+                        <td className="border border-gray-300 px-4 py-2">Low Bed Temperature</td>
+                        <td className="border border-gray-300 px-4 py-2">
+                            Poor bed adhesion and failed prints
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
 
             {/* Conclusion */}
 
-            <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-12 items-center mt-10">
+            <div className="grid grid-cols-1 md:grid-cols-[80%_20%] gap-12 items-center mt-10">
 
                 <div>
                     <h1 className="text-2xl font-bold mb-6 tracking-wide mt-10">
                         Conclusion
                     </h1>
                     <p className="text-gray-700 leading-relaxed mb-6">
-                        The RFID Jukebox turned out to be one of my most rewarding projects. It started off with just a simple idea and a love for arts and crafts. Then, it evolved into a system that blended skills across hardware wiring and embedded software. I wired the Raspberry Pi and RFID reader pin by pin, coded the logic to map RFID tags to MP3 songs, and Thomas and I designed the physical jukebox body so everything fit together. There were a ton of errors in the process, such as failed prints and designs. One line I take to heart is that a 3D printer makes a bad engineer because they feel comfortable making mistakes and just printing a new one right there. I want to be a good engineer and make models as good as can be the first time, and although I definitely failed on this project, I cut myself some slack because it was my first ever engineering project. I truly loved working on this project. More importantly, I proved to myself that I could learn entirely new skills, software, and hardware because of my love for engineering, even if it simply started as an inspiration from both Minecraft and physics class.
+                        Although the disc is able to shoot out as shown in the video, the friction between the push-push mechanism
+                        and the case around it creates an unpleasant sound that is hard to listen to. I also did not want
+                        to paint the disc nor glue the RFID tag, so it will stay out as that.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        When upgrading it, I would like to fix the friction between the two parts and make the sound
+                        nicer. I would also like to add a better way to control the push-push mechanism because the
+                        stick would not hook on the slider, and it does not work as expected.
+                    </p>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        At school, there is also a sticker machine I would like to use to decorate the discs. However, they
+                        have always been busy, so I have not been able to do it. However, it would be worth trying later
+                        when I eventually decide to rework my jukebox.
+                    </p>
+
+                </div>
+                {/*  Push-push demo video video */}
+                <div className="flex justify-center mb-6">
+                    <div>
+                        <video controls muted autoPlay loop className="rounded-lg shadow-lg object-cover max-w-sm w-full">
+                            <source src={videoSource2} type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-[70%_30%] gap-12 items-center mt-10">
+
+                <div>
+
+                    <p className="text-gray-700 leading-relaxed mb-6">
+                        The RFID Jukebox turned out to be one of my most rewarding projects. It started off with just a
+                        simple idea and a love for arts and crafts. Then, it evolved into a system that blended skills
+                        across hardware wiring and embedded software. I wired the Raspberry Pi and RFID reader pin by
+                        pin, coded the logic to map RFID tags to MP3 songs, and Thomas and I designed the physical
+                        jukebox body so everything fit together. There were a ton of errors in the process, such as
+                        failed prints and designs. One line I take to heart is that a 3D printer makes a bad engineer
+                        because they feel comfortable making mistakes and just printing a new one right there. I want to
+                        be a good engineer and make models as good as can be the first time, and although I definitely
+                        failed on this project, I cut myself some slack because it was my first ever engineering
+                        project. I truly loved working on this project. More importantly, I proved to myself that I
+                        could learn entirely new skills, software, and hardware because of my love for engineering, even
+                        if it simply started as an inspiration from both Minecraft and physics class.
                     </p>
                 </div>
                 {/*  failed prints */}
