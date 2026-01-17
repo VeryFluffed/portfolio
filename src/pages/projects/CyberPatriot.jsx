@@ -79,6 +79,7 @@ const CyberPatriot = () => {
                     <div className="flex gap-4">
                         <a
                             href="/public/images/The Better Linux Checklist.pdf"
+                            target="_blank"
                             className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition"
                         >
                             Checklist

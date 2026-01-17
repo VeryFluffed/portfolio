@@ -69,13 +69,15 @@ const Jukebox = () => {
                     {/* Buttons */}
                     <div className="flex gap-4">
                         <a
-                            href="#"
+                            href="https://github.com/VeryFluffed/RFID-Jukebox"
+                            target="_blank"
                             className="px-4 py-2 rounded bg-gray-800 text-white hover:bg-gray-700 transition"
                         >
-                            Testing Results
+                            Code
                         </a>
                         <a
-                            href="#"
+                            href="https://drive.google.com/drive/folders/1hfMqkzi2uWiy0Mkr-TCJY92aNP8Y7IjQ?usp=sharing"
+                            target="_blank"
                             className="px-4 py-2 rounded bg-gray-200 text-gray-800 hover:bg-gray-300 transition"
                         >
                             CAD Files
