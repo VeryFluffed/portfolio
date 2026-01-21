@@ -28,14 +28,14 @@ export default function ActualResume() {
                     | Fountain Valley, CA
                 </p>
                 <p className="text-xs">
-                    <a
+                    <ago
                         href="https://danhtran.org/"
                         target="_blank"
                         rel="noopener noreferrer"
                         className="text-blue-600"
                     >
                         danhtran.org
-                    </a>{" "}
+                    </ago>{" "}
                     |
                     <a
                         href="https://www.linkedin.com/in/danhctran"
@@ -57,19 +57,6 @@ export default function ActualResume() {
                 </p>
             </div>
 
-            {/* CAREER PROFILE */}
-            <div className="mb-4">
-                <h2 className="font-bold border-b border-black mb-1 text-sm">
-                    CAREER PROFILE
-                </h2>
-                <p>
-                    Electromechanical engineering student focused on mechatronics and robotics with hands-on experience
-                    in embedded systems, CAN communication, and robotic manipulation research. Skilled in integrating
-                    electronics, control algorithms, and mechanical design through lab research and complex engineering
-                    projects. Currently contributing to NSF-funded robotics research and autonomous vehicle development.
-                </p>
-            </div>
-
             {/* Skills */}
             <div className="mb-4">
                 <h2 className="font-bold border-b border-black mb-1 text-sm">
@@ -79,25 +66,19 @@ export default function ActualResume() {
                     <span className="font-semibold">
                         Electrical:
                     </span>{" "}
-                    PCB Design (Altium),   Raspberry Pi,   Arduino,   ESP32
-                </p>
-                <p>
-                    <span className="font-semibold">
-                        Embedded Systems:
-                    </span>{" "}
-                    I2C,   SPI,   UART,   BLE,   RFID,   encoders,   basic vision sensors
+                    PCB Design (Altium), ESP32, Arduino, Raspberry Pi, CAN Bus, I2C, SPI, UART, BLE, RFID
                 </p>
                 <p>
                     <span className="font-semibold">
                         Programming:
                     </span>{" "}
-                    Python,   C++,   Bash,   Java,   HTML/CSS,   JavaScript,   Git/GitHub,  Linux
+                    Python, C++, Bash, Java, HTML/CSS, Javascript, Git/GitHub, Linux, MATLAB, Excel
                 </p>
                 <p>
                     <span className="font-semibold">
                         Mechanical:
                     </span>{" "}
-                    3D Printing,   SolidWorks CAD
+                    3D Printing,   SolidWorks CAD, Electromechanical Integration
                 </p>
             </div>
 
@@ -109,27 +90,27 @@ export default function ActualResume() {
                 <div className="mb-2">
                     <div className="flex justify-between text-sm">
                         <p className="">
-                            <a className="font-semibold"> CREST Grant Robotics Research Lab </a> | <a className="italic"> Robotics, Motion Planning, AI/ML, Control Systems</a>
+                            <a className="font-semibold"> CREST Grant Robotics Research Lab </a> | <a className="italic"> Robotics, Motion Planning, AI/ML, C++</a>
                         </p>
-                        <p className="">January 2026 - Present</p>
+                        <p className="">December 2025 - Present</p>
                     </div>
                     <div className="flex justify-between text-sm">
                         <p className="italic">
-                            Undergraduate Research Student Assistant                        </p>
+                            Robotics Engineer Intern                        </p>
                         <p className="text-sm">Pomona, CA</p>
                     </div>
                     <ul className="list-disc list-inside">
                         <li>
-                            Research motion, grasp, and regrasp planning for manipulator robots in agile manufacturing and assembly
+                            Designed and fabricated 5-fingered robotic manipulator for agile manufacturing research, integrating AI and robotics in manufacturing setting with CREST Grant Robotics Research Lab
                         </li>
                         <li>
-                            Design and evaluate algorithms for autonomous grasping and regrasping of moving and stationary objects
+                            Researched reliable physical architecture by comparing (DoF) actuators with compliant mechanisms and analyzing string tension forces with MATLAB: reduced distal mass and optimized electricity
                         </li>
                         <li>
-                            Support development of AI/ML models for robotic training and decision-making
+                            Integrated electromechanical hardware by researching electronic datasheets like CAN/UART communication and sizes on SolidWorks: developed functioning electromechanical system easy to modify for future researchers
                         </li>
                         <li>
-                            Collaborate with graduate and undergraduate researchers while maintaining ~10 hrs/week during academic semesters
+                            Developed grasp selection by evaluating AI/ML-based grasping, such as researching and comparing tactile sensors (force, pressure, slip) and cameras with point clouds: created a manufacturing system capable of working with direct raw sensor input, generalizing unseen objects, and improving vision quality with lenses and reflections
                         </li>
                     </ul>
                 </div>
@@ -137,27 +118,24 @@ export default function ActualResume() {
                 <div>
                     <div className="flex justify-between text-sm">
                         <p className="">
-                            <a className="font-semibold"> Autonomous Vehicle Laboratory </a> | <a className="italic"> C++, Git/Github, I2C, SPI, UART, BLE </a>
+                            <a className="font-semibold"> Autonomous Vehicle Laboratory </a> | <a className="italic"> C++, Git/Github, I2C, SPI, UART, BLE, CAN Bus, Altium	 </a>
                         </p>
                         <p className="">November 2025 - Present</p>
                     </div>
                     <div className="flex justify-between text-sm">
                         <p className="italic">
-                            Mechatronics Subteam                        </p>
+                            Mechatronics Engineer Subteam Member                        </p>
                         <p className="text-sm">Pomona, CA</p>
                     </div>
                     <ul className="list-disc list-inside">
                         <li>
-                            Develop embedded CAN bus infrastructure for an autonomous ground vehicle
+                            Teamed up with senior engineering students to improve the old autonomous vehicle design and develop a smarter AI camera to create a level 5 autonomous vehicle
                         </li>
                         <li>
-                            Implement master CAN node logic to query real-time actuator feedback (steering, throttle, brake)
+                            Optimized Arduino/PCB (Altium) communication by rewriting the existing code in C++ to replace an unoptimized communication system (I2C, SPI, UART, BLE) with a CAN bus infrastructure: enabled reliable inter-module communication and improved electronic communication speed
                         </li>
                         <li>
-                            Build vehicle state dictionaries to support higher-level control algorithms
-                        </li>
-                        <li>
-                            Debug CAN message frames, arbitration IDs, and request/response timing between subsystems
+                            Improved data collection for the software team by implementing master CAN node logic to actively request and store real-time actuator feedback: increasing steering, throttle, and brakes data by 130%
                         </li>
                     </ul>
                 </div>
@@ -173,58 +151,23 @@ export default function ActualResume() {
                     <div className="flex justify-between text-sm">
                         <p className="">
                             <p className="">
-                                <a className="font-semibold"> Go-Kart Engineering Project </a> | <a className="italic"> Physics/Mechanics, Wiring, Altium
-                                PCB Design, Team Leadership </a>
+                                <a className="font-semibold"> Pickleball Launcher </a> | <a className="italic"> Raspberry Pi, ESP32, Python, 3D Printing, C++, BLE </a>
                             </p>
                         </p>
-                        <p className="">August 2024 - July 2025</p>
+                        <p className="">February 2025 - August 2025</p>
                     </div>
                     <div className="flex justify-between text-sm">
                         <p className="italic">
-                            Team Leader                        </p>
-                    </div>
-
-                    <ul className="list-disc list-inside">
-                        <li>
-                            Engineered a go-kart from a repurposed bed frame; reached 15 mph
-                            in testing
-                        </li>
-                        <li>
-                            Managed ~$1.2k budget and 3-member team for design, fabrication,
-                            and testing
-                        </li>
-                        <li>
-                            Applied torque/friction analysis, drivetrain troubleshooting,
-                            and electrical wiring
-                        </li>
-                    </ul>
-                </div>
-
-                <div className="mb-2">
-                    <div className="flex justify-between text-sm">
-                        <p className="">
-                            <p className="">
-                                <a className="font-semibold"> Pickleball Launcher Project </a> | <a className="italic"> Raspberry Pi, Circuits, Python, 3D
-                                Printing, Motor Control </a>
-                            </p>
-                        </p>
-                        <p className="">February 2025 - Present</p>
-                    </div>
-                    <div className="flex justify-between text-sm">
-                        <p className="italic">
-                            Engineering Intern (informal)                        </p>
+                            Robotics Engineer Apprentice                        </p>
                     </div>
                     <ul className="list-disc list-inside">
                         <li>
-                            Designed capstan-driven launcher using ESP32, H-bridge drivers, and closed-loop motor control                        </li>
+                            Talked to a current professional engineer to start a pickleball launcher for pickleball training with AI cameras to detect players and adjust shooting difficulty to the player                        </li>
                         <li>
-                            Integrated BLE for wireless testing and motion tuning
+                            Developed physical architecture by modeling on Solidworks and comparing 3D printed gears and capstan drives, in turn optimizing the flow rate of pickleballs feeding the machine: saved energy usage and increased physical durability of internal mechanisms
                         </li>
                         <li>
-                            Modeled and 3D-printed assemblies; validated tolerances through iterative testing
-                        </li>
-                        <li>
-                            Conducting capstan vs. gear drive performance research toward planned ASME publication
+                            Programmed a dual motor shooter for pickleball, first using a Raspberry Pi (Python & Linux) as the main computer and eventually evolving to ESP32 (C++) with H-bridge drivers to control the motors: saved energy by switching and gained remote control using BLE for wireless connection on nRFConnect on iPhone
                         </li>
                     </ul>
                 </div>
@@ -233,10 +176,10 @@ export default function ActualResume() {
                     <div className="flex justify-between text-sm">
                         <p className="">
                             <p className="">
-                                <a className="font-semibold"> RFID-Jukebox </a> | <a className="italic"> Raspberry Pi, Python, Arduino, C++, SolidWorks Cad, 3D Printing </a>
+                                <a className="font-semibold"> RFID-Jukebox </a> | <a className="italic"> Raspberry Pi, Python, Arduino, C++, SolidWorks Cad, 3D Printing, Linux </a>
                             </p>
                         </p>
-                        <p className="">February 2025 - Present</p>
+                        <p className="">February 2025 - November 2025</p>
                     </div>
                     <div className="flex justify-between text-sm">
                         <p className="italic">
@@ -244,13 +187,13 @@ export default function ActualResume() {
                     </div>
                     <ul className="list-disc list-inside">
                         <li>
-                            Designed and built a spring-loaded push-push mechanism in SolidWorks; 3D printed and mechanically tested
+                            Recreated a Minecraft jukebox to work in real life, including designing, programming, and printing to play music
                         </li>
                         <li>
-                            Integrated Arduino-based RFID scanner, custom button circuitry, and GPIO-based interaction logic
+                            Created physical architecture by comparing different push-push mechanisms and improving existing models on SolidWorks to 3D print: created a 50% thinner modular system, increased success of high-speed disc ejection by 150%
                         </li>
                         <li>
-                            Combined embedded firmware with mechanical constraints to create a fully physical–digital interactive device
+                            Created a music system by comparing Raspberry Pi (Python & Linux) and Arduino (C++), and using RFID components: decreased cost by $40 choosing Arduinos, created individual music discs by logging each RFID ID with .mp4 to play on 2 speakers
                         </li>
                     </ul>
                 </div>
@@ -266,10 +209,10 @@ export default function ActualResume() {
                         <p className="font-semibold">
                             California State Polytechnic University, Pomona
                         </p>
-                        <p className="">August 2025 - December 2027</p>
+                        <p className="">Expected December 2027</p>
                     </div>
                     <p className="italic text-sm">
-                        Electromechanical Systems Engineer Freshman
+                        Bachelor’s of Science in Electromechanical Systems Engineer
                     </p>
                     <ul className="list-disc list-inside">
                         <li>CPP GPA: 4.0/4.0</li>
