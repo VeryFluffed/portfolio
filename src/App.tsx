@@ -6,7 +6,7 @@ import { navLinks } from "@/data";
 // import About from "./pages/About";
 // import Resume from "./pages/Resume";
 // import Projects from "./pages/Projects";
-// import Footer from "./sections/Footer";
+import Footer from "./sections/Footer";
 // import GoKart from "./pages/projects/GoKart";
 // import Pickleball from "./pages/projects/Pickleball";
 // import Jukebox from "./pages/projects/Jukebox";
@@ -32,7 +32,7 @@ const App = () => {
         <Route path="/projects/portfolio" element={<Portfolio />} /> */}
       </Routes>
 
-      {/* <Footer /> */}
+      <Footer />
     </Router>
   );
 };

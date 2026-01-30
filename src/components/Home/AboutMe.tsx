@@ -6,7 +6,6 @@ const AboutMe = () => {
   return (
     <section className="w-full px-4 sm:px-6 md:px-12 lg:px-16">
       <div className="mx-auto flex max-w-7xl flex-col items-center gap-12 px-2 sm:px-6 md:flex-row md:px-12 lg:px-20">
-        {/* image */}
         <div className="flex size-72 shrink-0 items-center justify-center md:h-full">
           <img
             src="/images/profile.jpg"
@@ -14,11 +13,10 @@ const AboutMe = () => {
             className="h-full w-full rounded object-cover"
           />
         </div>
-
-        <div className="flex flex-1 flex-col justify-center bg-white p-8">
-          <div className="leading-relaxed text-gray-900">
-            <p className={"mb-4 text-2xl tracking-widest"}>HELLO, I’M DANH!</p>
-            <p className="about_tag mb-4 text-justify text-base leading-relaxed text-gray-700">
+        <div className="flex flex-1 flex-col justify-center p-8">
+          <div className="grid gap-4 not-first:mb-4 not-first:text-justify not-first:text-base not-first:leading-relaxed">
+            <p className="mb-4 text-2xl tracking-widest">HELLO, I’M DANH!</p>
+            <p>
               I discovered my passion for <b>Mechatronics Engineering</b>{" "}
               through late-night projects that started as wild ideas and turned
               into real builds. Now, I’m pursuing my Electromechanical Systems
@@ -32,32 +30,31 @@ const AboutMe = () => {
                 problem-solving, teamwork, and leadership skills.
               </b>
             </p>
-            <p className="about_tag mb-4 text-justify text-base leading-relaxed text-gray-700">
+            <p>
               I love working across <b>software and hardware</b> to solve
               everyday challenges. I get excited about projects that blend
               technical challenges with real-world impact, and I will keep
-              pushing into
-              <b> robotics and sustainable automation.</b> Beyond the technical
-              side, I’m driven to inspire those around me—showing that ambitions
-              often feel further away than they really are.
+              pushing into <b>robotics and sustainable automation.</b> Beyond
+              the technical side, I’m driven to inspire those around me—showing
+              that ambitions often feel further away than they really are.
             </p>
-            <p className="about_tag mb-4 text-justify text-base leading-relaxed text-gray-700">
+            <p>
               Outside of engineering, I enjoy gaming, mentoring students, and
               hiking. Scroll down to see some of my projects—or feel free to
               reach out if you’d like to connect!
             </p>
-            {/* Social icons (beneath text) */}
             <div className="mt-2 mb-10 flex gap-6">
-              <Link to="mailto:danhcorps@gmail.com" external>
+              <Link variant="icon" to="mailto:danhcorps@gmail.com" external>
                 <MailIcon />
               </Link>
               <Link
+                variant="icon"
                 to="https://www.linkedin.com/in/danh-tran-9b657a362/"
                 external
               >
                 <LinkedinIcon />
               </Link>
-              <Link to="https://github.com/VeryFluffed" external>
+              <Link variant="icon" to="https://github.com/VeryFluffed" external>
                 <SiGithub />
               </Link>
             </div>
