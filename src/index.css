@@ -192,4 +192,8 @@ button:focus-visible {
   body {
     @apply bg-background text-foreground;
   }
+
+  .main {
+    @apply mx-auto w-full max-w-7xl px-4 md:px-6;
+  }
 }

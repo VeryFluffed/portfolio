@@ -3,10 +3,10 @@ import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
 import { Navbar } from "@/components/ui/@timeworn/navbar";
 import { navLinks } from "@/data";
+import Footer from "@/components/Footer";
 // import About from "./pages/About";
 // import Resume from "./pages/Resume";
 // import Projects from "./pages/Projects";
-import Footer from "./sections/Footer";
 // import GoKart from "./pages/projects/GoKart";
 // import Pickleball from "./pages/projects/Pickleball";
 // import Jukebox from "./pages/projects/Jukebox";
@@ -17,7 +17,11 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <Navbar logo="Danh" links={navLinks} />
+      <Navbar
+        logo="Danh"
+        className="fixed w-full backdrop-blur!"
+        links={navLinks}
+      />
 
       <Routes>
         <Route path="/" element={<Home />} />

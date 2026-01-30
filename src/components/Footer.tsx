@@ -4,7 +4,7 @@ import { footerSocials } from "@/data/footer";
 
 const Footer = () => {
   return (
-    <footer className="bg-accent border border-t px-6 py-8">
+    <footer className="bg-accent mt-12 border border-t px-6 py-8">
       <div className="mx-auto flex max-w-6xl flex-col items-center justify-between gap-6 text-center sm:flex-row sm:items-start sm:text-left">
         <div>
           <h2 className="text-lg font-bold tracking-widest">DANH TRAN</h2>
