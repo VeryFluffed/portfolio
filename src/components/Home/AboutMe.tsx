@@ -1,6 +1,8 @@
 import Link from "@/components/Link";
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { LinkedinIcon, MailIcon } from "lucide-react";
+import AboutMeText from "@/components/Home/AboutMeText.md?raw";
+import { Markdown } from "@/components/Markdown";
 
 const AboutMe = () => {
   return (
@@ -15,34 +17,8 @@ const AboutMe = () => {
         </div>
         <div className="flex flex-1 flex-col justify-center p-8">
           <div className="grid gap-4 not-first:mb-4 not-first:text-justify not-first:text-base not-first:leading-relaxed">
-            <p className="mb-4 text-2xl tracking-widest">HELLO, I’M DANH!</p>
-            <p>
-              I discovered my passion for <b>Mechatronics Engineering</b>{" "}
-              through late-night projects that started as wild ideas and turned
-              into real builds. Now, I’m pursuing my Electromechanical Systems
-              Engineering degree at{" "}
-              <Link to="https://www.cpp.edu/" external>
-                Cal Poly Pomona
-              </Link>
-              , with a focus on Mechatronics. Along the way, I’ve built{" "}
-              <b>
-                go-karts, Raspberry Pi systems, and PCBs, while sharpening my
-                problem-solving, teamwork, and leadership skills.
-              </b>
-            </p>
-            <p>
-              I love working across <b>software and hardware</b> to solve
-              everyday challenges. I get excited about projects that blend
-              technical challenges with real-world impact, and I will keep
-              pushing into <b>robotics and sustainable automation.</b> Beyond
-              the technical side, I’m driven to inspire those around me—showing
-              that ambitions often feel further away than they really are.
-            </p>
-            <p>
-              Outside of engineering, I enjoy gaming, mentoring students, and
-              hiking. Scroll down to see some of my projects—or feel free to
-              reach out if you’d like to connect!
-            </p>
+            <h2 className="mb-4 text-2xl tracking-widest">HELLO, I’M DANH!</h2>
+            <Markdown>{AboutMeText}</Markdown>
             <div className="mt-2 mb-10 flex gap-6">
               <Link variant="icon" to="mailto:danhcorps@gmail.com" external>
                 <MailIcon />

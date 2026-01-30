@@ -14,7 +14,7 @@ export default function Projects() {
           ))}
         </div>
         <div className="mt-8 flex justify-center">
-          <Button asChild>
+          <Button size="lg" asChild>
             <Link to="/projects">View All Projects →</Link>
           </Button>
         </div>
