@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import { Navbar } from "@/components/ui/@timeworn/navbar";
 import { navLinks } from "@/data";
 import Footer from "@/components/Footer";
+import About from "@/pages/About";
 // import About from "./pages/About";
 // import Resume from "./pages/Resume";
 // import Projects from "./pages/Projects";
@@ -25,9 +26,9 @@ const App = () => {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        {/* <Route path="/about" element={<About />} />
-        <Route path="/resume" element={<Resume />} />
-        <Route path="/projects" element={<Projects />} /> */}
+        <Route path="/about" element={<About />} />
+        {/* <Route path="/resume" element={<Resume />} /> */}
+        {/* <Route path="/projects" element={<Projects />} /> */}
 
         {/* <Route path="/projects/go-kart" element={<GoKart />} />
         <Route path="/projects/pickleball" element={<Pickleball />} />

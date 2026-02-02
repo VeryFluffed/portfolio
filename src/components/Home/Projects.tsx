@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { projects } from "@/data";
 import { Link } from "react-router-dom";
 
-export default function Projects() {
+export const Projects = () => {
   return (
     <section className="main">
       <div className="mb-10 grid gap-8 md:grid-cols-2">
@@ -18,4 +18,4 @@ export default function Projects() {
       </div>
     </section>
   );
-}
+};

@@ -1,6 +1,6 @@
 import { Canvas } from "@/components/Home/Hero/Canvas";
 
-const Hero = () => {
+export const Hero = () => {
   return (
     <section className="bg-background relative flex min-h-screen w-full flex-col">
       <div
@@ -21,4 +21,3 @@ const Hero = () => {
     </section>
   );
 };
-export default Hero;

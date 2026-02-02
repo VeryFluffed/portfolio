@@ -50,6 +50,12 @@
   --sidebar-ring: oklch(0.708 0 0);
 }
 
+#root {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
 /* a {
   font-weight: 500;
   color: #646cff;
@@ -148,6 +154,8 @@ button:focus-visible {
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  --font-timesnewroman: "Times New Roman", serif;
 }
 
 .dark {
@@ -194,6 +202,22 @@ button:focus-visible {
   }
 
   .main {
-    @apply mx-auto w-full max-w-7xl px-4 md:px-6;
+    @apply mx-auto w-full max-w-7xl px-4 sm:px-6 md:px-12 lg:px-16;
+  }
+
+  main.main {
+    @apply pt-36;
+  }
+
+  .typography {
+    @apply font-timesnewroman;
+
+    h2 {
+      @apply text-3xl font-serif font-light mb-6 tracking-widest;
+    }
+
+    p {
+      @apply text-base text-foreground leading-relaxed text-justify mb-4;
+    }
   }
 }

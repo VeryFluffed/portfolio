@@ -8,18 +8,20 @@ export const Markdown: FC<ComponentProps<typeof ReactMarkdown>> = ({
   ...props
 }) => {
   return (
-    <ReactMarkdown
-      components={{
-        a: ({ href, children }) => (
-          <Link href={href} external>
-            {children}
-          </Link>
-        ),
-        ...components,
-      }}
-      {...props}
-    >
-      {children}
-    </ReactMarkdown>
+    <div className="typography">
+      <ReactMarkdown
+        components={{
+          a: ({ href, children }) => (
+            <Link href={href} external>
+              {children}
+            </Link>
+          ),
+          ...components,
+        }}
+        {...props}
+      >
+        {children}
+      </ReactMarkdown>
+    </div>
   );
 };
