@@ -206,10 +206,10 @@ button:focus-visible {
   }
 
   main.main {
-    @apply pt-36;
+    @apply pt-24;
   }
 
-  .typography {
+  .typography-about {
     @apply font-timesnewroman;
 
     h2 {
@@ -218,6 +218,16 @@ button:focus-visible {
 
     p {
       @apply text-base text-foreground leading-relaxed text-justify mb-4;
+    }
+  }
+
+  .typography {
+    h2 {
+      @apply mt-10 mb-6 text-2xl font-bold tracking-wide
+    }
+
+    p {
+      @apply mb-6 leading-relaxed text-foreground/70;
     }
   }
 }
