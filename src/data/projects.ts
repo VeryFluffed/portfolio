@@ -48,7 +48,7 @@ export const projects = [
       "working with real galvanized square steel, heavy-duty electrical wiring, and applying theory " +
       "to real life. We reached 15 mph in testing, applied torque/friction analysis, and drivetrain " +
       "troubleshooting.",
-    video: "/videos/go-kart3.mp4",
+    video: "/videos/go-kart.mp4",
     tech: [
       { name: "Altium", icon: SiAltiumdesigner },
       { name: "SolidWorks", icon: "/icons/solidworks.png" },
@@ -65,7 +65,7 @@ export const projects = [
       "wiring. I also programmed GPIO button controls for audio playbacks, all to apply my theoretical " +
       "knowledge and strengthen my embedded systems and hardware-software integration skills. I plan to use my " +
       "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
-    video: "/videos/rfid-jukebox3.mp4",
+    video: "/videos/rfid-jukebox.mp4",
     tech: [
       { name: "Raspberry Pi", icon: SiRaspberrypi },
       { name: "Arduino", icon: SiArduino },
