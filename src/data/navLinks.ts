@@ -1,4 +1,4 @@
-import type { NavLink } from "@/components/ui/@timeworn/navbar";
+import type { NavLink } from "@/components/navbar";
 
 export const navLinks = [
   { label: "Home", href: "/" },

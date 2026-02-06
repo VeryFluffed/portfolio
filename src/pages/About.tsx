@@ -51,7 +51,7 @@ const About = () => {
                 alt={section.alt}
               />
             </div>
-            <div className="flex flex-1 flex-col justify-center p-8">
+            <div className="typography-about flex flex-1 flex-col justify-center p-8">
               <Markdown>{section.content}</Markdown>
             </div>
           </section>

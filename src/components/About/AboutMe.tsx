@@ -16,8 +16,12 @@ export const AboutMe = () => {
       </div>
       <div className="flex flex-1 flex-col justify-center p-8">
         <div className="grid gap-4 not-first:mb-4 not-first:text-justify not-first:text-base not-first:leading-relaxed">
-          <h2 className="mb-4 text-2xl tracking-widest">HELLO, I’M DANH!</h2>
-          <Markdown>{aboutMeText}</Markdown>
+          <h2 className="mb-4 text-center text-2xl tracking-widest md:text-start">
+            HELLO, I’M DANH!
+          </h2>
+          <div className="typography-about">
+            <Markdown>{aboutMeText}</Markdown>
+          </div>
           <div className="mt-2 mb-10 flex gap-6">
             <Link variant="icon" to="mailto:danhcorps@gmail.com" external>
               <MailIcon />
@@ -25,11 +29,10 @@ export const AboutMe = () => {
             <Link
               variant="icon"
               to="https://www.linkedin.com/in/danh-tran-9b657a362/"
-              external
             >
               <LinkedinIcon />
             </Link>
-            <Link variant="icon" to="https://github.com/VeryFluffed" external>
+            <Link variant="icon" to="https://github.com/VeryFluffed">
               <SiGithub />
             </Link>
           </div>

@@ -32,7 +32,7 @@ const ProjectCard: FC<ProjectCardProps> = ({ project }) => {
         <p className="text-accent-foreground/60 mb-4 text-xs font-semibold uppercase">
           {project.role}
         </p>
-        <Separator />
+        <Separator className="mb-4" />
         <p className="text-accent-foreground mb-6 text-xs">
           {project.description}
         </p>

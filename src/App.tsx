@@ -1,7 +1,7 @@
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import ScrollToTop from "./components/ScrollToTop";
 import Home from "./pages/Home";
-import { Navbar } from "@/components/ui/@timeworn/navbar";
+import { Navbar } from "@/components/navbar";
 import { navLinks } from "@/data";
 import Footer from "@/components/Footer";
 import About from "@/pages/About";

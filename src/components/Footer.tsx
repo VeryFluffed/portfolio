@@ -25,7 +25,6 @@ const Footer = () => {
                   <Link
                     href={social.link}
                     className="text-accent-foreground/70 hover:text-foreground transition-colors hover:no-underline"
-                    external
                   >
                     {social.label}
                   </Link>

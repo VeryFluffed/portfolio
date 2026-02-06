@@ -7,6 +7,7 @@ const linkVariants = cva("", {
   variants: {
     variant: {
       primary: "text-blue-600 hover:underline",
+      button: "",
       icon: "",
     },
   },
@@ -15,42 +16,45 @@ const linkVariants = cva("", {
   },
 });
 
-interface LinkExternalProps
-  extends Omit<ComponentProps<"a">, "href">, VariantProps<typeof linkVariants> {
-  external: true;
+interface LinkProps
+  extends
+    Omit<ComponentProps<"a">, "href">,
+    Omit<ComponentProps<typeof ReactLink>, "to">,
+    VariantProps<typeof linkVariants> {
   to?: string;
   href?: string;
+  external?: boolean;
 }
 
-interface LinkInternalProps
-  extends ComponentProps<typeof ReactLink>, VariantProps<typeof linkVariants> {
-  external?: false;
-}
-
-type LinkProps = LinkExternalProps | LinkInternalProps;
-
-const Link: FC<LinkProps> = ({ external, variant, className, ...props }) => {
+const Link: FC<LinkProps> = ({
+  variant,
+  className,
+  to,
+  href,
+  external,
+  ...props
+}) => {
   className = cn(linkVariants({ variant }), className);
 
+  const url = to || href || "";
+
+  if (!external) {
+    external = url.startsWith("http://") || url.startsWith("https://");
+  }
+
   if (external) {
-    const { to, href, ...rest } = props as LinkExternalProps;
     return (
       <a
         className={className}
-        href={to || href}
+        href={url}
         target="_blank"
         rel="noopener noreferrer"
-        {...rest}
+        {...props}
       />
     );
   }
 
-  return (
-    <ReactLink
-      className={className}
-      {...(props as ComponentProps<typeof ReactLink>)}
-    />
-  );
+  return <ReactLink className={className} to={url} {...props} />;
 };
 
 export default Link;
