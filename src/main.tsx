@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.tsx";
 import { Buffer } from "buffer";
 
+// @ts-ignore
 window.Buffer = Buffer;
 
 createRoot(document.getElementById("root")!).render(

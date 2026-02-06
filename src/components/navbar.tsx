@@ -1,19 +1,28 @@
+import Link from "@/components/Link";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { MenuIcon, XIcon } from "lucide-react";
-import { useState, useEffect, type FC, type ReactNode } from "react";
-import { Link } from "react-router-dom";
+import {
+  useState,
+  useEffect,
+  type FC,
+  type ReactNode,
+  type ComponentProps,
+} from "react";
 
-export interface NavLink {
+export interface NavLink extends ComponentProps<typeof Button> {
   label: ReactNode;
   href: string;
+  onClick?: () => void;
 }
 
-const NavLink: FC<NavLink> = ({ label, href }) => {
+const NavLink: FC<NavLink> = ({ label, href, onClick, ...props }) => {
   return (
-    <Button asChild variant="ghost">
-      <Link to={href}>{label}</Link>
+    <Button asChild variant="ghost" onClick={onClick} {...props}>
+      <Link variant="button" to={href}>
+        {label}
+      </Link>
     </Button>
   );
 };
@@ -47,25 +56,17 @@ export const Navbar: FC<NavbarProps> = ({
   children,
 }) => {
   const [navOpen, setNavOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 0);
-    };
-
     const handleResize = () => {
       if (window.innerWidth >= 768) {
         setNavOpen(false);
       }
     };
 
-    handleScroll();
-    window.addEventListener("scroll", handleScroll);
     window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener("scroll", handleScroll);
       window.removeEventListener("resize", handleResize);
     };
   }, []);
@@ -77,15 +78,12 @@ export const Navbar: FC<NavbarProps> = ({
         className,
       )}
     >
-      <nav
-        className={`flex h-auto w-full flex-col *:px-4 *:md:px-6 ${navOpen ? "bg-background fixed inset-0" : "bg-background/60"}`}
-      >
-        <div
-          className={`flex h-16 items-center gap-2 backdrop-blur transition-all duration-300 ${isScrolled || navOpen ? "border-b" : "dark:bg-background/0 border-none backdrop-blur-none"}`}
-        >
+      <nav className="flex h-full w-full flex-col *:px-6 *:md:px-8 *:lg:px-12">
+        <div className="bg-background flex h-16 items-center gap-2 border-b">
           <Link
             className="text-primary hover:text-primary/90 flex cursor-pointer items-center space-x-2 transition-colors"
             to="/"
+            variant="button"
           >
             <span className="text-xl font-bold">{logo}</span>
           </Link>
@@ -122,10 +120,26 @@ export const Navbar: FC<NavbarProps> = ({
             {actions}
           </div>
         </div>
-        <div className="md:hidden" hidden={!navOpen}>
-          <div className="flex flex-col py-2">
+        <div
+          className={cn(
+            "bg-background h-[calc(100vh-4rem)] overflow-hidden transition-all duration-300 ease-in-out md:hidden",
+            navOpen ? "max-h-screen opacity-100" : "max-h-0 opacity-0",
+          )}
+        >
+          <div className="animate-in fade-in slide-in-from-top-4 flex flex-col py-2 duration-300">
             {links?.map((link, index) => (
-              <NavLink key={index} {...link} />
+              <div
+                key={index}
+                className="animate-in fade-in slide-in-from-top-2 duration-300"
+                style={{ animationDelay: `${index * 50}ms` }}
+              >
+                <NavLink
+                  {...link}
+                  size="lg"
+                  className="pl-0 text-lg"
+                  onClick={() => setNavOpen(false)}
+                />
+              </div>
             ))}
           </div>
         </div>

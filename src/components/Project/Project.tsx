@@ -16,8 +16,8 @@ export const Project: FC<Frontmatter> = ({
 }) => {
   return (
     <main className="main">
-      <article className="prose">
-        <header className="not-prose">
+      <article>
+        <header>
           <Link
             to="/projects"
             className="text-foreground/60 mt-5 mb-10 inline-block text-lg"
@@ -79,8 +79,9 @@ export const Project: FC<Frontmatter> = ({
             </div>
           </div>
         </header>
-
-        <Markdown>{content}</Markdown>
+        <div className="prose">
+          <Markdown>{content}</Markdown>
+        </div>
       </article>
     </main>
   );

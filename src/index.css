@@ -386,14 +386,10 @@ button:focus-visible {
 
   .prose pre {
     @apply overflow-x-auto rounded-lg border font-mono text-sm leading-relaxed;
-    background-color: hsl(var(--foreground) / 0.03);
+    background-color: var(--accent);
     padding: 1rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
-  }
-
-  .dark .prose pre {
-    background-color: hsl(var(--foreground) / 0.06);
   }
 
   .prose pre code {
@@ -598,23 +594,5 @@ button:focus-visible {
 
   .prose-invert {
     color: hsl(var(--background));
-  }
-
-  .prose .not-prose {
-    margin: 0;
-    padding: 0;
-  }
-
-  .prose .not-prose * {
-    margin: revert;
-    padding: revert;
-    font-size: revert;
-    font-weight: revert;
-    line-height: revert;
-    color: revert;
-    background-color: revert;
-    border: revert;
-    text-decoration: revert;
-    list-style: revert;
   }
 }

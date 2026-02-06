@@ -2,6 +2,7 @@ import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { parseFrontmatter, type Frontmatter } from "@/lib/utils";
 import { Project } from "@/components/Project";
+import NotFound from "@/pages/NotFound";
 
 const ProjectSlug = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -31,7 +32,7 @@ const ProjectSlug = () => {
   }
 
   if (!markdownData) {
-    return <></>;
+    return <NotFound />;
   }
 
   return <Project {...markdownData} />;

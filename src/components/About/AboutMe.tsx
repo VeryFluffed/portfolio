@@ -6,7 +6,7 @@ import { aboutMeText } from "@/data/about";
 
 export const AboutMe = () => {
   return (
-    <section className="main flex flex-col items-center gap-12 md:flex-row">
+    <section className="main flex flex-col items-center md:flex-row md:gap-12">
       <div className="flex size-72 shrink-0 items-center justify-center md:h-full">
         <img
           src="/images/profile.jpg"
@@ -16,7 +16,7 @@ export const AboutMe = () => {
       </div>
       <div className="flex flex-1 flex-col justify-center p-8">
         <div className="grid gap-4 not-first:mb-4 not-first:text-justify not-first:text-base not-first:leading-relaxed">
-          <h2 className="mb-4 text-center text-2xl tracking-widest md:text-start">
+          <h2 className="text-center text-2xl tracking-widest md:text-start">
             HELLO, I’M DANH!
           </h2>
           <div className="typography-about">
