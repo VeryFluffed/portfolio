@@ -14,7 +14,7 @@ const GoKart = () => {
         {/* Project Image */}
         <div>
           <img
-            src="/images/project.jpg" // replace with your go-kart image path
+            src="/images/project.webp" // replace with your go-kart image path
             alt="Go-Kart Project"
             className="h-full w-full rounded-lg object-cover shadow-lg"
           />
@@ -125,7 +125,7 @@ const GoKart = () => {
         </div>
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/bedframe.png"
+            src="/images/bedframe.webp"
             alt="bedframe"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -149,14 +149,14 @@ const GoKart = () => {
         </div>
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/kartsketch.png"
+            src="/images/kartsketch.webp"
             alt="kartsketch"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
         </div>
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/kartsketch2.png"
+            src="/images/kartsketch2.webp"
             alt="kartsketch2"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -181,7 +181,7 @@ const GoKart = () => {
         </div>
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/bedframe.png"
+            src="/images/bedframe.webp"
             alt="bedframe"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -208,7 +208,7 @@ const GoKart = () => {
         </div>
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/batteries.jpg"
+            src="/images/batteries.webp"
             alt="bedframe"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -337,7 +337,7 @@ const GoKart = () => {
         </div>
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/budget.png"
+            src="/images/budget.webp"
             alt="budget sheets"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />

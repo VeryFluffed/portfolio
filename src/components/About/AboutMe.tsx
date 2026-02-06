@@ -9,7 +9,7 @@ export const AboutMe = () => {
     <section className="main flex flex-col items-center md:flex-row md:gap-12">
       <div className="flex size-72 shrink-0 items-center justify-center md:h-full">
         <img
-          src="/images/profile.jpg"
+          src="/images/profile.webp"
           alt="Picture of Danh"
           className="h-full w-full rounded object-cover"
         />

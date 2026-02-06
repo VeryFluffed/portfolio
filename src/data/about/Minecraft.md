@@ -1,5 +1,5 @@
 ---
-image: /images/minecraft.png
+image: /images/minecraft.webp
 alt: Minecraft Logo
 ---
 

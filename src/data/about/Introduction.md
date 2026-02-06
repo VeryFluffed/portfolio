@@ -1,5 +1,5 @@
 ---
-image: /images/profile.jpg
+image: /images/profile.webp
 alt: Picture of Danh
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: CYBERPATRIOTS
 description: After competitively securing Linux systems and servers for 3 years, I decided to write a Bash Script specifically tailored towards Linux hardening in CyberPatriot competitions. This required a deep understanding of file systems, permissions, system variables, redirection, command-line arguments, etc. We reached the top 100 Nationals Platinum Tier twice.
-image: /images/cyberpatriotintro.jpg
+image: /images/cyberpatriotintro.webp
 alt: Go-Kart Project
 collaborators:
   [Nathan Pham, Brian Vu, Aiden Tran, Bryan Nguyen, Ayaan Qureshi, James Nguyen]
@@ -64,7 +64,7 @@ I was organizing group studies, researching different resources, and finding pra
 
 The Linux OS had a steep learning curve. I had to learn an entirely new language to navigate the system around using the Terminal. This language is Shell Scripting, usually using Bash. I needed to do this just to learn how to do simple tasks, such as opening certain files, listing out users and groups, etc. I also needed to learn the different types of services and policies, so knowing how to use the terminal was necessary. Here are some of the basics I learned:
 
-<img src="/images/scorereport.jpg" alt="score report" width="220" height="294" />
+<img src="/images/scorereport.webp" alt="score report" width="220" height="294" />
 
 **Forensics Questions**
 
@@ -76,7 +76,7 @@ sudo locate *.mp3
 
 It is also very important to delete these prohibited files after getting the forensic questions. It is also very common to decrypt a message left on the computer somewhere. When this happens, I like to use BitDecoder64 to decrypt it.
 
-![forensic question](/images/forensic.png)
+![forensic question](/images/forensic.webp)
 
 **Update and Upgrades**
 
@@ -244,7 +244,7 @@ Throughout the three years of competition, here are some achievements I received
 - Recognized as the Linux specialist on the team, often tasked with the most technically demanding fixes
 - Gained a reputation for scripting efficiency, which shaved hours off our team’s workflow
 
-![top scoring report](/images/topscore.png)
+![top scoring report](/images/topscore.webp)
 
 ## Coaching
 

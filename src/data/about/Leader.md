@@ -1,5 +1,5 @@
 ---
-image: /images/mobshot.jpg
+image: /images/mobshot.webp
 alt: Mobshot of Robotics Club
 ---
 

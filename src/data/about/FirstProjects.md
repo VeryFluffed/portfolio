@@ -1,5 +1,5 @@
 ---
-image: /images/project.jpg
+image: /images/project.webp
 alt: Danh doing project
 ---
 

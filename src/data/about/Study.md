@@ -1,5 +1,5 @@
 ---
-image: /images/study.jpg
+image: /images/study.webp
 alt: Danh studying
 ---
 

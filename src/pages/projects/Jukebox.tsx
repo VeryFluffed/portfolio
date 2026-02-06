@@ -16,7 +16,7 @@ const Jukebox = () => {
         {/* Project Image */}
         <div>
           <img
-            src="/images/rfid-hero.jpg"
+            src="/images/rfid-hero.webp"
             alt="Go-Kart Project"
             className="h-full w-full rounded-lg object-cover shadow-lg"
           />
@@ -106,7 +106,7 @@ const Jukebox = () => {
         {/* Flower image */}
         <div className="flex justify-center">
           <img
-            src="/images/flower.png"
+            src="/images/flower.webp"
             alt="Minecraft Flower Pot"
             className="h-auto w-full rounded-lg object-cover shadow-lg"
           />
@@ -142,7 +142,7 @@ const Jukebox = () => {
         {/* RC522 image */}
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/RC522.png"
+            src="/images/RC522.webp"
             alt="RC522"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -176,7 +176,7 @@ const Jukebox = () => {
         {/*  RC522 image */}
         <div className="mb-6 flex justify-center">
           <img
-            src="/images/raspberrypi4Pack.png"
+            src="/images/raspberrypi4Pack.webp"
             alt="some stuff I got lol"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -270,7 +270,7 @@ const Jukebox = () => {
         </div>
         <div className="flex justify-center">
           <img
-            src="/images/PiToRC522.png"
+            src="/images/PiToRC522.webp"
             alt="silly wiring"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -344,7 +344,7 @@ const Jukebox = () => {
 
       <div className="flex justify-center">
         <img
-          src="/images/rfid-jukebox.png"
+          src="/images/rfid-jukebox.webp"
           alt="conected wires"
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
@@ -463,7 +463,7 @@ const Jukebox = () => {
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
         <img
-          src="/images/DFPlayer.jpg"
+          src="/images/DFPlayer.webp"
           alt="DFPlayer"
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
@@ -740,12 +740,12 @@ void loop() {
       {/* Mechanism diagrams placeholders */}
       <div className="flex justify-center">
         <img
-          src="/images/ppmechdiagram.png"
+          src="/images/ppmechdiagram.webp"
           alt="ppmechdiagram"
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
         <img
-          src="/images/ppmech.png"
+          src="/images/ppmech.webp"
           alt="ppmech"
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
@@ -769,7 +769,7 @@ void loop() {
       {/* Fillet detail placeholder */}
       <div className="flex justify-center">
         <img
-          src="/images/filletchamferjukebox.png"
+          src="/images/filletchamferjukebox.webp"
           alt="ppmechdiagram"
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
@@ -787,12 +787,12 @@ void loop() {
 
       <div className="flex justify-center">
         <img
-          src="/images/disc.jpg"
+          src="/images/disc.webp"
           alt="disc with RFID tag"
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
         <img
-          src="/images/jukebox-interior.png"
+          src="/images/jukebox-interior.webp"
           alt="Jukebox with electronics inside"
           className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
         />
@@ -830,7 +830,7 @@ void loop() {
         </div>
         <div className="flex justify-center">
           <img
-            src="/images/jukebox.png"
+            src="/images/jukebox.webp"
             alt="painted jukebox!"
             className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -955,7 +955,7 @@ void loop() {
         {/*  failed prints */}
         <div className="flex justify-center">
           <img
-            src="/images/failed-prints.jpg"
+            src="/images/failed-prints.webp"
             alt="lots of failed prints"
             className="m-6 h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />

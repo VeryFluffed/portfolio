@@ -15,7 +15,7 @@ const Portfolio = () => {
         {/* Project Screenshot */}
         <div>
           <img
-            src="/images/portfolio-preview.png" // PLACEHOLDER: Add screenshot of homepage or hero section
+            src="/images/portfolio-preview.webp" // PLACEHOLDER: Add screenshot of homepage or hero section
             alt="Interactive Portfolio Website"
             className="h-full w-full rounded-lg object-cover shadow-lg"
           />
@@ -91,7 +91,7 @@ const Portfolio = () => {
         </div>
         <div className="flex justify-center">
           <img
-            src="/images/portfolio-inspiration.png" // PLACEHOLDER: Taili Zhuang’s architecture portfolio reference
+            src="/images/portfolio-inspiration.webp" // PLACEHOLDER: Taili Zhuang’s architecture portfolio reference
             alt="Inspiration Reference"
             className="h-auto w-full rounded-lg object-cover shadow-lg"
           />
@@ -123,7 +123,7 @@ const Portfolio = () => {
         </div>
         <div className="flex justify-center">
           <img
-            src="/images/3d-model-scene.png" // PLACEHOLDER: R3F 3D scene screenshot
+            src="/images/3d-model-scene.webp" // PLACEHOLDER: R3F 3D scene screenshot
             alt="React Three Fiber Scene"
             className="h-auto w-full max-w-sm rounded-lg object-cover shadow-lg"
           />
@@ -150,7 +150,7 @@ const Portfolio = () => {
 
       <div className="mt-6 mb-10 flex justify-center">
         <img
-          src="/images/scroll-animation.png" // PLACEHOLDER: Screenshot of scroll animation section
+          src="/images/scroll-animation.webp" // PLACEHOLDER: Screenshot of scroll animation section
           alt="Scroll-based Animation"
           className="w-full max-w-2xl rounded-lg object-cover shadow-lg"
         />
@@ -176,7 +176,7 @@ const Portfolio = () => {
 
       <div className="mt-6 mb-10 flex justify-center">
         <img
-          src="/images/mobile-navbar.png" // PLACEHOLDER: Screenshot of mobile navigation
+          src="/images/mobile-navbar.webp" // PLACEHOLDER: Screenshot of mobile navigation
           alt="Responsive Navigation"
           className="w-full max-w-xs rounded-lg object-cover shadow-lg"
         />
@@ -201,7 +201,7 @@ const Portfolio = () => {
 
       <div className="mt-6 mb-10 flex justify-center">
         <img
-          src="/images/cloudflare-dashboard.png" // PLACEHOLDER: Cloudflare dashboard screenshot
+          src="/images/cloudflare-dashboard.webp" // PLACEHOLDER: Cloudflare dashboard screenshot
           alt="Cloudflare Deployment Dashboard"
           className="w-full max-w-lg rounded-lg object-cover shadow-lg"
         />

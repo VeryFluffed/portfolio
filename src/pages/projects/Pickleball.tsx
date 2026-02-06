@@ -14,7 +14,7 @@ const Pickleball = () => {
         {/* Project Image */}
         <div>
           <img
-            src="/images/pickleball.png" // replace with your go-kart image path
+            src="/images/pickleball.webp" // replace with your go-kart image path
             alt="Go-Kart Project"
             className="h-full w-full rounded-lg object-cover shadow-lg"
           />

@@ -1,5 +1,5 @@
 ---
-image: /images/life.jpg
+image: /images/life.webp
 alt: Danh has a life
 ---
 
