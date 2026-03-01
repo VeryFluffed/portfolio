@@ -1,13 +1,4 @@
-import {
-  SiAltiumdesigner,
-  SiArduino,
-  SiCplusplus,
-  SiGithub,
-  SiLinux,
-  SiPython,
-  SiRaspberrypi,
-  type IconType,
-} from "@icons-pack/react-simple-icons";
+import { type IconType } from "@icons-pack/react-simple-icons";
 
 export interface Project {
   title: string;
@@ -32,10 +23,10 @@ export const projects = [
     tech: [
       { name: "SolidWorks", icon: "/icons/solidworks.webp" },
       { name: "3D Printing", icon: "/icons/3dprinter.webp" },
-      { name: "Raspberry Pi", icon: SiRaspberrypi },
-      { name: "Python", icon: SiPython },
-      { name: "Arduino", icon: SiArduino },
-      { name: "GitHub", icon: SiGithub },
+      { name: "Raspberry Pi", icon: "/icons/raspberrypi.webp" },
+      { name: "Python", icon: "/icons/python.webp" },
+      { name: "Arduino", icon: "/icons/arduino.webp" },
+      { name: "GitHub", icon: "/icons/github.webp" },
     ],
     link: "/projects/pickleball",
   },
@@ -50,7 +41,7 @@ export const projects = [
       "troubleshooting.",
     video: "/videos/go-kart.mp4",
     tech: [
-      { name: "Altium", icon: SiAltiumdesigner },
+      { name: "Altium", icon: "/icons/altium.webp" },
       { name: "SolidWorks", icon: "/icons/solidworks.webp" },
       { name: "Excel", icon: "/icons/excel.webp" },
       { name: "3d Printing", icon: "/icons/3dprinter.webp" },
@@ -67,9 +58,9 @@ export const projects = [
       "recently learned 3D printing skills to print out the Minecraft Jukebox model.",
     video: "/videos/rfid-jukebox.mp4",
     tech: [
-      { name: "Raspberry Pi", icon: SiRaspberrypi },
-      { name: "Arduino", icon: SiArduino },
-      { name: "C++", icon: SiCplusplus },
+      { name: "Raspberry Pi", icon: "/icons/raspberrypi.webp" },
+      { name: "Arduino", icon: "/icons/arduino.webp" },
+      { name: "C++", icon: "/icons/c++.webp" },
       { name: "3D Printing", icon: "/icons/3dprinter.webp" },
     ],
     link: "/projects/jukebox",
@@ -84,9 +75,9 @@ export const projects = [
       "100 Nationals Platinum Tier twice.",
     video: "/videos/cyberpatriot.mp4",
     tech: [
-      { name: "Linux", icon: SiLinux },
-      { name: "C++", icon: SiCplusplus },
-      { name: "GitHub", icon: SiGithub },
+      { name: "Linux", icon: "/icons/linux.webp" },
+      { name: "C++", icon: "/icons/c++.webp" },
+      { name: "GitHub", icon: "/icons/github.webp" },
     ],
     link: "/projects/cyberpatriot",
   },
