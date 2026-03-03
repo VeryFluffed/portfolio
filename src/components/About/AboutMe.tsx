@@ -16,7 +16,7 @@ export const AboutMe = () => {
       </div>
       <div className="flex flex-1 flex-col justify-center p-8">
         <div className="grid gap-4 not-first:mb-4 not-first:text-justify not-first:text-base not-first:leading-relaxed">
-          <h2 className="text-center text-2xl tracking-widest md:text-start">
+          <h2 className="font-generalsans text-center text-2xl tracking-widest md:text-start">
             HELLO, I’M DANH!
           </h2>
           <div className="typography-about">

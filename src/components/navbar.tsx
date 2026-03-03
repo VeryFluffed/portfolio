@@ -74,7 +74,7 @@ export const Navbar: FC<NavbarProps> = ({
   return (
     <header
       className={cn(
-        "text-foreground pointer-events-auto sticky top-0 z-31",
+        "text-foreground font-generalsans pointer-events-auto sticky top-0 z-31",
         className,
       )}
     >
