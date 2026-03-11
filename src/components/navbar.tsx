@@ -130,13 +130,13 @@ export const Navbar: FC<NavbarProps> = ({
             {links?.map((link, index) => (
               <div
                 key={index}
-                className="animate-in fade-in slide-in-from-top-2 duration-300"
+                className="animate-in fade-in slide-in-from-top-2 duration-300 w-full"
                 style={{ animationDelay: `${index * 50}ms` }}
               >
                 <NavLink
                   {...link}
                   size="lg"
-                  className="pl-0 text-lg"
+                  className="w-full justify-start pl-0 text-lg"
                   onClick={() => setNavOpen(false)}
                 />
               </div>
