@@ -43,6 +43,9 @@ export const AboutMe = () => {
           </div>
         </div>
       </section>
+      <div className="flex justify-center">
+        <hr className="w-4/5 border-t border-black dark:border-white mb-10" />
+      </div>
     </>
   );
 };

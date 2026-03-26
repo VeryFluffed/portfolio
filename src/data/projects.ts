@@ -11,8 +11,20 @@ export interface Project {
 
 export const projects = [
   {
+    title: "Acoustic Attenuation Device (2026)",
+    role: "Mechanical Engineer",
+    description:
+      "This project explores the design and optimization of a passive acoustic attenuation system for a low-pressure pneumatic launcher (airsoft platform). The goal is to minimize the acoustic signature generated during discharge by controlling compressible airflow expansion, turbulence dissipation, and wave interference inside a confined cylindrical structure.",
+    video: null,
+    tech: [
+      { name: "SolidWorks", icon: "/icons/solidworks.webp" },
+      { name: "3D Printing", icon: "/icons/3dprinter.webp" },
+    ],
+    link: "/projects/suppressor",
+  },
+  {
     title: "Pickleball Machine (2025)",
-    role: "Intern",
+    role: "Robotics Engineer Intern",
     description:
       "I was guided by a professional engineer to apply mechanical/electrical design principles. " +
       "I worked out the individual mechanisms within the overall system, such as python programming " +
