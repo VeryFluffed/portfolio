@@ -10,6 +10,8 @@ import {
   type ReactNode,
   type ComponentProps,
 } from "react";
+import { DarkModeToggle } from "@/components/DarkModeToggle";
+
 
 export interface NavLink extends ComponentProps<typeof Button> {
   label: ReactNode;
@@ -141,6 +143,9 @@ export const Navbar: FC<NavbarProps> = ({
                 />
               </div>
             ))}
+            <div className="px-4 pt-2 pb-4">
+              <DarkModeToggle />
+            </div>
           </div>
         </div>
       </nav>

@@ -9,12 +9,13 @@ import Resume from "./pages/Resume";
 import Projects from "./pages/Projects";
 import ProjectSlug from "@/pages/ProjectSlug";
 import NotFound from "@/pages/NotFound";
+import { DarkModeToggle } from "@/components/DarkModeToggle";
 
 const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <Navbar logo="Danh" className="fixed w-full" links={navLinks} />
+      <Navbar logo="Danh" className="fixed w-full" links={navLinks} actions={<DarkModeToggle />}/>
 
       <Routes>
         <Route path="/" element={<Home />} />

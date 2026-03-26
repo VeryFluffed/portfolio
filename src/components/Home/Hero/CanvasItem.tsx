@@ -1,23 +1,28 @@
-import SpinOrbit from "@/components/Home/Hero/SpinOrbit";
+import Rock from "@/components/Home/Hero/Rock";
 import { Edges, useGLTF } from "@react-three/drei";
 import { type FC } from "react";
 import { Mesh, MeshStandardMaterial } from "three";
 
 interface CanvasItemProps {
-  center?: [number, number, number];
-  radius?: number;
-  speed?: number;
-  rotationSpeed?: number;
-  initialAngle?: number;
+  position?: [number, number, number];
+  rockAmplitudeX?: number;
+  rockAmplitudeY?: number;
+  rockSpeedX?: number;
+  rockSpeedY?: number;
+  phaseOffset?: number;
   mesh?: boolean;
   scale?: number | [number, number, number];
   itemPath: string;
+  edgeColor?: string;
+  edgeOpacity?: number;
 }
 
 export const CanvasItem: FC<CanvasItemProps> = ({
   itemPath,
   scale = 1,
   mesh,
+  edgeColor = "currentColor",
+  edgeOpacity = 0.75,
   ...props
 }) => {
   const { scene, nodes } = useGLTF(itemPath);
@@ -25,7 +30,7 @@ export const CanvasItem: FC<CanvasItemProps> = ({
   const transparentMat = new MeshStandardMaterial({
     color: "white",
     transparent: true,
-    opacity: 0.1,
+    opacity: 0,
   });
 
   const scaleArray: [number, number, number] = Array.isArray(scale)
@@ -33,7 +38,7 @@ export const CanvasItem: FC<CanvasItemProps> = ({
     : [scale, scale, scale];
 
   return (
-    <SpinOrbit {...props}>
+    <Rock {...props}>
       {mesh ? (
         <group scale={scaleArray}>
           {Object.values(nodes).map((node, index) => {
@@ -44,11 +49,16 @@ export const CanvasItem: FC<CanvasItemProps> = ({
                   geometry={node.geometry}
                   material={transparentMat}
                 >
-                  <Edges scale={1} threshold={15} color="black" />
+                  <Edges
+                    scale={1}
+                    threshold={12}
+                    color={edgeColor}
+                    transparent
+                    opacity={edgeOpacity}
+                  />
                 </mesh>
               );
             }
-
             return null;
           })}
         </group>
@@ -58,6 +68,6 @@ export const CanvasItem: FC<CanvasItemProps> = ({
           scale={Array.isArray(scale) ? scale : [scale, scale, scale]}
         />
       )}
-    </SpinOrbit>
+    </Rock>
   );
 };
