@@ -211,9 +211,33 @@ Each RFID tag has a unique 4-byte identifier (UID), just like in the Raspberry P
 
 Uploading the code was done through the Arduino IDE. Once the Nano was connected to my computer, I selected the proper board and COM port, hit "Upload," and waited for the program to compile and transfer via USB. When powered, the RFID reader lights up, and the serial monitor shows each card's UID. As soon as a tagged disc is detected, the DFPlayer immediately plays the associated song.
 
-### Testing & Improvements
+### Physical Architecture
 
-The Arduino version turned out to be more efficient and compact than the Raspberry Pi one. It booted instantly (no OS required), used far less power, and required only a 5V USB source. However, debugging was harder—since there's no real console output except through the serial monitor. In the future, I plan to add LED indicators that light up based on system state and include an improved feeding mechanism to handle multiple discs automatically.
+I knew I wanted to have the disc jump up just like it does in Minecraft, so I decided to go for a push-push mechanism. Just like the Nintendo cartridges, when inserting the game, I want to push the disc into the jukebox, then push it again to eject it.
+
+<video
+  src="/videos/push-push-mechanism.mp4"
+  autoPlay
+  loop
+  muted
+  playsInline
+  controls
+  style="display:block; margin:1rem auto; height:40vh; width:auto; border-radius:8px;"
+/>
+
+After some online research, I found a model by Aaron Medina on YouTube. A spring would push a sliding component upward in a case, and another stick that limits how high the slider goes. His version had an inclined space that bent a piece of the push-push mechanism. Instead of doing that, I revised it to push it to the side to reset the mechanism reliably without bending it.
+
+Because I planned to have 1 pixel of the jukebox be 1cm in real life, I had to plan out how to affect the height of the push-push mechanism. Based on the image, the slider must have a gap between where it must stop (blue mark) and where it hangs loose (red mark).
+
+On the spring holders, I later added fillets and chamfers so that when compressed, the two parts would slide into each other seamlessly. Before the fix, it would have an error rate of upwards of 60% on the lateral side, depending on where the normal force comes from. Afterwards, the lateral side had an error rate of 0%. The longitudinal error rate was much less, at 30%, because of the normal force of the stick. To fix this, I added a few blockers on top to stop the slider from moving, now having a longitudinal error rate of 0%.
+
+![embeddedTag](/images/embeddedTag.png)
+
+The disc, although not perfectly replicated in size in Minecraft as a floating item, was very easy and designed to optimally fit into the 2cm x 10cm wide gap on the jukebox to easily apply pressure without having the disc flip around. The RFID tag is placed in a tag-shaped hole on the disc. The MFRC522 scanner is mounted on the sides of the gap to read the disc as it enters. The rest of the electronics are stored inside the 16cm^3 jukebox. 
+
+## 3D Printing
+
+This was my first time using a 3D printer. Originally, I planned to learn and use the 3D printers provided at my school. However, they were always being used by other people. And there is a reason why I quit tennis to get employed in my last year of high school. Thus, in a random spur of events, I ended up buying a Centauri Carbon Elegoo 3D printer at Microcenter. After a quick Google search, I am now using OrcaSlicer. I learned a lot of troubleshooting with 3D printing after some printing. I learned that high nozzle temp → stringing, oozing, blobs, rough corners, and warping. Low nozzle temp → underextrusion.
 
 ## Conclusion
 

@@ -22,7 +22,7 @@ const HudGrid: FC = () => {
       // Grid color: near-invisible, matches background tone
       const gridColor = isDark
         ? "rgba(100, 116, 160, 0.07)"   // dark slate blue tint
-        : "rgba(160, 160, 170, 0.09)";   // light gray tint
+        : "rgba(255, 255, 255, 0.5)";   // light gray tint
 
       const cellSize = 48;
       ctx.strokeStyle = gridColor;

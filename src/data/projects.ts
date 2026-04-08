@@ -11,6 +11,18 @@ export interface Project {
 
 export const projects = [
   {
+    title: "Motorized Powder Blender (2026)",
+    role: "Mechanical Engineer",
+    description:
+      "A USC researcher gave me a powder blender, and he asked me to motorize it because he wanted to save money. Thus, I was tasked with engineering a motorized drive system capable of rotating a ~9 kg loaded drum at around 30 RPM. This project includes calculating chain drive transmissions and uses a custom 3D-printed housing, ultimately saving at least $600.",
+    video: null,
+    tech: [
+      { name: "SolidWorks", icon: "/icons/solidworks.webp" },
+      { name: "3D Printing", icon: "/icons/3dprinter.webp" },
+    ],
+    link: "/projects/powdermachine",
+  },
+  {
     title: "Acoustic Attenuation Device (2026)",
     role: "Mechanical Engineer",
     description:
