@@ -18,7 +18,7 @@ export const ProjectsList: FC<ProjectsListProps> = ({
       className={cn("mb-10 grid gap-8 md:grid-cols-2", className)}
       {...props}
     >
-      {projects.slice(0, 5).map((project, index) => (
+      {projects.slice(0, 6).map((project, index) => (
         <ProjectCard key={index} project={project} />
       ))}
       {children}
