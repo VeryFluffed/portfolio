@@ -11,7 +11,7 @@ contributions:
     Electrical Wiring,
   ]
 buttons:
-  [{ label: "CAD Files", url: "#" }]
+  [{ label: "CAD Files", url: "https://drive.google.com/drive/folders/123t2meJtXi8lv8tLReUv_GgiFayxFU8v?usp=sharing" }]
 ---
 
 ## Motivation

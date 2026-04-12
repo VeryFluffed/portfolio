@@ -12,8 +12,6 @@ contributions:
     Electrical Wiring,
     Fabrication & Welding,
   ]
-buttons:
-  [{ label: "Testing Results", url: "#" }, { label: "CAD Files", url: "#" }]
 ---
 
 ## Motivation
