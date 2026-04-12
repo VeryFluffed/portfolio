@@ -15,7 +15,7 @@ export const projects = [
     role: "Mechanical Engineer",
     description:
       "A USC researcher gave me a powder blender, and he asked me to motorize it because he wanted to save money. Thus, I was tasked with engineering a motorized drive system capable of rotating a ~9 kg loaded drum at around 30 RPM. This project includes calculating chain drive transmissions and uses a custom 3D-printed housing, ultimately saving at least $600.",
-    video: null,
+    video: "/videos/powder-blender.mov",
     tech: [
       { name: "SolidWorks", icon: "/icons/solidworks.webp" },
       { name: "3D Printing", icon: "/icons/3dprinter.webp" },
@@ -27,7 +27,7 @@ export const projects = [
     role: "Mechanical Engineer",
     description:
       "This project explores the design and optimization of a passive acoustic attenuation system for a low-pressure pneumatic launcher (airsoft platform). The goal is to minimize the acoustic signature generated during discharge by controlling compressible airflow expansion, turbulence dissipation, and wave interference inside a confined cylindrical structure.",
-    video: null,
+    video: "/videos/suppressor.mov",
     tech: [
       { name: "SolidWorks", icon: "/icons/solidworks.webp" },
       { name: "3D Printing", icon: "/icons/3dprinter.webp" },
