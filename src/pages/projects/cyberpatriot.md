@@ -15,7 +15,7 @@ contributions:
   ]
 buttons:
   [
-    { label: "Checklist", url: "/images/The%20Better%20Linux%20Checklist.pdf" },
+    { label: "Checklist", url: "https://drive.google.com/drive/folders/1L0PMlrh_ZSt16w6MNULW1TF_0dv77UjW?usp=drive_link" },
     { label: "Bash Script", url: "https://github.com/VeryFluffed/bashscript" },
   ]
 ---
