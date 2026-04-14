@@ -1,7 +1,7 @@
 ---
 title: ACOUSTIC ATTENUATION DEVICE
 description: This project explores the design and optimization of a passive acoustic attenuation system for a low-pressure pneumatic launcher (airsoft platform). The goal is to minimize the acoustic signature generated during discharge by controlling compressible airflow expansion, turbulence dissipation, and wave interference inside a confined cylindrical structure.
-image: /images/pickleball.webp
+image: /images/acoustic.png
 alt: Acoustic Attenuation Device Project
 collaborators: [Thomas Vu]
 contributions:
@@ -116,6 +116,12 @@ Although the roughness of the print is not explicitly stated in the Reynolds num
 The wall thickness will also help with the structural integrity and reduce the noise. Naturally, we would like it to be thick. Luckily for us, ABS plastic is not very heavy, so we can safely do a thicker wall of 1.6mm. We are using ABS because it is much stronger than typical PLA, it has to endure the energy from the gas, and it is much lighter. It is also better simply because it is a functioning piece of equipment in a very dynamic sport. As for the infill, we are using 100% because we are making a smaller suppressor for a Glock airsoft replica. Thus, there is not much time loss using a 0.4mm nozzle. As for the tolerances, the only specific tolerances we need are the baffles and the screw. The screw is self-explanatory, needing a tolerance size of ±0.2mm. As for the baffles, the hole in the middle needs to be big enough for the projectile not to strike the suppressor.
 
 ![Laminar v. Turbulent Flow](/images/half-can.png)
+
+## Results
+
+![Noise Results](/images/accoustic-stats.png)
+
+Here, we can see the difference between the average dB with and without the accoustic attenuation device. We can see that the difference in dB is about 3.89 dB. However, dB is a logarithmic measurement. After calculating, we can see that the device has effectively reduced the noise by ~60%.
 
 ## Conclusion
 
