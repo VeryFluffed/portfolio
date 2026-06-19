@@ -5,22 +5,25 @@ import { useMediaQuery } from "react-responsive";
 import CanvasLoader from "@/components/Home/Hero/CanvasLoader";
 import { cn } from "@/lib/utils";
 import { CanvasItem } from "@/components/Home/Hero/CanvasItem";
+import { Engine3D } from "@/components/Home/Hero/Engine3D";
 
-// Models scattered across the left ~65% of the scene
-// Positions tuned to feel like scattered engineering drawings
-const MODELS = [
-  {
-    name: "go-kart2",
-    position: [40, 100, 50] as [number, number, number],
-    scale: 10,
-    mesh: true,
-    phaseOffset: 0,
-    rockAmplitudeX: 0.07,
-    rockAmplitudeY: 0.05,
-    rockSpeedX: 0.35,
-    rockSpeedY: 0.28,
-  },
-];
+// ── Scene variants — one is picked at random on each page load ─────
+const VARIANTS = ["gokart", "engine"] as const;
+type Variant = (typeof VARIANTS)[number];
+const SELECTED: Variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+
+// Go-kart model config
+const GOKART = {
+  name: "go-kart2",
+  position: [40, 100, 50] as [number, number, number],
+  scale: 10,
+  mesh: true,
+  phaseOffset: 0,
+  rockAmplitudeX: 0.07,
+  rockAmplitudeY: 0.05,
+  rockSpeedX: 0.35,
+  rockSpeedY: 0.28,
+};
 
 export const Canvas: FC<ComponentProps<typeof ThreeCanvas>> = ({
   className,
@@ -29,8 +32,11 @@ export const Canvas: FC<ComponentProps<typeof ThreeCanvas>> = ({
 }) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  // On mobile, show fewer/smaller models
-  const visibleModels = isMobile ? MODELS.slice(0, 3) : MODELS;
+  // Engine camera: centered on the engine assembly, slight elevation
+  // Go-kart keeps original settings
+  const camPos: [number, number, number] =
+    SELECTED === "engine" ? [2, 2, 12] : [0, 0, 30];
+  const fov = SELECTED === "engine" ? 42 : 50;
 
   return (
     <ThreeCanvas
@@ -39,14 +45,28 @@ export const Canvas: FC<ComponentProps<typeof ThreeCanvas>> = ({
       {...props}
     >
       <Suspense fallback={<CanvasLoader />}>
-        <PerspectiveCamera makeDefault position={[0, 0, 30]} fov={50} />
-        {visibleModels.map(({ name, ...modelProps }, index) => (
-          <CanvasItem
-            key={index}
-            itemPath={`/models/${name}.glb`}
-            {...modelProps}
-          />
-        ))}
+        <PerspectiveCamera makeDefault position={camPos} fov={fov} />
+
+        {SELECTED === "engine" ? (
+          // Engine is pure geometry — always show on all screen sizes
+          <Engine3D />
+        ) : (
+          // Go-kart GLB — hide on mobile to save bandwidth
+          !isMobile && (
+            <CanvasItem
+              itemPath={`/models/${GOKART.name}.glb`}
+              position={GOKART.position}
+              scale={GOKART.scale}
+              mesh={GOKART.mesh}
+              phaseOffset={GOKART.phaseOffset}
+              rockAmplitudeX={GOKART.rockAmplitudeX}
+              rockAmplitudeY={GOKART.rockAmplitudeY}
+              rockSpeedX={GOKART.rockSpeedX}
+              rockSpeedY={GOKART.rockSpeedY}
+            />
+          )
+        )}
+
         <ambientLight intensity={1.5} />
         <directionalLight position={[10, 10, 10]} intensity={0.8} />
       </Suspense>

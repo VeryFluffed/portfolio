@@ -1,6 +1,6 @@
 import Rock from "@/components/Home/Hero/Rock";
 import { Edges, useGLTF } from "@react-three/drei";
-import { type FC } from "react";
+import { useEffect, useMemo, type FC } from "react";
 import { Mesh, MeshStandardMaterial } from "three";
 
 interface CanvasItemProps {
@@ -27,11 +27,12 @@ export const CanvasItem: FC<CanvasItemProps> = ({
 }) => {
   const { scene, nodes } = useGLTF(itemPath);
 
-  const transparentMat = new MeshStandardMaterial({
-    color: "white",
-    transparent: true,
-    opacity: 0,
-  });
+  const transparentMat = useMemo(
+    () => new MeshStandardMaterial({ color: "white", transparent: true, opacity: 0 }),
+    [],
+  );
+
+  useEffect(() => () => { transparentMat.dispose(); }, [transparentMat]);
 
   const scaleArray: [number, number, number] = Array.isArray(scale)
     ? scale

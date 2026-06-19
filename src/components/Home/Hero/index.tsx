@@ -1,81 +1,6 @@
-import { useEffect, useRef, type FC } from "react";
+import { type FC } from "react";
+import HudGrid from "@/components/HudGrid";
 import { Canvas } from "@/components/Home/Hero/Canvas";
-
-// ─── HUD Grid Background ────────────────────────────────────────────────────
-const HudGrid: FC = () => {
-  const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  useEffect(() => {
-    const canvas = canvasRef.current;
-    if (!canvas) return;
-
-    const draw = () => {
-      const isDark = document.documentElement.classList.contains("dark");
-      const ctx = canvas.getContext("2d");
-      if (!ctx) return;
-
-      canvas.width = window.innerWidth;
-      canvas.height = window.innerHeight;
-
-      ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-      const gridColor = isDark
-          ? "rgba(100, 116, 160, 0.07)"
-          : "rgba(255, 255, 255, 0.5)";
-
-      const cellSize = 48;
-      ctx.strokeStyle = gridColor;
-      ctx.lineWidth = 0.5;
-
-      for (let x = 0; x <= canvas.width; x += cellSize) {
-        ctx.beginPath();
-        ctx.moveTo(x, 0);
-        ctx.lineTo(x, canvas.height);
-        ctx.stroke();
-      }
-
-      for (let y = 0; y <= canvas.height; y += cellSize) {
-        ctx.beginPath();
-        ctx.moveTo(0, y);
-        ctx.lineTo(canvas.width, y);
-        ctx.stroke();
-      }
-
-      const dotColor = isDark
-          ? "rgba(100, 116, 160, 0.12)"
-          : "rgba(140, 140, 155, 0.13)";
-      ctx.fillStyle = dotColor;
-      for (let x = 0; x <= canvas.width; x += cellSize * 4) {
-        for (let y = 0; y <= canvas.height; y += cellSize * 4) {
-          ctx.beginPath();
-          ctx.arc(x, y, 1.2, 0, Math.PI * 2);
-          ctx.fill();
-        }
-      }
-    };
-
-    draw();
-
-    const observer = new MutationObserver(draw);
-    observer.observe(document.documentElement, {
-      attributes: true,
-      attributeFilter: ["class"],
-    });
-
-    window.addEventListener("resize", draw);
-    return () => {
-      window.removeEventListener("resize", draw);
-      observer.disconnect();
-    };
-  }, []);
-
-  return (
-      <canvas
-          ref={canvasRef}
-          className="pointer-events-none absolute inset-0 z-0 h-full w-full"
-      />
-  );
-};
 
 // ─── Decorative corner marks ─────────────────────────────────────────────────
 // Animate from opacity-0 to opacity-20 (matching your original opacity-20)
@@ -143,7 +68,7 @@ export const Hero: FC = () => {
 
         <section className="relative flex h-[100dvh] w-full overflow-hidden bg-background">
           {/* HUD grid */}
-          <HudGrid />
+          <HudGrid gridColorLight="rgba(255, 255, 255, 0.5)" />
 
           {/* Corner marks — animate in last, land at opacity-20 */}
           <CornerMark position="tl" delay="1.6s" />
@@ -151,7 +76,7 @@ export const Hero: FC = () => {
           <CornerMark position="bl" delay="1.8s" />
           <CornerMark position="br" delay="1.9s" />
 
-          {/* ── Left panel: 3D canvas ── */}
+          {/* ── Left panel: engine animation ── */}
           <div
               className="relative z-10 h-full w-full md:w-[62%]"
               style={{
@@ -162,7 +87,7 @@ export const Hero: FC = () => {
           >
             <Canvas />
 
-            {/* Fade gradient — unchanged */}
+            {/* Fade gradient */}
             <div
                 className="pointer-events-none absolute inset-y-0 right-0 z-20 w-32 hidden md:block"
                 style={{
