@@ -10,7 +10,7 @@ import { Engine3D } from "@/components/Home/Hero/Engine3D";
 // ── Scene variants — one is picked at random on each page load ─────
 const VARIANTS = ["gokart", "engine"] as const;
 type Variant = (typeof VARIANTS)[number];
-const SELECTED: Variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)];
+const SELECTED: Variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)]!;
 
 // Go-kart model config
 const GOKART = {
