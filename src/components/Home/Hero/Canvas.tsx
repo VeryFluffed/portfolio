@@ -6,9 +6,10 @@ import CanvasLoader from "@/components/Home/Hero/CanvasLoader";
 import { cn } from "@/lib/utils";
 import { CanvasItem } from "@/components/Home/Hero/CanvasItem";
 import { Engine3D } from "@/components/Home/Hero/Engine3D";
+import { Clock3D } from "@/components/Home/Hero/Clock3D";
 
 // ── Scene variants — one is picked at random on each page load ─────
-const VARIANTS = ["gokart", "engine"] as const;
+const VARIANTS = ["gokart", "engine", "clock"] as const;
 type Variant = (typeof VARIANTS)[number];
 const SELECTED: Variant = VARIANTS[Math.floor(Math.random() * VARIANTS.length)]!;
 
@@ -32,11 +33,15 @@ export const Canvas: FC<ComponentProps<typeof ThreeCanvas>> = ({
 }) => {
   const isMobile = useMediaQuery({ maxWidth: 768 });
 
-  // Engine camera: centered on the engine assembly, slight elevation
-  // Go-kart keeps original settings
+  // Per-variant camera
   const camPos: [number, number, number] =
-    SELECTED === "engine" ? [2, 2, 12] : [0, 0, 30];
-  const fov = SELECTED === "engine" ? 42 : 50;
+    SELECTED === "engine" ? [2, 2, 12]
+    : SELECTED === "clock"  ? [0, 0, 10]
+    : [0, 0, 30];
+  const fov =
+    SELECTED === "engine" ? 42
+    : SELECTED === "clock"  ? 48
+    : 50;
 
   return (
     <ThreeCanvas
@@ -48,8 +53,9 @@ export const Canvas: FC<ComponentProps<typeof ThreeCanvas>> = ({
         <PerspectiveCamera makeDefault position={camPos} fov={fov} />
 
         {SELECTED === "engine" ? (
-          // Engine is pure geometry — always show on all screen sizes
           <Engine3D />
+        ) : SELECTED === "clock" ? (
+          <Clock3D />
         ) : (
           // Go-kart GLB — hide on mobile to save bandwidth
           !isMobile && (
