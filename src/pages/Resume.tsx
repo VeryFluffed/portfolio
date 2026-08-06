@@ -5,7 +5,7 @@ const Resume = () => {
     <main className="main">
       <div className="mb-2 flex justify-center">
         <Button asChild>
-          <a href="/Danh Tran Resume (Full).pdf" download="Danh_Resume.pdf">
+          <a href="/Danh Tran Resume Full.pdf" download="Danh_Resume.pdf">
             Download Resume
           </a>
         </Button>
