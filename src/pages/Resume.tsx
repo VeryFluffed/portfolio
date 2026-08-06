@@ -11,7 +11,7 @@ const Resume = () => {
         </Button>
       </div>
       <embed
-        src="/Danh Tran Resume (Full).pdf"
+        src="/Danh Tran Resume Full.pdf"
         type="application/pdf"
         className="h-[calc(100vh-8rem)] w-full md:h-[calc(100vh-6rem)]"
       />
