@@ -74,7 +74,7 @@ This is the number that should size the motor. Add a safety factor for friction 
 
 ## The Result That Didn't Match
 
-Before buying a big motor, I tested the cheap one: a gearmotor with about **0.6 N·m** [FILL IN: rated or stall torque?] on the 1:1 drive. It spun the loaded drum smoothly at 30 RPM.
+Before buying a big motor, I tested the cheap one: a gearmotor with about **0.6 N·m** on the 1:1 drive. It spun the loaded drum smoothly at 30 RPM.
 
 <video
   src="/videos/powder-spinning.mov"
@@ -113,10 +113,10 @@ $$F = \frac{\tau}{r_{sprocket}}$$
 - $F$ = chain tension
 - $r_{sprocket}$ = pitch radius of the sprocket carrying torque $\tau$
 
-[FILL IN: which sprocket is the 0.04 m one, and whether the 50% infill decision applies to the build you actually made.]
-
 ![tensioner](/images/powderTension.png)
+
+To be safe, I replaced the original **0.6 N·m** with a **5 N·m** motor.
 
 ## Takeaway
 
-The worst-case model was the right place to *start*, because it told me what could go wrong. It was the wrong model to *buy parts from*. Testing the cheap option first kept the build to [FILL IN: actual parts cost], replacing a system that costs about \$1,200 new.
+The worst-case model was the right place to *start*, because it told me what could go wrong. It was the wrong model to *buy parts from*. Testing the cheap option first kept the build to \$600, replacing a system that costs about \$1,200 new.

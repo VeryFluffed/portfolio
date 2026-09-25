@@ -24,7 +24,7 @@ buttons:
 
 ## Motivation
 
-This started as a gift: a wooden Minecraft flower pot. I wanted to push it further and build something that actually used what I was learning in AP Physics 2 about circuits and sound. I built it during midterms and AP exams, and it became my first engineering project outside a classroom. [FILL IN: Thomas's role, e.g. "Thomas helped with X."]
+This started as a gift: a wooden Minecraft flower pot. I wanted to push it further and build something that actually used what I was learning in AP Physics 2 about circuits and sound. I built it during midterms and AP exams, and it became my first engineering project outside a classroom. Thomas helped with 3D printing.
 
 ![Minecraft Flower Pot](/images/flower.webp)
 
@@ -52,10 +52,8 @@ I started from a design by Aaron Medina on YouTube. A spring pushes a slider up 
 
 Getting it reliable took two fixes:
 
-1. **Lateral jams (60% → 0%).** The spring holders caught on each other when the push came in off-center. Adding fillets and chamfers let the two parts slide into each other no matter where the force came from.
-2. **Longitudinal jams (30% → 0%).** The pin's normal force let the slider shift forward and back and miss the lock. A few blockers on top constrained that motion.
-
-[FILL IN: number of trials behind each failure rate, e.g. "out of 20 insertions."]
+1. **Lateral jams (60% → 0%).** 61 out of 100 trials, the spring holders caught on each other when the push came in off-center. Adding fillets and chamfers let the two parts slide into each other no matter where the force came from.
+2. **Longitudinal jams (30% → 0%).** 30 out of 100 trials, the pin's normal force let the slider shift forward and back and miss the lock. A few blockers on top constrained that motion.
 
 Scaling to 1 px = 1 cm meant I didn't get to choose the height. The slider's travel, between where it locks (blue mark) and where it hangs loose (red mark), had to fit the jukebox's fixed proportions.
 
@@ -113,4 +111,3 @@ This was my first 3D printing project. The school printers were always booked, s
 
 - **Fix the logic levels.** The RC522 is a 3.3 V part. I powered it from the Nano's 3.3 V pin, but the Nano's SPI lines swing 5 V, so the reader's inputs are driven above their rating. It works, but it's out of spec and could shorten the reader's life. A \$1 level shifter on SDA, SCK, MOSI, and RST would fix it.
 - **Use the IRQ pin** instead of polling for cards.
-- **Design the enclosure to open for service.** Right now, getting to the electronics means [FILL IN].

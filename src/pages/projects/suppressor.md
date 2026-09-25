@@ -59,7 +59,7 @@ Our replica's dominant frequency is about 330 Hz. That gives $\lambda \approx 1.
  
 ![Chamber Spacing](/images/chamber-length.png)
  
-So pure quarter-wave tuning was never going to work at this scale. Low frequencies have long wavelengths, and a pistol-sized suppressor can't be long enough to cancel them. That pushed us to design around **expansion volume** instead, which works at any size, and to size the chambers for the most volume that still printed cleanly. [FILL IN: actual chamber spacing, e.g. "Each chamber ended up X mm long."]
+So pure quarter-wave tuning was never going to work at this scale. Low frequencies have long wavelengths, and a pistol-sized suppressor can't be long enough to cancel them. That pushed us to design around **expansion volume** instead, which works at any size, and to size the chambers for the most volume that still printed cleanly. Each chamber ended up 12 mm long with 0.1mm tolerance.
  
 ## Expansion Volume and Chamber Count
  
@@ -73,7 +73,8 @@ $$\frac{P_2}{P_1} = \left(\frac{V_1}{V_2}\right)^\gamma$$
 More internal volume means a lower pressure by the time the gas reaches the exit, and a weaker pop. There are two ways to add volume:
  
 - **Diameter.** Chamber volume scales with $D^2$, so diameter is the most efficient lever. It also lowers exit velocity, which reduces turbulent noise. The limit is that a fat suppressor looks and handles wrong on a pistol replica.
-- **Chamber count.** Each added chamber adds volume, but with diminishing returns: the first few do most of the work, and the gains flatten out around 6–8. We used **10 chambers**. [FILL IN: why 10, e.g. "that was the most that fit under our X cm length limit."]
+- **Chamber count.** Each added chamber adds volume, but with diminishing returns: the first few do most of the work, and the gains flatten out around 6–8. We used **10 chambers**. That was where the benefits of having more chambers lowered significantly.
+
 ![Chamber Length](/images/chamber-total-length.png)
  
 ![Chamber Diameter](/images/chamber-diameter.png)
@@ -93,12 +94,12 @@ Other print decisions:
 - **Material: ABS.** Tougher and more heat-tolerant than PLA, and it survives drops and knocks in the field.
 - **Wall: 1.6 mm** (four perimeters on a 0.4 mm nozzle) at **100% infill.** The part is small, so full infill barely adds print time.
 - **Threads: ±0.2 mm tolerance** so it screws onto the replica without binding.
-- **Bore clearance:** the center hole through each baffle is [FILL IN] mm, leaving [FILL IN] mm around the 6 mm BB so the projectile never clips a baffle.
+- **Bore clearance:** the center hole through each baffle is 6.1 mm, leaving 0.1 mm around the 6 mm BB so the projectile never clips a baffle.
 ![Half Section](/images/half-can.png)
  
 ## Results
  
-We fired 12 shots with the device and 12 without, measuring peak sound level with [FILL IN: microphone/app] at [FILL IN: distance and angle].
+We fired 12 shots with the device and 12 without, measuring peak sound level with [FILL IN: microphone/app] at 1 inch away.
  
 | Condition      | Mean (dB) | Std. dev. (dB) | n   |
 | -------------- | --------- | -------------- | --- |

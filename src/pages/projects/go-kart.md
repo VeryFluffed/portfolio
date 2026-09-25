@@ -56,7 +56,7 @@ $$I = \frac{P}{V}, \qquad P_{loss} = I^2 R$$
 
 Resistive loss grows with the *square* of current, so halving the current cuts wiring heat by 4×. With our **1,600 W** motor at 48 V, full-throttle current is about **33 A**. At 24 V it would have been about 67 A, with four times the heating in the same wires.
 
-**Wiring and protection.** That 33 A figure set our wire gauge ([FILL IN] AWG) and inline fuse ([FILL IN] A). I led the wiring and crimped every connection with proper terminals instead of twisting and taping. A loose, high-resistance joint at 33 A becomes a hot spot:
+**Wiring and protection.** I led the wiring and crimped every connection with proper terminals instead of twisting and taping. A loose, high-resistance joint at 33 A becomes a hot spot:
 
 $$V_{drop} = IR$$
 
@@ -64,7 +64,7 @@ $$V_{drop} = IR$$
 
 ## Drivetrain
 
-The motor drives the rear axle through a chain. [FILL IN: sprocket tooth counts, motor RPM, wheel diameter.] The predicted top speed is:
+The motor drives the rear axle through a chain. There were 12 axle teeth, 50 motor teeth, motor RPM was 120, with a wheel diameter of 1 ft. The predicted top speed is:
 
 $$v = \frac{\omega_{motor}}{G} \, r_{wheel}$$
 
@@ -73,7 +73,7 @@ $$v = \frac{\omega_{motor}}{G} \, r_{wheel}$$
 - $G$ = sprocket ratio (axle teeth ÷ motor teeth)
 - $r_{wheel}$ = wheel radius
 
-That predicts [FILL IN] mph, compared with the **15 mph** we measured. [FILL IN: one line on the gap, e.g. rider weight, rolling resistance, battery sag.]
+That predicts 335 mph, compared with the **15 mph** we measured. We used only about 10% of power to be safe. This equates to a ~50% efficiency rate using just bed frame parts.
 
 ## Frame and Fabrication
 
@@ -84,7 +84,7 @@ None of us had welded, so we sketched the frame, cut the galvanized square steel
 A lot:
 
 - **Chains derailing:** fixed by realigning the sprockets and adding a tension check
-- **Wires overheating:** fixed with [FILL IN: heavier gauge / better crimps]
+- **Wires overheating:** fixed with better crimps
 - **Frame flexing:** not fixed
 
 The drivetrain and electrical system eventually held up. **The frame was the real limit.** Under the motor's torque, the bolted galvanized tubing kept bending. Bolted joints in thin tube just can't carry that load the way welded joints can.
@@ -97,4 +97,4 @@ I managed the budget, split up the work, and made sure everyone learned each sys
 
 ## Next Version
 
-We're rebuilding the frame **welded** from heavier tube, keeping the same 48 V electrical design, and cleaning up wire routing. [FILL IN: timeline, e.g. "next summer."]
+We're rebuilding the frame **welded** from heavier tube, keeping the same 48 V electrical design, and cleaning up wire routing. Most likely starting next summer.

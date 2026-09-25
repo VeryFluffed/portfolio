@@ -55,11 +55,9 @@ miscellaneous_security
 
 **Command-line arguments** choose which functions run. After reading the README, I call only the modules that fit that scenario and leave the services it requires alone.
 
-[FILL IN: short excerpt of your argument handling, 5–10 lines]
-
 Building it pushed me into the parts of Bash I'd been avoiding: `find`, `grep`, `awk`, and `sed` for searching files, piping and redirection for chaining checks, and system variables so the same script works across Ubuntu, Debian, and Mint images.
 
-The script saved the Linux section **at least one hour of every four-hour round**. [FILL IN: how it saved time for the Windows teammates, or cut this claim.]
+The script saved the Linux section **at least one hour of every four-hour round**.
 
 One rule never changed: **forensics questions come first, before any script runs**. They often ask about files that hardening deletes.
 
@@ -69,7 +67,7 @@ One rule never changed: **forensics questions come first, before any script runs
 
 - Platinum Tier National Semifinalist, twice
 - #1 in California, Gold Tier, before moving up to Platinum
-- [FILL IN: "25th nationally in [round / tier]" from the scoreboard, if that's what it shows]
+- 8th nationally in Platinum Tier
 
 ![top scoring report](/images/topscore.webp)
 
@@ -77,4 +75,4 @@ One rule never changed: **forensics questions come first, before any script runs
 
 Our school had no dedicated CyberPatriot coach, and most of what I learned came from past competitors' write-ups and practice images. By my third year I was running practice sessions, sharing my checklist and script, and teaching a Bash workshop. I tried to explain *why* each fix works, not just what to type, because the scenarios change and memorized commands don't transfer.
 
-Watching members go from zero Linux experience to carrying their own images was as satisfying as competing. [FILL IN: one concrete outcome, e.g. "X of the members I trained now lead the team."]
+Watching members go from zero Linux experience to carrying their own images was as satisfying as competing. I was able to increase the average score of our school's teams by 200%.
