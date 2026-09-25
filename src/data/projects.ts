@@ -15,7 +15,7 @@ export const projects = [
     role: "Mechanical Engineer",
     description:
       "A fully 3D-printed, modular hexacopter frame from my CREST-MECIS summer research fellowship at UT Rio Grande Valley, where I owned the frame and arm attachments. Generative design cut the center plate from 0.25 kg to 0.076 kg and the whole frame by ~60%. At full motor throttle the arm deflected only ~5 mm, and a broken part costs about $2 (leg) or $5 (arm) to reprint.",
-    video: null,
+    video: "/videos/uav.mp4",
     tech: [
       { name: "SolidWorks", icon: "/icons/solidworks.webp" },
       { name: "Fusion360", icon: "/icons/fusion.webp" },

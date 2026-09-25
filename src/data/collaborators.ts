@@ -11,4 +11,5 @@ export const collaborators: Collaborator[] = [
   { name: "Ayaan Qureshi" },
   { name: "James Nguyen" },
   { name: "Thomas Vu" },
+  { name: "Darren Espinoza" },
 ];
