@@ -1,7 +1,7 @@
 ---
 title: MODULAR UAV FRAME
 description: A fully 3D-printed, modular hexacopter frame from my CREST-MECIS summer research fellowship at UT Rio Grande Valley, where I owned the frame and arm attachments. Generative design cut the center plate from 0.25 kg to 0.076 kg and the whole frame by ~60%. At full motor throttle the arm deflected only ~5 mm, and a broken part costs about $2 (leg) or $5 (arm) to reprint.
-image: /images/uav-built.webp
+image: /images/uav-built.jpg
 alt: Modular 3D-Printed UAV Frame
 collaborators: Darren Espinoza
 contributions:
@@ -20,7 +20,7 @@ I spent summer 2026 at the CREST-MECIS Center at UT Rio Grande Valley on an \$8,
 
 Drones that do real fieldwork crash. On a typical frame, one bad landing can crack an arm, and then you're waiting on a replacement part. I wanted a frame where a crash costs a few dollars and one overnight print, and I wanted to find out whether generative design could make a printed frame light enough to be worth flying.
 
-![Assembled UAV](/images/uav-built.webp)
+![Assembled UAV](/images/uav-built.jpg)
 
 ## Why Modular and Printed
 
@@ -35,7 +35,7 @@ Everything prints in-house on a Bambu Lab X1 Carbon, which is what makes the rep
 
 A replacement arms and legs are not even listed for most drone frames. Likely, you would have to buy the entire frame again, costing hundreds of dollars.
 
-![CAD Assembly](/images/uav-cad.webp)
+![CAD Assembly](/images/uav-cad.png)
 
 ## Generative Design
 
@@ -56,7 +56,7 @@ $$M_{root} = T_{max} \, L$$
 
 The solver returned a set of organic, branching shapes like the plate below: material follows the load paths from each motor mount to the hub, and everything else is gone.
 
-![Generative Center Plate](/images/uav-plate.webp)
+![Generative Center Plate](/images/uav-plate.png)
 
 The most important thing I learned: **generative design hands you geometry, not judgment.** Many outcomes may look good, but they might be not be suitable in application compared to CAD. Constraining the study by what we could actually manufacture, and then choosing and cleaning up an outcome, was the real engineering work. The final outcome was picked because of its consistent volume spread with a lowest mass safety factor of 5.
 

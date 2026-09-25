@@ -11,6 +11,19 @@ export interface Project {
 
 export const projects = [
   {
+    title: "UAV Frame (2026)",
+    role: "Mechanical Engineer",
+    description:
+      "A fully 3D-printed, modular hexacopter frame from my CREST-MECIS summer research fellowship at UT Rio Grande Valley, where I owned the frame and arm attachments. Generative design cut the center plate from 0.25 kg to 0.076 kg and the whole frame by ~60%. At full motor throttle the arm deflected only ~5 mm, and a broken part costs about $2 (leg) or $5 (arm) to reprint.",
+    video: null,
+    tech: [
+      { name: "SolidWorks", icon: "/icons/solidworks.webp" },
+      { name: "Fusion360", icon: "/icons/fusion.webp" },
+      { name: "3D Printing", icon: "/icons/3dprinter.webp" },
+    ],
+    link: "/projects/uav",
+  },
+  {
     title: "Motorized Powder Blender (2026)",
     role: "Mechanical Engineer",
     description:
