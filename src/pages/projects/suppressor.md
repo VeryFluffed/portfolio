@@ -1,132 +1,124 @@
 ---
 title: ACOUSTIC ATTENUATION DEVICE
-description: This project explores the design and optimization of a passive acoustic attenuation system for a low-pressure pneumatic launcher (airsoft platform). The goal is to minimize the acoustic signature generated during discharge by controlling compressible airflow expansion, turbulence dissipation, and wave interference inside a confined cylindrical structure.
+description: A 3D-printed, support-free baffle suppressor for a Glock airsoft replica, designed from compressible-flow and wave-physics first principles. In a 12-shot A/B test it cut the measured sound level by 3.9 dB, about 59% less acoustic intensity, with the whole part printing in ABS with zero supports.
 image: /images/acoustic.png
 alt: Acoustic Attenuation Device Project
 collaborators: [Thomas Vu]
 contributions:
   [
-    Compressible Flow Modeling (Transient Expansion),
-    Internal Geometry Optimization (Baffles & Chambers),
-    Acoustic Wave Attenuation Analysis,
-    Support-Free 3D Printing Optimization,
-    Material Strength & Layer Adhesion Analysis,
+    Expansion-volume and chamber-count modeling,
+    Baffle and chamber geometry,
+    Support-free print design (45° overhang limit),
+    A/B acoustic testing and data analysis,
   ]
 buttons:
   [{ label: "CAD Files", url: "https://drive.google.com/drive/folders/1OsKyjXnB9v2AB9BeqtNgJKADfKizzOq_?usp=drive_link" }]
 ---
 
 ## Motivation
-
-After playing Ready or Not (a slow, tactical shooter game) with my friend Thomas, he brought me on to his project to develop his personal airsoft arsenal. Being the great civil engineer he is, he was inspired by his interest in fluid dynamics and wave physics to create this project. Particularly, how high-speed gas expansion produces sound. We wanted to apply concepts from thermodynamics and mechanics learned from our lectures to design a system that manages energy transfer, rather than simply containing it. Unlike my usual projects, where the physical architecture only focuses on structure and dynamics, this required me to think in terms of pressure gradients, wave propagation, and entropy increase, making it one of my most physics-heavy builds.
-
-## The Physics of Acoustic Suppression
-
-When the system is fired, compressed gas rapidly expands into the atmosphere. This creates a pressure wave, which propagates as sound. The relationship comes from compressible flow, using the adiabatic process equation:
-
+ 
+After a few too many rounds of Ready or Not, my friend Thomas started upgrading his airsoft replicas and pulled me in. He's a civil engineering student who works with water systems, so he came at it from fluid flow; I came at it from mechanical design. Thomas owned the gas flow analysis and testing. I owned the CAD, print design, and materials testing.
+ 
+What hooked me was that this wasn't a structures problem. Most of my builds are about forces and motion. This one was about pressure, wave propagation, and where energy goes when you stop it from leaving all at once. I wanted to see how far lecture-level thermodynamics could actually get us before we had to guess.
+ 
+## Where the Noise Comes From
+ 
+When the replica fires, gas trapped in the barrel at high pressure suddenly meets the open atmosphere and expands. For a fast expansion with little time for heat transfer, the gas follows the adiabatic relation:
+ 
 $$PV^\gamma = \text{constant}$$
-
-- $P$ = pressure
-- $V$ = volume
+ 
+- $P$ = gas pressure
+- $V$ = gas volume
 - $\gamma$ = heat capacity ratio (~1.4 for air)
-
-In simple terms, when a projectile is shot out of the airsoft replica, the pressure of the gas released is in a very small container (the barrel of the replica). When the projectile exits the replica, it is now out in the open, where there is a large volume of air. Because pressure and volume are inversely proportional to each other, that means the pressure would decrease if the volume increased. The rapid drop in pressure creates a shock-like wavefront, which is what we hear as the "pop."
-
-The acoustic energy originates from the internal energy of compressed gas, measured by using the Ideal Gas Law equation:
-
+That sudden pressure drop at the muzzle launches a sharp pressure wave: the "pop." The energy available to make that pop is the internal energy of the compressed gas:
+ 
 $$E = \frac{PV}{\gamma - 1}$$
-
-The design goal is to redistribute this energy over time, reducing peak amplitude. Lower peak pressure → lower sound. The flow exiting the barrel can approach choked flow:
-
-$$M = \frac{v}{c} \approx 1$$
-
-- $M$ = Mach number
-- $v$ = gas velocity
-- $c$ = speed of sound
-
-This introduces turbulence, which contributes to broadband noise.
-
-## Internal Design
-
-### Existing Designs
-
-We had a choice to make a traditional baffle or a flow-through baffle. We ultimately landed on the traditional baffle because of its different specifications and what a flow-through baffle looks like 💀💀💀
-
+ 
+- $E$ = internal energy of the gas
+A suppressor can't make that energy disappear. What it can do is **spread the release out in time**, so the same energy leaves as a longer, lower-amplitude pulse instead of one sharp spike. Every decision below comes back to one goal: lower the peak pressure at the exit.
+ 
+## Traditional vs. Flow-Through Baffles
+ 
+There are two main architectures. A **traditional baffle** stack traps gas in a series of chambers and lets it bleed out. A **flow-through** design routes gas along longer internal paths to slow it down without trapping it.
+ 
 ![Suppressor Designs](/images/suppressor-designs.png)
-
-Both of them work very differently. Specifically, the traditional baffle traps the gas inside the suppressor and slowly releases it. On the other hand, the flow-through baffle slows the gas movement inside the suppressor to release slowly. On a fundamental level, both of these suppressors achieve a reduced noise and slower pressure release. However, because of how a flow-through suppressor works, although there is less gas blowback and heat, gas escapes at a greater rate compared to the traditional baffle. The traditional baffle is able to trap the gas instead of slowing its movement, making it much quieter. However, because it is trapping the gas, the traditional baffle will take some of the energy and convert it into kinetic energy, meaning there is more backpressure and blowback. For an airsoft replica, there is not much energy released, so a traditional baffle will be superior in our scenario.
-
-### Baffle Angle Optimization
-
-It is very important to understand the baffle angle. It directly affects how much gas is redirected into a chamber, but it is also difficult to manufacture. Thus, we have to ensure that the suppressor can be printed without the need for supports. For that to happen, we just need to make sure $\theta_{\text{overhang}} \leq 45°$. In terms of the quality of the suppressor, a smaller angle of the baffle produces a smoother flow with less turbulence. However, a larger angle would produce a stronger redirection of gas and more energy dissipation. Empirically, most baffles will be around $30° \leq \theta \leq 60°$. For simplicity, we went with the 45° angle. It is right in the middle of the range, meaning it will balance flow redirection and avoidance of excessive backpressure. It is also the maximum angle for a high-quality print with no supports, meaning it will be effective in manufacturing.
-
-![Baffle Angle (45°)](/images/baffle-angle.png)
-
-### Chamber Spacing
-
-The baffle angle affects how gas can be redirected. The chamber spacing is the volume of gas we can trap in each spacing. The bigger the chamber length is, the more gas it can trap. However, if it gets too large, there are reduced interactions with baffles, meaning not enough gas will flow in. It is like having a large room to fill with furniture, but you only have one chair to fill it with. Also, having a very long suppressor is very ineffective in practice. On the other hand, if the chamber is too small, not a lot of gas will get trapped, leading more gas to escape and make a louder noise.
-
-
-The optimal chamber length is approximately one quarter of the dominant sound wavelength:
-
-$$L_c \approx \frac{\lambda}{4}$$
-
-Where wavelength and frequency are related by:
-
-$$\lambda = \frac{c}{f}$$
-
-The optimal condition for acoustic waves is directly proportional to their wavelength, where the wavelength is inversely proportional to frequency. This means that to increase the wavelength, we must decrease the frequency, meaning we must try to have as many chambers as possible. This enables destructive interference of dominant frequencies, meaning there will be less noise. For us, our airsoft sound frequency is around ~330 Hz. Plugging it into these equations, we got the optimal wavelength to be ~0.24 m. However, we can add another full wavelength and the destructive interference will still work, which gives us ~1.2 m.
-
+ 
+Flow-through designs have less backpressure and heat buildup, but more gas leaves per unit time, so they're usually louder. Traditional baffles are quieter; the cost is backpressure. Trapped gas churns in each chamber, and that turbulence dissipates energy as heat. On a real firearm, that heat and blowback is a serious problem. On an airsoft replica the gas energy is small, so the downside barely matters. We went with traditional baffles.
+ 
+## Why Quarter-Wave Tuning Didn't Fit
+ 
+My first plan was to tune the chamber length to cancel the dominant frequency. A chamber about a quarter-wavelength long reflects a wave back 180° out of phase, so it destructively interferes with itself:
+ 
+$$L_c \approx \frac{\lambda}{4}, \qquad \lambda = \frac{c}{f}$$
+ 
+- $L_c$ = chamber length
+- $\lambda$ = wavelength of the dominant tone
+- $c$ = speed of sound (~343 m/s)
+- $f$ = dominant frequency
+Our replica's dominant frequency is about 330 Hz. That gives $\lambda \approx 1.04$ m and $L_c \approx 26$ cm, which is longer than the entire replica.
+ 
 ![Chamber Spacing](/images/chamber-length.png)
-
-### Length Optimization
-
-The total length of the suppressor scales with the number of chambers and the chamber spacing. The change in pressure relates to volume by:
-
-$$\Delta P \propto \left(\frac{V_{total}}{V_{initial}}\right)$$
-
-The change in pressure (we want it to be very low) is inversely proportional to the volume inside the airsoft replica ($V_{initial}$). That means we want that to be as large as possible. However, because it is inversely proportional, there are significant diminishing returns after ~6–8 chambers. Our model has no downsides to simply adding more, so we have 10 chambers. Also, longer suppressors will increase drag and will not be effective in airsoft play.
-
+ 
+So pure quarter-wave tuning was never going to work at this scale. Low frequencies have long wavelengths, and a pistol-sized suppressor can't be long enough to cancel them. That pushed us to design around **expansion volume** instead, which works at any size, and to size the chambers for the most volume that still printed cleanly. [FILL IN: actual chamber spacing, e.g. "Each chamber ended up X mm long."]
+ 
+## Expansion Volume and Chamber Count
+ 
+If the gas expands adiabatically from the barrel into the suppressor's internal volume, the pressure it reaches is:
+ 
+$$\frac{P_2}{P_1} = \left(\frac{V_1}{V_2}\right)^\gamma$$
+ 
+- $P_1, V_1$ = pressure and volume of the gas in the barrel
+- $P_2$ = pressure after expanding into the suppressor
+- $V_2$ = total volume the gas can expand into (barrel + chambers)
+More internal volume means a lower pressure by the time the gas reaches the exit, and a weaker pop. There are two ways to add volume:
+ 
+- **Diameter.** Chamber volume scales with $D^2$, so diameter is the most efficient lever. It also lowers exit velocity, which reduces turbulent noise. The limit is that a fat suppressor looks and handles wrong on a pistol replica.
+- **Chamber count.** Each added chamber adds volume, but with diminishing returns: the first few do most of the work, and the gains flatten out around 6–8. We used **10 chambers**. [FILL IN: why 10, e.g. "that was the most that fit under our X cm length limit."]
 ![Chamber Length](/images/chamber-total-length.png)
-
-### Diameter Optimization
-
-As for the internal diameter, because the internal diameter is directly proportional to the initial volume, a larger diameter will decrease the change in pressure. Something to keep in mind is that it will also decrease the velocity of the gas escaping, since velocity is inversely proportional to cross-sectional area:
-
-$$v \propto \frac{1}{A}$$
-
-A lower velocity means lower turbulence, which means a quieter output. That is why most sniper suppressors are so much bigger than the barrel.
-
+ 
 ![Chamber Diameter](/images/chamber-diameter.png)
-
-## Printing & Manufacturing
-
-### Reynolds Number
-
-Because the baffle angles do not require support, they will be much smoother, allowing them to trap more gas and be more effective. Simply having a smooth surface overall will be much more effective. The Reynolds number equation defines whether a gas (or fluid) flow will be turbulent or laminar:
-
-$$Re = \frac{\rho v D}{\mu}$$
-
-![Laminar v. Turbulent Flow](/images/laminar-v-turbulent.png)
-
-Although the roughness of the print is not explicitly stated in the Reynolds number equation, it affects the velocity of the gas. Because the Reynolds number is proportional to the velocity of the gas, the decrease in velocity due to the roughness of the print will ultimately increase turbulence, leading to more noise. To improve this, we can either sand down the print or use vapor smoothing. Either way, the model quality and the lack of support will reduce friction between the gas and the inner walls of the suppressor.
-
-### Other Information
-
-The wall thickness will also help with the structural integrity and reduce the noise. Naturally, we would like it to be thick. Luckily for us, ABS plastic is not very heavy, so we can safely do a thicker wall of 1.6mm. We are using ABS because it is much stronger than typical PLA, it has to endure the energy from the gas, and it is much lighter. It is also better simply because it is a functioning piece of equipment in a very dynamic sport. As for the infill, we are using 100% because we are making a smaller suppressor for a Glock airsoft replica. Thus, there is not much time loss using a 0.4mm nozzle. As for the tolerances, the only specific tolerances we need are the baffles and the screw. The screw is self-explanatory, needing a tolerance size of ±0.2mm. As for the baffles, the hole in the middle needs to be big enough for the projectile not to strike the suppressor.
-
-![Laminar v. Turbulent Flow](/images/half-can.png)
-
+ 
+The cost of each extra chamber is length and weight hanging off the front of the replica, which matters for handling in a game.
+ 
+## Designing for a Support-Free Print
+ 
+Baffle angle is a trade-off. A steeper baffle redirects more gas into each chamber and dissipates more energy; a shallower one gives smoother flow and less backpressure. Most designs sit between 30° and 60°.
+ 
+**45°** satisfies both constraints at once. It's in the middle of that range, and it's the steepest overhang an FDM printer can handle cleanly without supports. That second part matters more than it sounds. Supports inside a baffle stack are nearly impossible to remove, and the scars they leave roughen the baffle faces. A rough surface trips the boundary layer into turbulence earlier, which adds broadband noise. A support-free print keeps the internal surfaces clean without post-processing.
+ 
+![Baffle Angle (45°)](/images/baffle-angle.png)
+ 
+Other print decisions:
+ 
+- **Material: ABS.** Tougher and more heat-tolerant than PLA, and it survives drops and knocks in the field.
+- **Wall: 1.6 mm** (four perimeters on a 0.4 mm nozzle) at **100% infill.** The part is small, so full infill barely adds print time.
+- **Threads: ±0.2 mm tolerance** so it screws onto the replica without binding.
+- **Bore clearance:** the center hole through each baffle is [FILL IN] mm, leaving [FILL IN] mm around the 6 mm BB so the projectile never clips a baffle.
+![Half Section](/images/half-can.png)
+ 
 ## Results
-
+ 
+We fired 12 shots with the device and 12 without, measuring peak sound level with [FILL IN: microphone/app] at [FILL IN: distance and angle].
+ 
+| Condition      | Mean (dB) | Std. dev. (dB) | n   |
+| -------------- | --------- | -------------- | --- |
+| Without device | 83.2      | 1.5            | 12  |
+| With device    | 79.4      | 2.3            | 12  |
+ 
 ![Noise Results](/images/accoustic-stats.png)
-
-Here, we can see the difference between the average dB with and without the accoustic attenuation device. We can see that the difference in dB is about 3.89 dB. However, dB is a logarithmic measurement. After calculating, we can see that the device has effectively reduced the noise by ~60%.
-
-## Conclusion
-
-This project was very unique, and because of that, it made it much more enjoyable. It demonstrated not only mechanical design, but also fluid dynamics and wave physics. Rather than simply containing pressure, the design strategically distributes the energy to convert a sharp impulse into a prolonged, lower-amplitude release. Also, I learned how to design for quicker and higher-quality manufacturing. Designing without supports required careful geometric planning, highlighting the importance of manufacturing-aware engineering design. After all, that is a large part of what engineers are for. This will save a lot of money in terms of materials cost and production time. The result shows theoretical physics translated into optimized manufacturable hardware.
-
-## Next Steps
-
-As for future improvements, we would like to try the flow-through model. We have more airsoft replicas that we would like to upgrade to improve our engineering skills and to apply our knowledge from lectures to tangible results. Thomas specializes in water infrastructure in civil engineering, and although gas and liquids are not exactly the same, the experience can still translate into fluid systems and engineering.
+ 
+The difference is **3.9 dB**, and it's statistically solid (Welch's t-test, p < 0.001). Because decibels are logarithmic, "how much quieter" depends on what you measure:
+ 
+$$\text{Reduction} = 1 - 10^{-\Delta L / 10}$$
+ 
+- $\Delta L$ = drop in sound level (dB)
+- **Acoustic intensity** (energy per area): $1 - 10^{-0.389} \approx$ **59% lower**
+- **Pressure amplitude**: $1 - 10^{-0.389/2} \approx$ **36% lower**
+- **Perceived loudness** (rule of thumb: 10 dB ≈ half as loud): about **24% quieter**
+The device is doing real physical work, cutting the energy in the pop by more than half. To a listener, it sounds noticeably quieter, not silent. That's about what I'd expect from a small suppressor that can't touch the low-frequency content.
+ 
+## What I'd Do Next
+ 
+- **Measure the spectrum, not just the level.** An FFT of the recordings would show whether the reduction comes from high frequencies (turbulence) while the ~330 Hz content passes through, which is what the quarter-wave math predicts.
+- **Build the flow-through version** and run the same A/B test, so the comparison is measured instead of argued.
+- **Test chamber count directly.** Print 4-, 7-, and 10-chamber versions and see whether the diminishing-returns curve actually shows up.

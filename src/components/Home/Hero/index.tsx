@@ -184,7 +184,7 @@ export const Hero: FC = () => {
                     letterSpacing: "0.3em",
                   }}
               >
-                Mechatronics Engineer Portfolio
+                Robotics Engineer Portfolio
               </p>
             </div>
           </div>

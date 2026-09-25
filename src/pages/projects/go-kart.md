@@ -1,87 +1,100 @@
 ---
 title: ELECTRIC GO-KART
-description: We engineered a fully functional electric go-kart from a repurposed bed frame, integrating structural fabrication, electrical wiring, and drivetrain design. I managed a ~$1.2k budget and led a 3-member team through design, fabrication, and troubleshooting. We applied torque and friction analysis to optimize performance and achieved 15 mph in testing, validating our drivetrain and safety assumptions.
+description: A 4-person team turned a friend's old steel bed frame into an electric go-kart on a ~$1.2k budget. It hit 15 mph carrying a 200+ lb rider on a 48 V LiFePO₄ pack. The drivetrain and electrical system held up, but the frame didn't, and rebuilding it welded is the next version.
 image: /images/project.webp
 alt: Go-Kart Project
 collaborators: [Aiden Tran, Jayden Thieu, Nathan Pham]
 contributions:
   [
-    Budget Management,
-    Team Leadership,
-    Drivetrain Analysis,
-    Electrical Wiring,
-    Fabrication & Welding,
+    Project lead and budget management,
+    48 V electrical system design and wiring,
+    Drivetrain and chain alignment,
+    Frame fabrication (cut and bolted steel),
+    Troubleshooting checklists,
   ]
 ---
 
 ## Motivation
 
-At first, I saw a really cool Minecraft Pig that a person could ride, and it would only start moving after the person put a carrot on a stick in front of the Minecraft Pig. I quit tennis, a sport I played for three years in high school, and got a job to afford materials for this project. I wanted to do the same thing using my friend's old bedframe. It was perfectly fine, and they were just getting a new one. So, I thought I could repurpose it. However, as I recruited some of my friends onto the project, we became more ambitious and decided to make an entire go-kart instead. I wanted to learn how to connect classroom knowledge from physics and electrical circuits with practical hands-on fabrication, and it was one of the best decisions I ever made.
+It started as a joke: a rideable Minecraft pig that only moves when you dangle a carrot on a stick in front of it. A friend was throwing out an old steel bed frame, and I wanted to build something on it. Once I recruited friends, the idea grew into a full go-kart.
+
+I quit tennis after three years of high school and got a job to pay for parts. I wanted to see whether what I was learning in physics and circuits would hold up once real current and real weight were involved.
 
 ![bedframe](/images/bedframe.webp)
 
-## The Idea
+## System Breakdown
 
-We broke the go-kart into three main systems: chassis, drivetrain, and electrical powertrain. The chassis needed to be strong enough to handle weight and stress. Luckily, we had the old bedframe to be our base. For the drivetrain, our team researched and found sprockets, a chain system, and bearings to translate motor torque into wheel rotation. For the powertrain, we wired together a motor, controller, and battery system capable of sustaining high current without overheating or failing.
+We split the kart into three systems:
+
+- **Chassis:** the bed frame, cut down and reinforced
+- **Drivetrain:** motor sprocket, chain, and axle sprocket on bearings
+- **Electrical:** battery pack, motor controller, motor, wiring, and fusing
 
 ![kartsketch](/images/kartsketch.webp)
 
 ![kartsketch2](/images/kartsketch2.webp)
 
-## Fabrication & Welding
-
-None of us had welded before, so learning to cut and measure. We designed the kart frame in simple sketches, then cut the steel to size with an angle grinder and joined it with screws. We reinforced stress points like corners and load-bearing joints. Working with steel taught us how to respect tolerances, alignments, and the strength limitations of materials. With the new, upcoming model, we are planning on also learning how to weld with stronger metals. There will be more of this next summer when we reunite from college to work on this again.
-
-![bedframe](/images/bedframe.webp)
-
 ## Electrical System
 
-The electrical system was my favorite part. The motor controller and battery pack were truly the heart of the go-kart, supplying the energy and regulation needed to bring the mechanical system to life. For our build, we selected four LiFePO₄ (Lithium Iron Phosphate) batteries. These were the most practical options for us as high school students because they provided a safe balance of affordability, energy density, and long-term reliability. Unlike traditional lead-acid batteries, LiFePO₄ batteries are lighter, recharge faster, and have a much longer cycle life—traits that made them ideal for a project where both performance and durability mattered.
+This was my part of the build, and my favorite.
+
+**Battery.** We used four 12 V LiFePO₄ batteries. As high schoolers, we picked LiFePO₄ because it's lighter than lead-acid, lasts far more charge cycles, and is much more forgiving thermally than other lithium chemistries. We wired them in **series**:
+
+$$V_{total} = 4 \times 12 \text{ V} = 48 \text{ V}$$
 
 ![batteries](/images/batteries.webp)
 
-We configured the four cells in series, which meant connecting the positive terminal of one battery to the negative terminal of the next. By wiring them this way, the individual voltages of each battery were added together to reach a total system voltage of approximately 48 volts.
+**Why 48 V.** For the same power, higher voltage means lower current:
 
-```
-V_total = V₁ + V₂ + V₃ + V₄ ≈ 4 × 12V = 48V
-```
+$$I = \frac{P}{V}, \qquad P_{loss} = I^2 R$$
 
-The choice of a series connection was deliberate: while connecting batteries in parallel increases total capacity (and therefore runtime), connecting in series increases voltage, which is what we needed to achieve higher speeds. Since electric motors generally spin faster when supplied with higher voltage, this arrangement allowed the motor to reach its potential performance without drawing unnecessarily high current. Drawing less current for the same amount of power is important because lower current reduces resistive heating in the wires and components, which improves efficiency and reduces the chance of damage or wasted energy.
+- $I$ = current
+- $P$ = motor power
+- $V$ = pack voltage
+- $P_{loss}$ = heat lost in the wiring
+- $R$ = wire and connection resistance
 
-```
-P = V × I
-```
+Resistive loss grows with the *square* of current, so halving the current cuts wiring heat by 4×. With our **1,600 W** motor at 48 V, full-throttle current is about **33 A**. At 24 V it would have been about 67 A, with four times the heating in the same wires.
 
-```
-P_loss = I² × R
-```
+**Wiring and protection.** That 33 A figure set our wire gauge ([FILL IN] AWG) and inline fuse ([FILL IN] A). I led the wiring and crimped every connection with proper terminals instead of twisting and taping. A loose, high-resistance joint at 33 A becomes a hot spot:
 
-To safely handle the electrical load, we used heavy-gauge wiring rated for the high currents that would flow through the system during acceleration. Choosing the correct wire gauge was critical; undersized wires could overheat, creating a fire hazard or significant voltage drop that would sap performance. For safety and reliability, we installed inline fuses as protective devices. These fuses acted as fail-safes, ensuring that if the system ever experienced a short circuit or an overload, the circuit would break before damaging expensive components or causing unsafe conditions.
+$$V_{drop} = IR$$
 
-```
-I = P / V
-```
+- $V_{drop}$ = voltage lost across the connection
 
-For example, if our motor demanded 2400W at full throttle, then with 48V we would expect roughly I ≈ 2400 ÷ 48 ≈ 50A. This estimate guided our wiring and fuse sizing.
+## Drivetrain
 
-Reliability also depended heavily on the quality of our connections. Instead of relying on simple twists or electrical tape, we used proper crimping tools and connectors to secure every joint. A poor connection can cause resistance, leading to localized heating, power loss, or even catastrophic failure if a wire were to come loose while the kart was in motion. Every connection point was carefully inspected and tested, and I personally took the lead in managing the wiring process. This involved not only physically running the cables and crimping the terminals but also applying what I had learned about Ohm's law, resistance, and power distribution to minimize inefficiencies across the system.
+The motor drives the rear axle through a chain. [FILL IN: sprocket tooth counts, motor RPM, wheel diameter.] The predicted top speed is:
 
-```
-V_drop = I × R
-```
+$$v = \frac{\omega_{motor}}{G} \, r_{wheel}$$
 
-Ultimately, the electrical system we designed proved to be effective, delivering stable power to the motor and controller while keeping safety a priority. Because of its success, we plan to keep much of the same design for our next-generation go-kart, which we'll begin developing next summer. However, we're also leaving room for refinement—such as improving wire management, exploring higher-capacity cells for longer run times, and possibly upgrading the motor controller to allow for finer tuning of performance. This foundation not only powered the kart but also powered our understanding of what it means to design a reliable, efficient, and safe electrical system.
+- $v$ = kart speed
+- $\omega_{motor}$ = motor speed (rad/s)
+- $G$ = sprocket ratio (axle teeth ÷ motor teeth)
+- $r_{wheel}$ = wheel radius
 
-## Troubleshooting
+That predicts [FILL IN] mph, compared with the **15 mph** we measured. [FILL IN: one line on the gap, e.g. rider weight, rolling resistance, battery sag.]
 
-Failures were constant: chains derailing, wires overheating, frame flexing. Each issue forced us to pause, analyze, and fix. We created a checklist system for wiring tests, chain alignment, and battery health. The process was slow, but every fix made the kart more reliable and safe. However, the motor was simply too strong for the galvanized square steel, and it kept bending. Thus, we are planning on continuing this project next summer when all of us reunite from college to look at this project with a fresh pair of eyes.
+## Frame and Fabrication
 
-## Leadership & Teamwork
+None of us had welded, so we sketched the frame, cut the galvanized square steel with an angle grinder, and **bolted** it together, reinforcing corners and load-bearing joints. Working in steel taught us quickly how much alignment and tolerance matter.
 
-As project lead, I balanced managing our budget, delegating tasks, and making sure everyone learned something along the way. None of us had prior experience with cutting or high-current wiring, so I encouraged us to learn together by researching, testing, and documenting every step. I also stretched the budget by sourcing secondhand parts and negotiating material prices, which allowed us to build a competitive system for under $1.2k.
+## What Broke
 
-![budget sheets](/images/budget.webp)
+A lot:
 
-## Conclusion
+- **Chains derailing:** fixed by realigning the sprockets and adding a tension check
+- **Wires overheating:** fixed with [FILL IN: heavier gauge / better crimps]
+- **Frame flexing:** not fixed
 
-This project was proof that a small team with determination and curiosity could turn scrap metal and spare parts into an engineered system. It tested our skills in physics, fabrication, and wiring while showing me how much I enjoy leading projects where technical knowledge and teamwork meet. Reaching 15 mph wasn't just a win for speed—it was a milestone that showed us how far we could go with limited resources and unlimited determination. We will come back to this project next summer, and we will definitely be much better!
+The drivetrain and electrical system eventually held up. **The frame was the real limit.** Under the motor's torque, the bolted galvanized tubing kept bending. Bolted joints in thin tube just can't carry that load the way welded joints can.
+
+To keep us moving, we made a pre-run checklist for wiring, chain alignment, and battery health. It turned random failures into ones we could catch before driving.
+
+## Leading on a Budget
+
+I managed the budget, split up the work, and made sure everyone learned each system, not just their own piece. We stayed around \$1.2k by buying secondhand parts and negotiating prices.
+
+## Next Version
+
+We're rebuilding the frame **welded** from heavier tube, keeping the same 48 V electrical design, and cleaning up wire routing. [FILL IN: timeline, e.g. "next summer."]
