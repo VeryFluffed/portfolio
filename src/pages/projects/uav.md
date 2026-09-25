@@ -3,7 +3,7 @@ title: MODULAR UAV FRAME
 description: A fully 3D-printed, modular hexacopter frame from my CREST-MECIS summer research fellowship at UT Rio Grande Valley, where I owned the frame and arm attachments. Generative design cut the center plate from 0.25 kg to 0.076 kg and the whole frame by ~60%. At full motor throttle the arm deflected only ~5 mm, and a broken part costs about $2 (leg) or $5 (arm) to reprint.
 image: /images/uav-built.jpg
 alt: Modular 3D-Printed UAV Frame
-collaborators: Darren Espinoza
+collaborators: [Darren Espinoza]
 contributions:
   [
     Generative-design center plate (Fusion),
