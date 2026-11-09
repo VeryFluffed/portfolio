@@ -56,7 +56,7 @@ export const projects = [
       "an ESP32 to remotely control the speed and spin of the motors with the implementation of H-bridges. " +
       "I also researched, designed, and optimized a motorized capstan drive to be 3D-printed with electronics " +
       "testing and iteration.",
-    video: null,
+    video: "/videos/pickleball.mp4",
     tech: [
       { name: "SolidWorks", icon: "/icons/solidworks.webp" },
       { name: "3D Printing", icon: "/icons/3dprinter.webp" },

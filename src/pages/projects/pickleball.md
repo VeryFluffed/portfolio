@@ -1,166 +1,182 @@
 ---
 title: PICKLEBALL MACHINE
-description: My current engineering project focuses on building a fully automated pickleball launcher. I programmed an ESP32 to act as the dual-motor controller for the machine and began modeling the capstan drive system to replace traditional gears. This project combines embedded programming, applied physics, and mechanical engineering principles to design a system capable of delivering consistent, adjustable shots for practice.
-image: /images/pickleball.webp
+description: A pickleball launcher I'm designing with guidance from a professional engineer. Two stacked wheels fire the ball, and 3D-printed capstan cable drives (5.2:1 tilt, 6:1 sweep) aim the shooter on both axes with no backlash. I derived the capstan equation myself to size them, and a lighter, more compact shooter cuts the worst-case aiming torque from ~18 N·m on a commercial machine to ~4 N·m, small enough for a NEMA 17.
+image: /images/pickleball-cad.png
 alt: Pickleball Machine Project
 contributions:
   [
-    ESP32 Programming for Dual-Motor Control,
-    Capstan Drive Mathematical Modeling,
-    CAD Modeling of Mechanical Components,
-    Circuit Design for Motor Drivers,
-    Embedded Hardware/Software Integration,
+    Capstan Cable Drive Design and Derivation,
+    Aiming Torque Analysis,
+    Shooter and Feeder CAD (SolidWorks),
+    ESP32 Wheel Control Over Bluetooth,
   ]
 buttons:
-  [{ label: "Testing Results", url: "#" }, { label: "CAD Files", url: "#" }]
+  [{ label: "CAD Files", url: "#" }]
 ---
 
 ## Motivation
 
-Pickleball is one of the fastest-growing sports, but affordable and effective training equipment is limited. This is exactly what my mentor said. After he helped me with my RFID Jukebox, teaching me the basics, he invited me to start on a new project. I wanted to apply my engineering knowledge to design a machine that could not only throw balls consistently but also be adaptable for different speeds and spins. As a tennis player, I knew how important a competitive machine would be for the pickleball community. By combining motor control, mechanics, and math modeling, I'm developing a practical system with both recreational and competitive training applications.
+After my mentor, a professional engineer, helped me with my RFID Jukebox, he invited me onto a bigger project: a pickleball machine. Pickleball is growing fast, but good ball machines are expensive [FILL IN: typical price]. [FILL IN: one line on what's missing from cheaper machines, if you want it.]
 
-## Electrical & Control System
+I played tennis for three years, so I know what a good machine has to do. It can't just throw balls. It has to put them in different places on the court, quickly and repeatably. That made the aiming drive the part I cared about most, and the part this page focuses on.
 
-At the heart of the system is the ESP32-WROOM module, chosen for its built-in Bluetooth (for wireless control) and dual-core processor (for multitasking between motor control and communication). To drive the motors, I used the L298N Dual H-Bridge Motor Driver, which allows independent forward/reverse and speed control of two DC motors.
+![Assembly](/images/pickleball-cad.png)
 
-**Why ESP32?**
+## How It Works
 
-It is small, powerful, and easy to integrate with wireless controls for a future mobile app.
+- **Hopper and dispenser:** balls sit in a hopper above a rotating four-slot wheel. A low-RPM motor turns the wheel to drop one ball at a time into a chute.
+- **Shooter:** the chute feeds the ball between two stacked wheels spinning in opposite directions. Their speed sets how hard the ball leaves. A speed difference between the top and bottom wheels adds topspin or backspin.
+- **Aiming:** two capstan cable drives, each driven by a NEMA 17 stepper, aim the shooter. One tilts it up and down, and the other swings it across the court. The design targets a **110° sweep** at up to **55°/s**.
 
-**Why L298N?**
+![Dispenser Sketch](/images/pickleball-dispenser.jpg)
 
-It handles higher current (up to ~2A per channel with heat sinking), perfect for driving the dual launch wheels.
+## How Far the Shooter Has to Sweep
 
-Each motor has two direction pins and one enable pin (PWM). By combining HIGH/LOW logic on the direction pins and sending a PWM duty cycle to the enable pin, I can control both the rotation direction and speed of each motor independently.
+Before sizing any drive, I needed to know how far the shooter actually has to turn. A ball machine should be able to put a ball anywhere across the court, and the hardest targets are the two points where the net meets the sidelines. They're the widest targets and the closest ones.
 
-| ESP32 Pin         | L298N Pin | Function            |
-| ----------------- | --------- | ------------------- |
-| GPIO 18           | IN1       | Motor A Direction 1 |
-| GPIO 19           | IN2       | Motor A Direction 2 |
-| GPIO 21           | IN3       | Motor B Direction 1 |
-| GPIO 22           | IN4       | Motor B Direction 2 |
-| GPIO 25 (PWM)     | ENA       | Motor A Speed (PWM) |
-| GPIO 26 (PWM)     | ENB       | Motor B Speed (PWM) |
-| 5V                | +5V       | Logic Power         |
-| GND               | GND       | Shared Ground       |
-| VIN / Ext. Supply | +12V      | Motor Power         |
+Seen from above, with the machine centered on the court, the machine, the middle of the net, and one sideline post form a right triangle:
 
-This framework gives me full independent control over both wheels, which is crucial for adjusting ball speed and spin. By changing the PWM duty cycle, I can fine-tune launch velocity; by offsetting the motor speeds, I can generate topspin, backspin, or sidespin.
+$$\tan\left(\frac{\theta}{2}\right) = \frac{W/2}{d} \quad\Rightarrow\quad \theta_{max} = 2\arctan\left(\frac{W}{2d}\right)$$
 
-## Mechanical Design & Capstan Drive
+- $\theta_{max}$ = total sweep needed to reach both sidelines at the net
+- $W$ = court width (20 ft)
+- $d$ = distance from the machine to the net
 
-The capstan (or friction) drive is ideal for a ball launcher because it uses wrap angle and surface friction to transmit torque to a rope/belt or directly to a wheel surface with minimal backlash. Below is a practical, engineering-focused breakdown: the key equations, worked numeric examples, and clear rules for design optimization (what to increase vs. decrease) plus prototyping tips.
+The closer the machine sits to the net, the wider it has to swing:
 
-### 1. Core capstan equation
+| Machine position | $d$ | $\theta_{max}$ |
+| ---------------- | --- | -------------- |
+| Baseline | 22 ft | 48.9° |
+| Mid-court | 15 ft | 67.4° |
+| Kitchen line | 7 ft | 110.0° |
 
-The capstan (friction) equation describes how tension is amplified around a wrapped drum:
+The closest sensible place to set the machine is the kitchen (non-volley zone) line, 7 ft from the net:
 
-```
-T_out = T_in * e^(μ * θ)
+$$\theta_{max} = 2\arctan\left(\frac{10}{7}\right) \approx 110°$$
 
-Where:
-  - T_out = higher tension side (after wrap)
-  - T_in  = lower tension side (before wrap)
-  - μ     = coefficient of friction (unitless)
-  - θ     = wrap angle in radians (e.g. 180° = π rad)
-```
+Designing for **110°** means the machine can reach both sidelines from anywhere on its half of the court, from the kitchen line back to the baseline. That number became the travel requirement for the sweep drive.
 
-Interpretation: increasing either the friction coefficient (μ) or the wrap angle (θ) increases transmitted tension exponentially, which helps eliminate slip without oversizing motors.
+![Sweep Angle Geometry](/images/pickleball-sweep.svg)
 
-### 2. From tension → torque → rim speed
+## Choosing the Drive: Gears vs. Rope
 
-If the capstan provides a tangential force _F_ to a wheel of radius _r_:
+Gears were the obvious first choice, but for aiming they come with problems:
 
-```
-τ = F * r          (torque)
-v = ω * r          (linear rim speed)
-ω = 2π * RPM / 60  (convert RPM to rad/s)
-P = τ * ω = F * v  (power)
-```
+- **Backlash.** The gap between meshing teeth means the shooter can wobble a little in place, so aim is never exact.
+- **Cost and wear.** Good gears are expensive, and printed gears wear down quickly.
+- **Noise.**
 
-If the rim speed ≈ ball exit speed (good grip assumption), then choosing rim radius sets the RPM needed for a target ball speed.
+A capstan drive replaces the teeth with a cable wrapped around a small motor-driven capstan and anchored to a larger drum. The cable is cheap, quiet, and has no backlash, because there's no gap to take up.
 
-### 3. Worked example (numeric)
+I also sketched a swivel base and a **cycloidal drive**. The cycloidal drive is very compact but slow, and changing the aim quickly matters for a ball machine. I went with capstan drives on both axes.
 
-Design target: ball exit speed **v_ball = 12 m/s**, wheel radius **r = 0.06 m**.
+## The Capstan Equation
 
-```
-ω = v / r = 12 / 0.06 = 200 rad/s
-RPM = ω * 60 / (2π) ≈ 1910 RPM
+A cable drive only works if the cable doesn't slip on the capstan. To understand when it slips, I derived the capstan equation from a force balance on a tiny piece of cable wrapped around the capstan.
 
-Assume conservative tangential force F = 8 N (depends on desired acceleration)
-τ = F * r = 8 * 0.06 = 0.48 N·m
-P = F * v = 8 * 12 = 96 W (instantaneous power during launch)
-Energy per shot (pickleball mass ≈ 0.025 kg):
-E = 0.5 * m * v^2 = 0.5 * 0.025 * 12^2 = 1.8 J
-If firing at 0.2 Hz (1 shot every 5 s), average power ≈ 0.36 W (peak >> average)
-```
+![Capstan Derivation](/images/pickleball-capstan-derivation.jpg)
 
-**Insight:** average power is tiny for low shot rates, but motors must supply peak torque and handle rapid acceleration without dropping RPM.
+For a small slice of wrap angle $d\theta$, the cable's tension changes from $T$ to $T + dT$. Friction makes up the difference, and the normal force from the capstan is what creates that friction. For small angles, $\sin(d\theta/2) \approx d\theta/2$ and $\cos(d\theta/2) \approx 1$, so the force balance reduces to:
 
-### 4. How the capstan equation helps
+$$\frac{dT}{T} = \mu \, d\theta$$
 
-Example: μ = 0.5 (rubber-on-rubber), wrap θ = 180° = π rad → amplification factor = `e^(0.5 * π)` ≈ 4.8. That means a small preload tension T_in becomes ~4.8× larger on the driven side, reducing slip dramatically.
+Integrating over the full wrap gives:
 
-Use pre-tensioning, grippy surfaces, and larger wrap angles to achieve reliable traction without oversizing the motor for torque.
+$$T_{tight} = T_{slack} \, e^{\mu \varphi}$$
 
-### 5. Practical trade-offs — what to increase vs. decrease
+- $T_{tight}$ = tension on the loaded side of the cable
+- $T_{slack}$ = tension on the other side
+- $\mu$ = coefficient of friction between cable and capstan (~0.3)
+- $\varphi$ = total wrap angle in radians
 
-**Increase (good)**
+The key is that grip grows **exponentially** with wrap angle. With $\mu = 0.3$ and two full wraps ($\varphi = 4\pi$):
 
-- Wrap angle (θ): aim for ≥ 180°; 270° is even better.
-- Friction coefficient (μ): use rubber/polyurethane wheel covers.
-- Preload/tension: spring-loaded idler to maintain contact force.
-- Contact width: wider contact reduces local wear and improves repeatability.
-- Wheel radius (where practical): increases rim linear speed for lower RPM (but increases inertia).
+$$e^{(0.3)(4\pi)} \approx 43$$
 
-**Decrease / avoid (bad)**
+So the tight side can carry **43×** the tension on the slack side before the cable slips. A small preload on the slack side holds a large working load. Adding a wrap is much cheaper than adding friction, so I wrapped twice and cut grooves into the capstan to keep the turns from riding over each other.
 
-- Slip: leads to inconsistent exit velocity — mitigate with wrap & preload.
-- Excess compliance/stretch in belts: causes lost energy and poor repeatability.
-- Too-small drum radius if targeting high rim speed — motor RPM becomes impractical.
-- Overly soft covers that deform too much, reducing effective linear speed.
+The geometry matters too. When the cable wraps fully around the capstan and leaves level, all of the tension goes into grip. When it leaves at an angle, the wrap angle shrinks and the cable pulls the capstan sideways.
 
-### 6. Control & sensing recommendations
+![Wrap Angle Notes](/images/pickleball-wrap-angle.jpg)
 
-Use an encoder on at least one wheel for closed-loop speed control (PID). The ESP32 can run a PID loop: measure RPM, compute error against target, update PWM duty cycle to maintain rim speed under load (when ball contacts wheel). For high repeatability, calibrate the feed-forward term to reduce large initial errors at launch.
+## How Much Torque Aiming Takes
 
-- Motor encoder or hall-effect sensor for wheel RPM measurement
-- Current sensing on motor supply to detect stalls or jams
-- Spring-loaded idler with a travel-stop to prevent over-compression
+The worst case for tilting the shooter is when its weight acts at 90° to the arm:
 
-### 7. Prototyping tips & common pitfalls
+$$\tau_{max} = m g d \sin\theta, \qquad \theta = 90°$$
 
-- **Start slow:** validate grip at low RPM before increasing speed.
-- **Measure slip:** compare rim RPM to recorded ball exit speed (photogate or high-speed video).
-- **Tensioner:** implement a small spring-loaded idler as early as possible — it fixes many grip issues.
-- **Thermal:** friction surfaces heat over long runs — choose adhesives and materials rated for the temp range.
-- **Safety:** include e-stop and current-limiting fuses for the motor supply.
-- **Test variants:** try different cover durometers, wrap angles, and cord materials to find the best tradeoff.
+- $\tau_{max}$ = worst-case torque at the tilt axis
+- $m$ = mass of the moving shooter assembly
+- $g$ = gravitational acceleration (9.81 m/s²)
+- $d$ = distance from the pivot to the shooter's center of mass
+- $\theta$ = angle between the arm and gravity
 
-### 8. Quick parameter reference
+I compared my layout against the Titan, a commercial ball machine that tilts a heavier shooter on a longer arm:
 
-| Parameter                | Recommended Range / Notes                            |
-| ------------------------ | ---------------------------------------------------- |
-| Wrap angle (θ)           | ≥ 180° (π rad); 180–270° recommended                 |
-| Friction coefficient (μ) | ~0.3–0.6 for rubber; higher μ increases grip         |
-| Wheel radius (r)         | 0.04–0.08 m typical for hobby systems                |
-| Typical RPM target       | 1k–4k RPM depending on r and v_target                |
-| Motor power (peak)       | 50–300 W depending on speed & throughput             |
-| Tensioner                | Spring-loaded idler recommended for constant preload |
+| Layout | $m$ | $d$ | $\tau_{max}$ |
+| ------ | --- | --- | ------------ |
+| Titan (commercial) | 6 kg | 0.3 m | ~18 N·m |
+| My layout | 2 kg | 0.2 m | ~4 N·m |
 
-### 9. Next steps / experiment plan
+Keeping the moving mass light and close to the pivot cuts the worst-case aiming torque by about **4.5×**. That's the biggest lever in the whole design: every N·m saved here means a smaller motor, a smaller drive, and faster aiming.
 
-1. Prototype single-wheel capstan with encoder and measure slip at several RPMs and preload settings.
-2. Test different cover materials (PU, rubber) and measure μ empirically using simple tension test.
-3. Add spring-loaded idler and re-measure repeatability across 50+ launches.
-4. Implement closed-loop speed control (ESP32 PID) and tune for minimal overshoot on launch.
-5. Scale to dual-wheel pinch configuration and measure spin control (topspin/backspin) by differential speeds.
+![Tilt Sizing Notes](/images/pickleball-tilt-sizing.jpg)
 
-## Conclusion
+The capstan drive's reduction comes from the ratio of drum radius to capstan radius:
 
-The capstan drive gives a high degree of traction and repeatability when the wrap angle, friction surface, and preload are chosen well. The key design levers are wrap angle, surface friction, wheel radius, and closed-loop control. Focus on eliminating slip with preload and encoder-based closed-loop control — that delivers the most consistent, high-performance results for a pickleball launcher.
+$$G = \frac{R_{drum}}{r_{capstan}}, \qquad \tau_{motor} = \frac{\tau_{max}}{G}$$
+
+- $G$ = reduction ratio
+- $R_{drum}$ = radius of the drum the cable is anchored to
+- $r_{capstan}$ = radius of the grooved capstan on the motor (2.5 cm on both axes)
+- $\tau_{motor}$ = torque the motor must supply
+
+![Capstan](/images/pickleball-capstan.png)
+
+| Axis | $R_{drum}$ | $r_{capstan}$ | $G$ |
+| ---- | ---------- | ------------- | --- |
+| Tilt | 12.94 cm | 2.5 cm | 5.2:1 |
+| Sweep | 15 cm | 2.5 cm | 6:1 |
+
+### The tilt axis
+
+![Tilt Drum](/images/pickleball-tilt-drum.png)
+
+The tilt drum gives a **5.2:1 reduction**, so at the worst-case angle the tilt motor needs:
+
+$$\tau_{motor} = \frac{3.9}{5.18} \approx 0.76 \text{ N·m}$$
+
+[FILL IN: your NEMA 17's rated holding torque, and the margin over 0.76 N·m.]
+
+The two halves of the analysis connect here. At the drum, the cable carries:
+
+$$T_{tight} = \frac{\tau_{max}}{R_{drum}} = \frac{3.9}{0.1294} \approx 30 \text{ N}$$
+
+With 43× grip from two wraps, the slack side only needs about **0.7 N** of preload to keep the cable from slipping. A light spring or a hand-tightened anchor is plenty.
+
+### The sweep axis
+
+![Sweep Drum](/images/pickleball-sweep-drum.png)
+
+The sweep drum is larger, for a **6:1 reduction**. It turns about a vertical axis, so gravity doesn't load it. The motor only fights inertia and friction. Speed is the check that matters there. At 55°/s at the shooter:
+
+$$\omega_{motor} = G \, \omega_{out} = 6 \times 55°/\text{s} = 330°/\text{s} \approx 55 \text{ RPM}$$
+
+That's slow and easy for a stepper. Over the full 110° sweep, the drum's edge pays out about 29 cm of cable, which is about 1.8 turns of the capstan. The capstan has more than enough grooves for that plus the two wraps of grip.
+
+## Electronics (In Progress)
+
+So far I've wired the two shooter-wheel motors to an **L298N dual H-bridge** driven by an **ESP32**. From my phone, the nRF Connect app sends commands over Bluetooth to set each wheel's speed and direction independently. That's enough to test launch speed, and to test spin by running the wheels at different speeds.
+
+| ESP32 Pin     | L298N Pin | Function            |
+| ------------- | --------- | ------------------- |
+| GPIO 18 / 19  | IN1 / IN2 | Motor A direction   |
+| GPIO 21 / 22  | IN3 / IN4 | Motor B direction   |
+| GPIO 25 (PWM) | ENA       | Motor A speed       |
+| GPIO 26 (PWM) | ENB       | Motor B speed       |
 
 ## Next Steps
 
-I plan to refine the CAD model, build a working prototype of the dual-motor launch system, and integrate a feeding mechanism to automate ball loading. Future upgrades include 3D printing custom housings, testing different cord materials for the capstan drive, and implementing a Bluetooth app interface for real-time control.
+- Print and assemble the capstan drive, then measure its backlash and slip under load.
+- Wire the aiming and dispenser motors into the ESP32 alongside the wheels.
+- Add an encoder to the shooter wheels for closed-loop speed control, so launch speed stays consistent when a ball hits the wheels.

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 460 620" font-family="Helvetica, Arial, sans-serif" font-size="13">
+  <rect width="460" height="620" fill="#ffffff"/>
+  <!-- court: 20 ft x 44 ft at 12 px/ft, origin x=110, y=40 -->
+  <g fill="none" stroke="#9aa3ad" stroke-width="2">
+    <rect x="110" y="40" width="240" height="528"/>
+    <line x1="110" y1="220" x2="350" y2="220"/>
+    <line x1="110" y1="388" x2="350" y2="388"/>
+    <line x1="230" y1="40" x2="230" y2="220"/>
+    <line x1="230" y1="388" x2="230" y2="568"/>
+  </g>
+  <line x1="100" y1="304" x2="360" y2="304" stroke="#1f2933" stroke-width="4"/>
+  <text x="365" y="308" fill="#1f2933">net</text>
+  <text x="365" y="392" fill="#5b6570">kitchen line</text>
+  <text x="365" y="572" fill="#5b6570">baseline</text>
+  <!-- baseline placement (dashed) -->
+  <g stroke="#7b8794" stroke-width="1.5" stroke-dasharray="6 5">
+    <line x1="230" y1="568" x2="110" y2="304"/>
+    <line x1="230" y1="568" x2="350" y2="304"/>
+  </g>
+  <circle cx="230" cy="568" r="6" fill="#7b8794"/>
+  <text x="252" y="540" fill="#5b6570">from baseline: 48.9°</text>
+  <!-- kitchen-line placement (solid) -->
+  <g stroke="#d9480f" stroke-width="2.5">
+    <line x1="230" y1="388" x2="110" y2="304"/>
+    <line x1="230" y1="388" x2="350" y2="304"/>
+  </g>
+  <path d="M 205 370.5 A 30 30 0 0 1 255 370.5" fill="none" stroke="#d9480f" stroke-width="2"/>
+  <circle cx="230" cy="388" r="7" fill="#d9480f"/>
+  <text x="196" y="414" fill="#d9480f" font-weight="bold">machine</text>
+  <text x="203" y="358" fill="#d9480f" font-weight="bold">110°</text>
+  <!-- dimensions -->
+  <g stroke="#1f2933" stroke-width="1">
+    <line x1="80" y1="304" x2="80" y2="388"/>
+    <line x1="74" y1="304" x2="86" y2="304"/>
+    <line x1="74" y1="388" x2="86" y2="388"/>
+    <line x1="230" y1="20" x2="350" y2="20"/>
+    <line x1="230" y1="14" x2="230" y2="26"/>
+    <line x1="350" y1="14" x2="350" y2="26"/>
+  </g>
+  <text x="24" y="350" fill="#1f2933">d = 7 ft</text>
+  <text x="250" y="14" fill="#1f2933">W/2 = 10 ft</text>
+</svg>
